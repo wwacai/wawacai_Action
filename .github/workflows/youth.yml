@@ -1,0 +1,32 @@
+name: 中青看点（1-4）
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 * * * *'
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: 'Install requests'
+        run: pip install requests
+
+      - name: "安装依赖包"
+        run: pip install -r requirements.txt
+
+      - name: 'run 中青看点'
+        run: python3 Task/youth.py
+        env:            
+            TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #非必须 tg机器人token
+            TG_USER_ID: ${{ secrets.TG_USER_ID }}  #非必须 tg机器人userId
