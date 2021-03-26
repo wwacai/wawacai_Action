@@ -1,9 +1,9 @@
-name: ÖĞÇà¿´µã£¨1-4£©
+name: ä¸­é’çœ‹ç‚¹ï¼ˆ1-4ï¼‰
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 * * * *'
+    - cron: '*/30 * * * *'
   watch:
     types: [started]
 jobs:
@@ -22,11 +22,11 @@ jobs:
       - name: 'Install requests'
         run: pip install requests
 
-      - name: "°²×°ÒÀÀµ°ü"
+      - name: "å®‰è£…ä¾èµ–åŒ…"
         run: pip install -r requirements.txt
 
-      - name: 'run ÖĞÇà¿´µã'
+      - name: 'run ä¸­é’çœ‹ç‚¹'
         run: python3 Task/youth.py
         env:            
-            TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #·Ç±ØĞë tg»úÆ÷ÈËtoken
-            TG_USER_ID: ${{ secrets.TG_USER_ID }}  #·Ç±ØĞë tg»úÆ÷ÈËuserId
+            TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #éå¿…é¡» tgæœºå™¨äººtoken
+            TG_USER_ID: ${{ secrets.TG_USER_ID }}  #éå¿…é¡» tgæœºå™¨äººuserId
