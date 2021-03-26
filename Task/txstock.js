@@ -1,72 +1,73 @@
 /*
-¨q©­©­¨r¨q¨r¨q¨r¨q©­©­¨r¨q©­©­¨r¨q©­©­¨r¨q©­©­¨r¨q¨r¨q¨r
-¨t¨r¨q¨s©¯¨t¨s©¯©¯¨q©­¨s¨t¨r¨q¨s©¯¨q¨r©¯©¯¨q©­¨s©¯¨t¨s©¯
- ©¯©¯ ¨t¨r¨q¨s©¯¨t©­¨r ©¯©¯ ©¯©¯©¯©¯©¯©¯  ©¯ ¨q¨s
- ©¯©¯ ¨q¨s¨t¨r¨t©­¨r©¯ ©¯©¯ ©¯©¯©¯©¯©¯©¯  ©¯ ¨t¨r
- ©¯©¯ ©¯¨q¨r©¯¨q©­¨s©¯ ©¯©¯ ©¯¨t¨s©¯©¯¨t©­¨r©¯¨q¨r©¯
- ¨t¨s ¨t¨s¨t¨s¨t©­©­¨s ¨t¨s ¨t©­©­¨s¨t©­©­¨s¨t¨s¨t¨s
+â•­â”‰â”‰â•®â•­â•®â•­â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â•®â•­â•®
+â•°â•®â•­â•¯â”‹â•°â•¯â”‹â”‹â•­â”‰â•¯â•°â•®â•­â•¯â”‹â•­â•®â”‹â”‹â•­â”‰â•¯â”‹â•°â•¯â”‹
+ â”‹â”‹ â•°â•®â•­â•¯â”‹â•°â”‰â•® â”‹â”‹ â”‹â”‹â”‹â”‹â”‹â”‹  â”‹ â•­â•¯
+ â”‹â”‹ â•­â•¯â•°â•®â•°â”‰â•®â”‹ â”‹â”‹ â”‹â”‹â”‹â”‹â”‹â”‹  â”‹ â•°â•®
+ â”‹â”‹ â”‹â•­â•®â”‹â•­â”‰â•¯â”‹ â”‹â”‹ â”‹â•°â•¯â”‹â”‹â•°â”‰â•®â”‹â•­â•®â”‹
+ â•°â•¯ â•°â•¯â•°â•¯â•°â”‰â”‰â•¯ â•°â•¯ â•°â”‰â”‰â•¯â•°â”‰â”‰â•¯â•°â•¯â•°â•¯
+
 
 //!!!:
-¡¾BOXJS¡¿£ºhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/cenbomin.box.json
+ã€BOXJSã€‘ï¼šhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/cenbomin.box.json
 
-#ÔËĞĞ½Å±¾Ç°ÇëÏÈÏÂÔØapp,µÇÂ¼¡£¡£¡£ÊÖ¶¯Íê³É³É³¤ÈÎÎñ,ÓĞÇ®
-#8.8´ò¿¨ÈÎÎñÒ²ÊÖ¶¯×ö,½¨ÒéÖ»´ò¿¨4¸ö³É¹¦¼´¿É,µÚ5¸ö»ù±¾ÄÃ²»µ½
-#Î¢ĞÅĞ¡³ÌĞò-ÌÚÑ¶×ÔÑ¡¹ÉºÍappµÄÈÕ³£ÈÎÎñÊÇ·Ö¿ªµÄ,Ã«±È½ÏÉÙ,ÊÖ¶¯×ö°É£¡
-#¸´ÖÆÒÔÏÂÁ´½Ó,Ìùµ½µ½Î¢ĞÅµã»÷,°ïÎÒÖúÁ¦
+#è¿è¡Œè„šæœ¬å‰è¯·å…ˆä¸‹è½½app,ç™»å½•ã€‚ã€‚ã€‚æ‰‹åŠ¨å®Œæˆæˆé•¿ä»»åŠ¡,æœ‰é’±
+#8.8æ‰“å¡ä»»åŠ¡ä¹Ÿæ‰‹åŠ¨åš,å»ºè®®åªæ‰“å¡4ä¸ªæˆåŠŸå³å¯,ç¬¬5ä¸ªåŸºæœ¬æ‹¿ä¸åˆ°
+#å¾®ä¿¡å°ç¨‹åº-è…¾è®¯è‡ªé€‰è‚¡å’Œappçš„æ—¥å¸¸ä»»åŠ¡æ˜¯åˆ†å¼€çš„,æ¯›æ¯”è¾ƒå°‘,æ‰‹åŠ¨åšå§ï¼
+#å¤åˆ¶ä»¥ä¸‹é“¾æ¥,è´´åˆ°åˆ°å¾®ä¿¡ç‚¹å‡»,å¸®æˆ‘åŠ©åŠ›
 https://zqact01.tenpay.com/activity/page/200814appInvite/#/new?stat_data=Ovy34p00pn019&invite_code=i02Fvx18dc&nick_name=%E9%99%88%E6%9F%8F%E9%8A%98&head_url=https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTLWqFtqq3JGenAvqEnZhiazoeCicjicAZhEiaCib1LqSCHtC8sPLbG52YiajLZh8VRkY8bWu0uu24AKjgfA%2F132
 
 
-ÌØ±ğ¸ĞĞ»ÉÕ¿¾¸ç,loonÓÃ»§¿ÉÒÔÓÃÕâ¸ö×¨ÃÅµÄconf£º
+ç‰¹åˆ«æ„Ÿè°¢çƒ§çƒ¤å“¥,loonç”¨æˆ·å¯ä»¥ç”¨è¿™ä¸ªä¸“é—¨çš„confï¼š
 https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txsloon_cookie.conf
 
-**** ¶¨Ê±ÈÎÎñ ****
+**** å®šæ—¶ä»»åŠ¡ ****
 16 30 * * * https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txstockqx.js
-**** Ê³ÓÃ·½·¨ ****
-µ½[ÖØĞ´]-[ÒıÓÃ],¼ÓÈëÖØĞ´ÒıÓÃ,¸ù¾İÒÔÏÂÌáÊ¾»ñÈ¡cookie
-**** ÖØĞ´ÒıÓÃ ****
-IOS APP£ºhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_cookie.conf
-Î¢ĞÅĞ¡³ÌĞò£ºhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf
+**** é£Ÿç”¨æ–¹æ³• ****
+åˆ°[é‡å†™]-[å¼•ç”¨],åŠ å…¥é‡å†™å¼•ç”¨,æ ¹æ®ä»¥ä¸‹æç¤ºè·å–cookie
+**** é‡å†™å¼•ç”¨ ****
+IOS APPï¼šhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_cookie.conf
+å¾®ä¿¡å°ç¨‹åºï¼šhttps://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf
 **** IOS APP ****
-taskheader£º´ò¿ªapp-Á¢¼´»ñÈ¡
-taskkey£ºµã»÷×óÉÏÍ·Ïñ-ÎÒµÄ¸£Àû-µã»÷»ñÈ¡
+taskheaderï¼šæ‰“å¼€app-ç«‹å³è·å–
+taskkeyï¼šç‚¹å‡»å·¦ä¸Šå¤´åƒ-æˆ‘çš„ç¦åˆ©-ç‚¹å‡»è·å–
 
-userheader£ºµã»÷×óÉÏÍ·Ïñ-½øÈë¼´»ñÈ¡
-userkey£ºµã»÷×óÉÏÍ·Ïñ-½øÈë¼´»ñÈ¡
+userheaderï¼šç‚¹å‡»å·¦ä¸Šå¤´åƒ-è¿›å…¥å³è·å–
+userkeyï¼šç‚¹å‡»å·¦ä¸Šå¤´åƒ-è¿›å…¥å³è·å–
 
-ÌáÏÖcookie(cashheader):½ûÓÃ»ñÈ¡cookieÖØĞ´,ÖØĞÂ´ò¿ªapp,µã»÷×óÉÏÍ·Ïñ-½øÈë,µÈ´ıÎÒµÄ¸£ÀûÏÂÃæ»î¶¯¼ÓÔØ³É¹¦,ÆôÓÃ»ñÈ¡cookieÖØĞ´,È»ºóÔÙµã»÷µÚÒ»¸ö²ÂÕÇµø»î¶¯µÄÒ³Ãæ¾ÍÄÜ¹»»ñÈ¡µ½ÁË¡£¡£¡£
+æç°cookie(cashheader):ç¦ç”¨è·å–cookieé‡å†™,é‡æ–°æ‰“å¼€app,ç‚¹å‡»å·¦ä¸Šå¤´åƒ-è¿›å…¥,ç­‰å¾…æˆ‘çš„ç¦åˆ©ä¸‹é¢æ´»åŠ¨åŠ è½½æˆåŠŸ,å¯ç”¨è·å–cookieé‡å†™,ç„¶åå†ç‚¹å‡»ç¬¬ä¸€ä¸ªçŒœæ¶¨è·Œæ´»åŠ¨çš„é¡µé¢å°±èƒ½å¤Ÿè·å–åˆ°äº†ã€‚ã€‚ã€‚
 
-Ç©µ½cookie(signheader)£º½ûÓÃ»ñÈ¡cookieÖØĞ´,ÖØĞÂ´ò¿ªapp,µã»÷×óÉÏÍ·Ïñ-½øÈë,µÈ´ıÓÒÉÏ½ÇµÄ½ğ±ÒÊı¼ÓÔØ³É¹¦£¨½øÈëÌáÏÖÒ³Ãæ£©,ÆôÓÃ»ñÈ¡cookieÖØĞ´,µã»÷½øÈëÌáÏÖµÄÒ³Ãæ,»á¿¨×¡¼ÓÔØ¼¸Ãë...¹ıÒ»»á¾ÍÄÜ¹»»ñÈ¡µ½ÁË
+ç­¾åˆ°cookie(signheader)ï¼šç¦ç”¨è·å–cookieé‡å†™,é‡æ–°æ‰“å¼€app,ç‚¹å‡»å·¦ä¸Šå¤´åƒ-è¿›å…¥,ç­‰å¾…å³ä¸Šè§’çš„é‡‘å¸æ•°åŠ è½½æˆåŠŸï¼ˆè¿›å…¥æç°é¡µé¢ï¼‰,å¯ç”¨è·å–cookieé‡å†™,ç‚¹å‡»è¿›å…¥æç°çš„é¡µé¢,ä¼šå¡ä½åŠ è½½å‡ ç§’...è¿‡ä¸€ä¼šå°±èƒ½å¤Ÿè·å–åˆ°äº†
 
-signkey£º½ûÓÃ»ñÈ¡cookieÖØĞ´,ÖØĞÂ´ò¿ªapp,µã»÷×óÉÏÍ·Ïñ-½øÈë,µÈ´ıÎÒµÄ¸£ÀûÏÂÃæ»î¶¯¼ÓÔØ³É¹¦,ÆôÓÃ»ñÈ¡cookieÖØĞ´,È»ºóÔÙµã»÷µÚÒ»¸ö²ÂÕÇµø»î¶¯µÄÒ³Ãæ¾ÍÄÜ¹»»ñÈ¡µ½ÁË¡£¡£¡£
-**** Î¢ĞÅĞ¡³ÌĞò ****
-£¡£¡£¡£¡£¡Î¢ĞÅºÍappÖØĞ´ÓĞ³åÍ»,²»ÄÜÁ½¸öÍ¬Ê±¿ª
-£¡£¡£¡£¡£¡±ØĞëÏÈ¹Ø±ÕappÖØĞ´,ÔÚ¼ÓÈëÎ¢ĞÅĞ¡³ÌĞòÖØĞ´https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf,ÆôÓÃÖ®ºó¾Í¿ÉÒÔÈ¥Î¢ĞÅĞ¡³ÌĞò×öÈÎÎñ»ñÈ¡cookie
+signkeyï¼šç¦ç”¨è·å–cookieé‡å†™,é‡æ–°æ‰“å¼€app,ç‚¹å‡»å·¦ä¸Šå¤´åƒ-è¿›å…¥,ç­‰å¾…æˆ‘çš„ç¦åˆ©ä¸‹é¢æ´»åŠ¨åŠ è½½æˆåŠŸ,å¯ç”¨è·å–cookieé‡å†™,ç„¶åå†ç‚¹å‡»ç¬¬ä¸€ä¸ªçŒœæ¶¨è·Œæ´»åŠ¨çš„é¡µé¢å°±èƒ½å¤Ÿè·å–åˆ°äº†ã€‚ã€‚ã€‚
+**** å¾®ä¿¡å°ç¨‹åº ****
+ï¼ï¼ï¼ï¼ï¼å¾®ä¿¡å’Œappé‡å†™æœ‰å†²çª,ä¸èƒ½ä¸¤ä¸ªåŒæ—¶å¼€
+ï¼ï¼ï¼ï¼ï¼å¿…é¡»å…ˆå…³é—­appé‡å†™,åœ¨åŠ å…¥å¾®ä¿¡å°ç¨‹åºé‡å†™https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf,å¯ç”¨ä¹‹åå°±å¯ä»¥å»å¾®ä¿¡å°ç¨‹åºåšä»»åŠ¡è·å–cookie
 
-Î¢ĞÅÈÎÎñcookie(wxtaskkey):½øÈëÎ¢ĞÅĞ¡³ÌĞò,µã»÷×ÊÑ¶Ò³Ãæ»òÕß¹ÉÆ±Ò³Ãæ»ñÈ¡
+å¾®ä¿¡ä»»åŠ¡cookie(wxtaskkey):è¿›å…¥å¾®ä¿¡å°ç¨‹åº,ç‚¹å‡»èµ„è®¯é¡µé¢æˆ–è€…è‚¡ç¥¨é¡µé¢è·å–
 
-£¡£¡£¡£¡£¡»ñÈ¡Íêcookie,Îñ±Ø¹Ø±ÕÖØĞ´ÒıÓÃ
-#½Å±¾Ò»Ìì¾¡Á¿ÔËĞĞ1-3´Î,±¾½Å±¾ËäÈ»¼ÓÁË·À´ô»úÖÆ,µ«ÊÇ»¹ÊÇ¾¡Á¿±ÜÃâÔËĞĞ¶à´ÎÅ¶...
-#ÇÒÓÃÇÒÕäÏ§,¸üĞÂÎŞÏŞÆÚ¡£
+ï¼ï¼ï¼ï¼ï¼è·å–å®Œcookie,åŠ¡å¿…å…³é—­é‡å†™å¼•ç”¨
+#è„šæœ¬ä¸€å¤©å°½é‡è¿è¡Œ1-3æ¬¡,æœ¬è„šæœ¬è™½ç„¶åŠ äº†é˜²å‘†æœºåˆ¶,ä½†æ˜¯è¿˜æ˜¯å°½é‡é¿å…è¿è¡Œå¤šæ¬¡å“¦...
+#ä¸”ç”¨ä¸”çæƒœ,æ›´æ–°æ— é™æœŸã€‚
 
-// ÊÖ¶¯×ö²¿·Ö:
-# Ä£Äâ³´¹ÉÖÜÈü½±Àø£ºĞÇÆÚÌìµÇÂ¼Ä£Äâ³´¹É(Î¢ĞÅ/app)
-# ÖÜÒ»ÇÀÅ£»î¶¯£ºÖÜÒ»µÇÂ¼ÇÀÅ£»î¶¯Ò³Ãæ£¨app£©
+// æ‰‹åŠ¨åšéƒ¨åˆ†:
+# æ¨¡æ‹Ÿç‚’è‚¡å‘¨èµ›å¥–åŠ±ï¼šæ˜ŸæœŸå¤©ç™»å½•æ¨¡æ‹Ÿç‚’è‚¡(å¾®ä¿¡/app)
+# å‘¨ä¸€æŠ¢ç‰›æ´»åŠ¨ï¼šå‘¨ä¸€ç™»å½•æŠ¢ç‰›æ´»åŠ¨é¡µé¢ï¼ˆappï¼‰
 
 */
-const jsname = '??ÌÚÑ¶×ÔÑ¡¹É'
+const jsname = '??è…¾è®¯è‡ªé€‰è‚¡'
 const $ = Env(jsname)
 
 const notify = $.isNode() ?require('./sendNotify') : '';
 const COOKIE = $.isNode() ? require("./txstockCOOKIE") : ``;
 
-const logs = 0; //0Îª¹Ø±ÕÈÕÖ¾£¬1Îª¿ªÆô,Ä¬ÈÏÎª0
-const notifyInterval = 1; //0Îª¹Ø±ÕÍ¨Öª£¬1ÎªËùÓĞÍ¨Öª,Ä¬ÈÏÎª0
+const logs = 0; //0ä¸ºå…³é—­æ—¥å¿—ï¼Œ1ä¸ºå¼€å¯,é»˜è®¤ä¸º0
+const notifyInterval = 1; //0ä¸ºå…³é—­é€šçŸ¥ï¼Œ1ä¸ºæ‰€æœ‰é€šçŸ¥,é»˜è®¤ä¸º0
 
-let rndtime = Math.round(new Date().getTime()) //ºÁÃë
+let rndtime = Math.round(new Date().getTime()) //æ¯«ç§’
 let signday = formatDateTime(new Date());
 
 let tz = '';
-let cash = $.getval('cash') || 5; //0Îª²»×Ô¶¯ÌáÏÖ,1Îª×Ô¶¯ÌáÏÖ1Ôª,5Îª×Ô¶¯ÌáÏÖ1Ôª
+let cash = $.getval('cash') || 5; //0ä¸ºä¸è‡ªåŠ¨æç°,1ä¸ºè‡ªåŠ¨æç°1å…ƒ,5ä¸ºè‡ªåŠ¨æç°1å…ƒ
 
 //time
 var hour='';
@@ -118,53 +119,53 @@ if ($.isNode()) {
  
   if (process.env.USERHEADER && process.env.USERHEADER.indexOf('\n') > -1) {
    userheaderVal = process.env.USERHEADER.split('\n');
-   console.log(`USERHEADERÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`USERHEADERæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   }
   else {
   userheaderVal = [process.env.USERHEADER]
   };
   if (process.env.USERKEY && process.env.USERKEY.indexOf('\n') > -1) {
    userkeyVal = process.env.USERKEY.split('\n');
-   console.log(`USERKEYÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`USERKEYæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   } else {
    userkeyVal = [process.env.USERKEY]
   };
   if (process.env.CASHHEADER && process.env.CASHHEADER.indexOf('\n') > -1) {
    cashheaderVal = process.env.CASHHEADER.split('\n');
-   console.log(`CASHHEADERÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`CASHHEADERæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   }
   else {
   cashheaderVal = [process.env.CASHHEADER]
   };
   if (process.env.SIGNHEADER && process.env.SIGNHEADER.indexOf('\n') > -1) {
    signheaderVal = process.env.SIGNHEADER.split('\n');
-   console.log(`SIGNHEADERÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`SIGNHEADERæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   } else {
    signheaderVal = [process.env.SIGNHEADER]
   };
    if (process.env.SIGNKEY && process.env.SIGNKEY.indexOf('\n') > -1) {
    signkeyVal = process.env.SIGNKEY.split('\n');
-   console.log(`SIGNKEYÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`SIGNKEYæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   }
   else {
   signkeyVal = [process.env.SIGNKEY]
   };
   if (process.env.TASKHEADER && process.env.TASKHEADER.indexOf('\n') > -1) {
    taskheaderVal = process.env.TASKHEADER.split('\n');
-   console.log(`TASKHEADERÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`TASKHEADERæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   } else {
    taskheaderVal = [process.env.TASKHEADER]
   };
   if (process.env.TASKKEY && process.env.TASKKEY.indexOf('\n') > -1) {
    taskkeyVal = process.env.TASKKEY.split('\n');
-   console.log(`TASKKEYÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`TASKKEYæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   }
   else {
   taskkeyVal = [process.env.TASKKEY]
   };
   if (process.env.WXTASKKEY && process.env.WXTASKKEY.indexOf('\n') > -1) {
    wxtaskkeyVal = process.env.WXTASKKEY.split('\n');
-   console.log(`WXTASKKEYÄúÑ¡ÔñµÄÊÇÓÃ»»ĞĞ¸ô¿ª\n`)
+   console.log(`WXTASKKEYæ‚¨é€‰æ‹©çš„æ˜¯ç”¨æ¢è¡Œéš”å¼€\n`)
   } else {
    wxtaskkeyVal = [process.env.WXTASKKEY]
   };
@@ -209,7 +210,7 @@ if ($.isNode()) {
     }
   });
 
- //×Ô¶¨Òå²¿·Ö
+ //è‡ªå®šä¹‰éƒ¨åˆ†
 
 if (COOKIE.userheaderVal) {
   
@@ -224,7 +225,7 @@ if (COOKIE.userheaderVal) {
 
 }
 
-//×Ô¶¨Òå²¿·Ö½áÊø
+//è‡ªå®šä¹‰éƒ¨åˆ†ç»“æŸ
 
 } else {
   userheaderArr.push($.getdata('userheader'));
@@ -243,7 +244,7 @@ if (COOKIE.userheaderVal) {
 !(async () => {
   
   if (!taskheaderArr[0]) {
-    console.log($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈÇ°Íù»ñÈ¡ÈÎÎñcookie')
+    console.log($.name, 'ã€æç¤ºã€‘è¯·å…ˆå‰å¾€è·å–ä»»åŠ¡cookie')
     return;
   }
   /*
@@ -257,7 +258,7 @@ if (COOKIE.userheaderVal) {
   wxtaskkeyVal = wxtaskkeyArr[0];
   */
   if((hour == 15 && minute >= 15) || (hour == 16) || (hour == 17) || (hour == 18) || (hour == 19) || (hour == 20) || (hour == 21) || (hour == 22) || (hour == 23)){
-  console.log(`------------- ¹²${taskheaderArr.length}¸öÕËºÅ----------------\n`)
+  console.log(`------------- å…±${taskheaderArr.length}ä¸ªè´¦å·----------------\n`)
   for (let i = 0; i < 1; i++) {
      userheaderVal = userheaderArr[i];
   userkeyVal = userkeyArr[i];
@@ -268,25 +269,25 @@ if (COOKIE.userheaderVal) {
   taskkeyVal = taskkeyArr[i];
   wxtaskkeyVal = wxtaskkeyArr[i];
    $.index = i + 1;
-   console.log(`\n¿ªÊ¼¡¾??ÌÚÑ¶×ÔÑ¡¹É${$.index}¡¿`)
+   console.log(`\nå¼€å§‹ã€??è…¾è®¯è‡ªé€‰è‚¡${$.index}ã€‘`)
    
   await Jsname()
-  O = (`${jsname}${$.index}Ö´ĞĞÍ¨Öª??`);
+  O = (`${jsname}${$.index}æ‰§è¡Œé€šçŸ¥??`);
  
     await txstock();
  
   await showmsg();
   }
   }else{
-    $.log(`??Çë½«¶¨Ê±Ê±¼äÉèÖÃµ½"ÏÂÎç3µã15·Ö"Ö®ºó,\n½Å±¾²Å»áÖ´ĞĞ`);
-    tz += `??Çë½«¶¨Ê±Ê±¼äÉèÖÃµ½"ÏÂÎç3µã15·Ö"Ö®ºó,\n½Å±¾²Å»áÖ´ĞĞ\n`
+    $.log(`??è¯·å°†å®šæ—¶æ—¶é—´è®¾ç½®åˆ°"ä¸‹åˆ3ç‚¹15åˆ†"ä¹‹å,\nè„šæœ¬æ‰ä¼šæ‰§è¡Œ`);
+    tz += `??è¯·å°†å®šæ—¶æ—¶é—´è®¾ç½®åˆ°"ä¸‹åˆ3ç‚¹15åˆ†"ä¹‹å,\nè„šæœ¬æ‰ä¼šæ‰§è¡Œ\n`
   }
 
 })()
 .catch((e) => $.logErr(e))
   .finally(() => $.done())
 
-//Í¨Öª
+//é€šçŸ¥
 function showmsg() {
   if (notifyInterval != 1) {
     console.log(O + '\n' + tz);
@@ -301,12 +302,12 @@ function showmsg() {
 }
 
 async function txstock(){
-  console.log(`\n? ²éÑ¯Ä¿Ç°ÕË»§½ğ±Ò\n`)
-  await userhome(); //½ğ±Ò²éÑ¯
-  console.log(`\n? Ö´ĞĞ¡¾Ç©µ½¡¿ÈÎÎñ\n`)
+  console.log(`\n? æŸ¥è¯¢ç›®å‰è´¦æˆ·é‡‘å¸\n`)
+  await userhome(); //é‡‘å¸æŸ¥è¯¢
+  console.log(`\n? æ‰§è¡Œã€ç­¾åˆ°ã€‘ä»»åŠ¡\n`)
   await signtask();
 
-  console.log(`\n? Ö´ĞĞ¡¾App¡¿ÈÕ³£ÈÎÎñ\n`)
+  console.log(`\n? æ‰§è¡Œã€Appã€‘æ—¥å¸¸ä»»åŠ¡\n`)
   await task1();
   await task2();
   await task3();
@@ -316,7 +317,7 @@ async function txstock(){
   await task7();
   await task8();
   await task9();
-  console.log(`\n? Ö´ĞĞ¡¾Î¢ĞÅĞ¡³ÌĞò¡¿ÈÕ³£ÈÎÎñ\n`)
+  console.log(`\n? æ‰§è¡Œã€å¾®ä¿¡å°ç¨‹åºã€‘æ—¥å¸¸ä»»åŠ¡\n`)
   await wxtask1();
   await wxtask2();
   await wxtask3();
@@ -328,321 +329,321 @@ async function txstock(){
   await wxtask9();
   await wxtask10();
   await wxtask11();
-  console.log(`\n? Ö´ĞĞ¡¾×Ô¶¯ÌáÏÖ¡¿ÈÎÎñ\n`)
+  console.log(`\n? æ‰§è¡Œã€è‡ªåŠ¨æç°ã€‘ä»»åŠ¡\n`)
   await cashorder(cash, money);
 }
 
 
-///////////////////////²âÊÔÇø//////////////////////////////////////
+///////////////////////æµ‹è¯•åŒº//////////////////////////////////////
 
 
 //////////////////////////////////////////////////////////////////
 
 async function cashorder(cash, money) {
   if (cash == 1 && money.icon_amount > 10000) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await cashticket(); //ÉêÇëÆ±¾İ
-    console.log(`¿ªÊ¼ÉêÇëÌáÏÖ1Ôª...`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await cashticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`å¼€å§‹ç”³è¯·æç°1å…ƒ...`)
     await getcash1(cashticket);
   } else if (cash == 5 && money.icon_amount > 48000){
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await cashticket(); //ÉêÇëÆ±¾İ
-    console.log(`¿ªÊ¼ÉêÇëÌáÏÖ5Ôª...`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await cashticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`å¼€å§‹ç”³è¯·æç°5å…ƒ...`)
     await getcash5(cashticket);
   } else if (cash == 0 ){
-    console.log(`Çëµ½BOXJSÉèÖÃ,Ä¿Ç°ÉèÖÃÎª0,²»×Ô¶¯ÌáÏÖ...`)
-    tz += `Çëµ½BOXJSÉèÖÃ,Ä¿Ç°ÉèÖÃÎª0,²»×Ô¶¯ÌáÏÖ...\n`
+    console.log(`è¯·åˆ°BOXJSè®¾ç½®,ç›®å‰è®¾ç½®ä¸º0,ä¸è‡ªåŠ¨æç°...`)
+    tz += `è¯·åˆ°BOXJSè®¾ç½®,ç›®å‰è®¾ç½®ä¸º0,ä¸è‡ªåŠ¨æç°...\n`
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾×Ô¶¯ÌáÏÖ¡¿:ÕË»§ÌáÏÖÓà¶î²»×ã???¡â?\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€è‡ªåŠ¨æç°ã€‘:è´¦æˆ·æç°ä½™é¢ä¸è¶³???â™€?\n`
   }
 }
 async function task1() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾¹ÉÆ±Ìí¼Óµ½×ÔÑ¡¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€è‚¡ç¥¨æ·»åŠ åˆ°è‡ªé€‰ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid2()
   if (statuid2.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾¹ÉÆ±Ìí¼Óµ½×ÔÑ¡¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€è‚¡ç¥¨æ·»åŠ åˆ°è‡ªé€‰ã€‘ä»»åŠ¡`)
     await taskid2(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾Ìí¼Ó×ÔÑ¡¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€æ·»åŠ è‡ªé€‰ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask1() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX¹ÉÆ±Ìí¼Óµ½×ÔÑ¡¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXè‚¡ç¥¨æ·»åŠ åˆ°è‡ªé€‰ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid2()
   if (wxstatuid2.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX¹ÉÆ±Ìí¼Óµ½×ÔÑ¡¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXè‚¡ç¥¨æ·»åŠ åˆ°è‡ªé€‰ã€‘ä»»åŠ¡`)
     await wxtaskid2(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX¹ÉÆ±Ìí¼Óµ½×ÔÑ¡¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXè‚¡ç¥¨æ·»åŠ åˆ°è‡ªé€‰ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task2() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾ÔÄ¶Á×ÊÑ¶¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€é˜…è¯»èµ„è®¯ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid1()
   if (statuid1.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾ÔÄ¶Á×ÊÑ¶¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€é˜…è¯»èµ„è®¯ã€‘ä»»åŠ¡`)
     await taskid1(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ\n`)
-    tz += `¡¾ÔÄ¶Á×ÊÑ¶¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡\n`)
+    tz += `ã€é˜…è¯»èµ„è®¯ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask2() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WXÔÄ¶Á×ÊÑ¶¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXé˜…è¯»èµ„è®¯ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid1()
   if (wxstatuid1.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WXÔÄ¶Á×ÊÑ¶¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXé˜…è¯»èµ„è®¯ã€‘ä»»åŠ¡`)
     await wxtaskid1(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WXÔÄ¶Á×ÊÑ¶¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXé˜…è¯»èµ„è®¯ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task3() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾·ÖÏí¹ÉÆ±ĞĞÇé¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€åˆ†äº«è‚¡ç¥¨è¡Œæƒ…ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid12()
   if (statuid12.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾·ÖÏí¹ÉÆ±ĞĞÇé¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€åˆ†äº«è‚¡ç¥¨è¡Œæƒ…ã€‘ä»»åŠ¡`)
     await taskid12(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾·ÖÏíĞĞÇé¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€åˆ†äº«è¡Œæƒ…ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask3() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX·ÖÏí¹ÉÆ±ĞĞÇé¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXåˆ†äº«è‚¡ç¥¨è¡Œæƒ…ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid12()
   if (wxstatuid12.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX·ÖÏí¹ÉÆ±ĞĞÇé¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXåˆ†äº«è‚¡ç¥¨è¡Œæƒ…ã€‘ä»»åŠ¡`)
     await wxtaskid12(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX·ÖÏí¹ÉÆ±ĞĞÇé¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXåˆ†äº«è‚¡ç¥¨è¡Œæƒ…ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task4() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾·ÖÏí¸£ÀûÖĞĞÄ¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€åˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid11()
   if (statuid11.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾·ÖÏí¸£ÀûÖĞĞÄ¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€åˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘ä»»åŠ¡`)
     await taskid11(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾·ÖÏí¸£ÀûÖĞĞÄ¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€åˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask4() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX·ÖÏí¸£ÀûÖĞĞÄ¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXåˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid11()
   if (wxstatuid11.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX·ÖÏí¸£ÀûÖĞĞÄ¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXåˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘ä»»åŠ¡`)
     await wxtaskid11(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX·ÖÏí¸£ÀûÖĞĞÄ¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXåˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task5() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾·ÖÏíÒ»Æª×ÊÑ¶¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€åˆ†äº«ä¸€ç¯‡èµ„è®¯ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid14()
   if (statuid14.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾·ÖÏíÒ»Æª×ÊÑ¶¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€åˆ†äº«ä¸€ç¯‡èµ„è®¯ã€‘ä»»åŠ¡`)
     await taskid14(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾·ÖÏí×ÊÑ¶¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€åˆ†äº«èµ„è®¯ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask5() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX·ÖÏíÒ»Æª×ÊÑ¶¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXåˆ†äº«ä¸€ç¯‡èµ„è®¯ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid14()
   if (wxstatuid14.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX·ÖÏíÒ»Æª×ÊÑ¶¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXåˆ†äº«ä¸€ç¯‡èµ„è®¯ã€‘ä»»åŠ¡`)
     await wxtaskid14(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX·ÖÏíÒ»Æª×ÊÑ¶¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXåˆ†äº«ä¸€ç¯‡èµ„è®¯ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task6() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾·ÖÏíÒ»ÆªÉçÇøÌû×Ó¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€åˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid15()
   if (statuid15.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾·ÖÏíÒ»ÆªÉçÇøÌû×Ó¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€åˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡`)
     await taskid15(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾·ÖÏíÌû×Ó¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€åˆ†äº«å¸–å­ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask6() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX·ÖÏíÒ»ÆªÉçÇøÌû×Ó¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXåˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid15()
   if (wxstatuid15.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX·ÖÏíÒ»ÆªÉçÇøÌû×Ó¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXåˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡`)
     await wxtaskid15(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX·ÖÏíÒ»ÆªÉçÇøÌû×Ó¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXåˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task7() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾²ÂÕÇµø»î¶¯¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€çŒœæ¶¨è·Œæ´»åŠ¨ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid3()
   if (statuid3.done == 0) {
-    console.log(`¼ì²é±¾´Î²ÂÕÇµøÈÕÆÚ...`)
+    console.log(`æ£€æŸ¥æœ¬æ¬¡çŒœæ¶¨è·Œæ—¥æœŸ...`)
     await guesstime()
-    console.log(`¿ªÊ¼×Ô¶¯²ÂÕÇµø...`)
+    console.log(`å¼€å§‹è‡ªåŠ¨çŒœæ¶¨è·Œ...`)
     await guessop(guessdate)
-    await $.wait(5000); //µÈ´ı5Ãë
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾²ÂÕÇµø·ÖÏí¡¿ÈÎÎñ`)
+    await $.wait(5000); //ç­‰å¾…5ç§’
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€çŒœæ¶¨è·Œåˆ†äº«ã€‘ä»»åŠ¡`)
     await taskshare(ticket)
-    await $.wait(5000); //µÈ´ı5Ãë
-    console.log(`Ö´ĞĞ¡¾²ÂÕÇµøÃ¿ÈÕÀñ°ü¡¿ÈÎÎñ`)
+    await $.wait(5000); //ç­‰å¾…5ç§’
+    console.log(`æ‰§è¡Œã€çŒœæ¶¨è·Œæ¯æ—¥ç¤¼åŒ…ã€‘ä»»åŠ¡`)
     await guessred()
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾Íê³É²ÂÕÇµø¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€å®ŒæˆçŒœæ¶¨è·Œã€‘ä»»åŠ¡`)
     await taskid3(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾²ÂÕÇµø»î¶¯¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€çŒœæ¶¨è·Œæ´»åŠ¨ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask7() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX²ÂÕÇµø¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXçŒœæ¶¨è·Œã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid3()
   if (wxstatuid3.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX²ÂÕÇµø¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXçŒœæ¶¨è·Œã€‘ä»»åŠ¡`)
     await wxtaskid3(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX²ÂÕÇµø¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXçŒœæ¶¨è·Œã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task8() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾µãÔŞÒ»ÌõÉçÇøÆÀÂÛ¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€ç‚¹èµä¸€æ¡ç¤¾åŒºè¯„è®ºã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid4()
   if (statuid4.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾µãÔŞÒ»ÌõÉçÇøÆÀÂÛ¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€ç‚¹èµä¸€æ¡ç¤¾åŒºè¯„è®ºã€‘ä»»åŠ¡`)
     await taskid4(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...\n`)
-    tz += `¡¾µãÔŞÆÀÂÛ¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...\n`)
+    tz += `ã€ç‚¹èµè¯„è®ºã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function wxtask8() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WXµãÔŞÒ»ÌõÉçÇøÆÀÂÛ¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXç‚¹èµä¸€æ¡ç¤¾åŒºè¯„è®ºã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid4()
   if (wxstatuid4.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WXµãÔŞÒ»ÌõÉçÇøÆÀÂÛ¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXç‚¹èµä¸€æ¡ç¤¾åŒºè¯„è®ºã€‘ä»»åŠ¡`)
     await wxtaskid4(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WXµãÔŞÒ»ÌõÉçÇøÆÀÂÛ¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXç‚¹èµä¸€æ¡ç¤¾åŒºè¯„è®ºã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function task9() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾Ä£Äâ³´¹É½»Ò×Ò»±Ê¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€æ¨¡æ‹Ÿç‚’è‚¡äº¤æ˜“ä¸€ç¬”ã€‘ä»»åŠ¡çŠ¶æ€`)
   await statuid6()
   if (statuid6.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await taskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾Ä£Äâ³´¹É½»Ò×Ò»±Ê¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await taskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€æ¨¡æ‹Ÿç‚’è‚¡äº¤æ˜“ä¸€ç¬”ã€‘ä»»åŠ¡`)
     await taskid6(ticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾Ä£Äâ³´¹É¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function wxtask9() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WXÄ£Äâ³´¹É½»Ò×Ò»±Ê¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXæ¨¡æ‹Ÿç‚’è‚¡äº¤æ˜“ä¸€ç¬”ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid6()
   if (wxstatuid6.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WXÄ£Äâ³´¹É½»Ò×Ò»±Ê¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXæ¨¡æ‹Ÿç‚’è‚¡äº¤æ˜“ä¸€ç¬”ã€‘ä»»åŠ¡`)
     await wxtaskid6(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WXÄ£Äâ³´¹É¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXæ¨¡æ‹Ÿç‚’è‚¡ã€‘:å·²æ‰§è¡Œ\n`
   }
 
 }
 async function wxtask10() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WXä¯ÀÀÉçÇøÌû×Ó¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXæµè§ˆç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid16()
   if (wxstatuid16.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WXä¯ÀÀÉçÇøÌû×Ó¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXæµè§ˆç¤¾åŒºå¸–å­ã€‘ä»»åŠ¡`)
     await wxtaskid16(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WXä¯ÀÀÉçÇøÌû×Ó¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXæµè§ˆç¤¾åŒºå¸–å­ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 async function wxtask11() {
-  console.log(`¿ªÊ¼ÑéÖ¤¡¾WX×¨Êôºì°ü??¡¿ÈÎÎñ×´Ì¬`)
+  console.log(`å¼€å§‹éªŒè¯ã€WXä¸“å±çº¢åŒ…??ã€‘ä»»åŠ¡çŠ¶æ€`)
   await wxstatuid10()
   if (wxstatuid10.done == 0) {
-    console.log(`¿ªÊ¼ÉêÇëÆ±¾İ...`)
-    await wxtaskticket(); //ÉêÇëÆ±¾İ
-    console.log(`Ö´ĞĞ¡¾WX×¨Êôºì°ü??¡¿ÈÎÎñ`)
+    console.log(`å¼€å§‹ç”³è¯·ç¥¨æ®...`)
+    await wxtaskticket(); //ç”³è¯·ç¥¨æ®
+    console.log(`æ‰§è¡Œã€WXä¸“å±çº¢åŒ…??ã€‘ä»»åŠ¡`)
     await wxtaskid10(wxticket);
   } else {
-    console.log(`×¼±¸Ö´ĞĞÏÂÒ»¸öÈÎÎñ...`)
-    tz += `¡¾WX×¨Êôºì°ü??¡¿:ÒÑÖ´ĞĞ\n`
+    console.log(`å‡†å¤‡æ‰§è¡Œä¸‹ä¸€ä¸ªä»»åŠ¡...`)
+    tz += `ã€WXä¸“å±çº¢åŒ…??ã€‘:å·²æ‰§è¡Œ\n`
   }
 }
 
 //////////////////////////////////////////////////////////////////
-//Ç©µ½
+//ç­¾åˆ°
 async function signtask() {
   return new Promise((resolve) => {
     let signurl = {
@@ -663,23 +664,23 @@ async function signtask() {
     $.get(signurl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
-            //ÎÊÌâ
+            //é—®é¢˜
             $.log(data)
             data = JSON.parse(data);
             if (data.retcode == 51091020 || data.retcode == 51076001) {
-              $.log(`¡¾Ç©µ½¡¿:${data.retmsg}\n`);
-              tz += `¡¾Ç©µ½¡¿:${data.retmsg}\n`
+              $.log(`ã€ç­¾åˆ°ã€‘:${data.retmsg}\n`);
+              tz += `ã€ç­¾åˆ°ã€‘:${data.retmsg}\n`
             } else {
-              $.log(`¡¾Ç©µ½¡¿:»ñµÃ${data.amount}½ğ±Ò`);
-              $.log(`¡¾Ç©µ½Ê±¼ä¡¿:` + time(rndtime));
-              tz += `¡¾Ç©µ½¡¿:»ñµÃ${data.amount}½ğ±Ò\n`
-              await $.wait(5000); //µÈ´ı5Ãë
+              $.log(`ã€ç­¾åˆ°ã€‘:è·å¾—${data.amount}é‡‘å¸`);
+              $.log(`ã€ç­¾åˆ°æ—¶é—´ã€‘:` + time(rndtime));
+              tz += `ã€ç­¾åˆ°ã€‘:è·å¾—${data.amount}é‡‘å¸\n`
+              await $.wait(5000); //ç­‰å¾…5ç§’
             }
           }
         }
@@ -691,7 +692,7 @@ async function signtask() {
     });
   });
 }
-//²ÂÕÇµøÊ±¼ä
+//çŒœæ¶¨è·Œæ—¶é—´
 function guesstime() {
   return new Promise((resolve) => {
     let url = {
@@ -711,7 +712,7 @@ function guesstime() {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -720,8 +721,8 @@ function guesstime() {
             data = JSON.parse(data);
             guessnum = (data.T_info[0].T_endts)*1000
             nextguessnum = (data.T_info[0].next_T)*1000
-            $.log(`±¾´Î²ÂÕÇµøÈÕÆÚ£º`+ formatDateTime(guessnum));
-            $.log(`ÏÂ´Î²ÂÕÇµøÈÕÆÚ£º`+ formatDateTime(nextguessnum));
+            $.log(`æœ¬æ¬¡çŒœæ¶¨è·Œæ—¥æœŸï¼š`+ formatDateTime(guessnum));
+            $.log(`ä¸‹æ¬¡çŒœæ¶¨è·Œæ—¥æœŸï¼š`+ formatDateTime(nextguessnum));
             guessdate = formatDateTime(guessnum);
 
           }
@@ -734,7 +735,7 @@ function guesstime() {
     });
   });
 }
-//ÌáÏÖÆ±¾İ
+//æç°ç¥¨æ®
 function cashticket() {
   return new Promise((resolve) => {
     let url = {
@@ -754,15 +755,15 @@ function cashticket() {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`±¾´ÎÑéÖ¤Ê±¼ä??£º` + time(rndtime));
-            $.log(`±¾´ÎÑéÖ¤Æ±¾İ??£º${data.ticket}\n`);
+            $.log(`æœ¬æ¬¡éªŒè¯æ—¶é—´??ï¼š` + time(rndtime));
+            $.log(`æœ¬æ¬¡éªŒè¯ç¥¨æ®??ï¼š${data.ticket}\n`);
             cashticket = data.ticket
           }
         }
@@ -774,7 +775,7 @@ function cashticket() {
     });
   });
 }
-//ÌáÏÖÇëÇó
+//æç°è¯·æ±‚
 function getcash1(cashticket) {
   return new Promise((resolve) => {
     let url = {
@@ -794,15 +795,15 @@ function getcash1(cashticket) {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾ÌáÏÖ1Ôª½á¹û¡¿:${data.retmsg}??`);
-            tz += `¡¾ÌáÏÖ1Ôª½á¹û¡¿:${data.retmsg}??\n`
+            $.log(`ã€æç°1å…ƒç»“æœã€‘:${data.retmsg}??`);
+            tz += `ã€æç°1å…ƒç»“æœã€‘:${data.retmsg}??\n`
           }
         }
       } catch (e) {
@@ -832,15 +833,15 @@ function getcash5(cashticket) {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾ÌáÏÖ5Ôª½á¹û¡¿:${data.retmsg}??`);
-            tz += `¡¾ÌáÏÖ5Ôª½á¹û¡¿:${data.retmsg}??\n`
+            $.log(`ã€æç°5å…ƒç»“æœã€‘:${data.retmsg}??`);
+            tz += `ã€æç°5å…ƒç»“æœã€‘:${data.retmsg}??\n`
           }
         }
       } catch (e) {
@@ -851,7 +852,7 @@ function getcash5(cashticket) {
     });
   });
 }
-//²ÂÕÇµø
+//çŒœæ¶¨è·Œ
 function guessop(guessdate) {
   return new Promise((resolve) => {
     let url = {
@@ -871,7 +872,7 @@ function guessop(guessdate) {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -879,11 +880,11 @@ function guessop(guessdate) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if (data.retcode == 0) {
-              $.log(`¡¾×Ô¶¯²ÂÕÇµø¡¿:³É¹¦??\n`);
-              tz += `¡¾×Ô¶¯²ÂÕÇµø¡¿:³É¹¦??\n`
+              $.log(`ã€è‡ªåŠ¨çŒœæ¶¨è·Œã€‘:æˆåŠŸ??\n`);
+              tz += `ã€è‡ªåŠ¨çŒœæ¶¨è·Œã€‘:æˆåŠŸ??\n`
             } else {
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-              tz += `¡¾×Ô¶¯²ÂÕÇµø¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+              tz += `ã€è‡ªåŠ¨çŒœæ¶¨è·Œã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -895,7 +896,7 @@ function guessop(guessdate) {
     });
   });
 }
-//²ÂÕÇµøÃ¿ÈÕÀñ°ü
+//çŒœæ¶¨è·Œæ¯æ—¥ç¤¼åŒ…
 function guessred() {
   return new Promise((resolve) => {
     let guessredurl = {
@@ -915,7 +916,7 @@ function guessred() {
     $.get(guessredurl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -923,11 +924,11 @@ function guessred() {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if (data.retcode == 0) {
-              $.log(`¡¾²ÂÕÇµøÃ¿ÈÕÀñ°ü¡¿:»ñµÃ ${data.reward_value}½ğ±Ò`);
-              tz += `¡¾²ÂÕÇµøÃ¿ÈÕÀñ°ü¡¿:»ñµÃ ${data.reward_value}½ğ±Ò\n`
+              $.log(`ã€çŒœæ¶¨è·Œæ¯æ—¥ç¤¼åŒ…ã€‘:è·å¾— ${data.reward_value}é‡‘å¸`);
+              tz += `ã€çŒœæ¶¨è·Œæ¯æ—¥ç¤¼åŒ…ã€‘:è·å¾— ${data.reward_value}é‡‘å¸\n`
             } else {
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
-              tz += `¡¾²ÂÕÇµøÃ¿ÈÕÀñ°ü¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
+              tz += `ã€çŒœæ¶¨è·Œæ¯æ—¥ç¤¼åŒ…ã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -939,7 +940,7 @@ function guessred() {
     });
   });
 }
-//²ÂÕÇµø·ÖÏí½±Àø
+//çŒœæ¶¨è·Œåˆ†äº«å¥–åŠ±
 function taskshare(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -961,12 +962,12 @@ function taskshare(ticket) {
        if (logs == 1) $.log(data)
         data = JSON.parse(data)
       if (data.retcode == 0) {
-        $.log(`¡¾²ÂÕÇµø·ÖÏí¡¿:»ñµÃ ${data.reward_desc}\n`);
-        tz += `¡¾²ÂÕÇµø·ÖÏí¡¿:»ñµÃ ${data.reward_desc}\n`
-        await $.wait(10000); //µÈ´ı10Ãë
+        $.log(`ã€çŒœæ¶¨è·Œåˆ†äº«ã€‘:è·å¾— ${data.reward_desc}\n`);
+        tz += `ã€çŒœæ¶¨è·Œåˆ†äº«ã€‘:è·å¾— ${data.reward_desc}\n`
+        await $.wait(10000); //ç­‰å¾…10ç§’
       } else {
-        console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-        tz += `¡¾²ÂÕÇµø·ÖÏí¡¿:${data.retmsg}\n`
+        console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+        tz += `ã€çŒœæ¶¨è·Œåˆ†äº«ã€‘:${data.retmsg}\n`
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -976,7 +977,7 @@ function taskshare(ticket) {
     })
   })
 }
-//½ğ±Ò²éÑ¯
+//é‡‘å¸æŸ¥è¯¢
 async function userhome() {
   return new Promise((resolve) => {
     let signurl = {
@@ -997,7 +998,7 @@ async function userhome() {
     $.get(signurl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1006,8 +1007,8 @@ async function userhome() {
 
             money = JSON.parse(data);
             //console.log(money);
-            $.log(`¡¾ÕË»§½ğ±Ò¡¿:${money.icon_amount}½ğ±Ò\n`);
-            tz += `¡¾ÕË»§½ğ±Ò¡¿:${money.icon_amount}½ğ±Ò\n`;
+            $.log(`ã€è´¦æˆ·é‡‘å¸ã€‘:${money.icon_amount}é‡‘å¸\n`);
+            tz += `ã€è´¦æˆ·é‡‘å¸ã€‘:${money.icon_amount}é‡‘å¸\n`;
           }
         }
       } catch (e) {
@@ -1018,7 +1019,7 @@ async function userhome() {
     });
   });
 }
-//Ìí¼Ó¹ÉÆ±µ½×ÔÑ¡
+//æ·»åŠ è‚¡ç¥¨åˆ°è‡ªé€‰
 function taskid2(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1038,9 +1039,9 @@ function taskid2(ticket) {
     $.get(testurl, async (error, resp, data) => {
       if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾Ìí¼Ó×ÔÑ¡¹É¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾Ìí¼Ó×ÔÑ¡¹É¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€æ·»åŠ è‡ªé€‰è‚¡ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€æ·»åŠ è‡ªé€‰è‚¡ã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       resolve()
     })
   })
@@ -1067,9 +1068,9 @@ function statuid2() {
       $.log('??????statuid2: '+data)
       statuid2 = JSON.parse(data)
       if (statuid2.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1100,17 +1101,17 @@ function wxtaskid2(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WXÌí¼Ó×ÔÑ¡¹É¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WXÌí¼Ó×ÔÑ¡¹É¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXæ·»åŠ è‡ªé€‰è‚¡ã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXæ·»åŠ è‡ªé€‰è‚¡ã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -1143,16 +1144,16 @@ function wxstatuid2() {
       if (logs == 1) $.log(data)
       wxstatuid2 = JSON.parse(data)
       if (wxstatuid2.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
 
-//ÔÄ¶ÁÒ»Æª×ÊÑ¶
+//é˜…è¯»ä¸€ç¯‡èµ„è®¯
 function taskid1(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1172,11 +1173,11 @@ function taskid1(ticket) {
     $.get(testurl, async (error, resp, data) => {
       try {
        if (logs == 1) $.log(data)
-      //$.log(`¡¾ÔÄ¶Á×ÊÑ¶¡¿:`+data)
+      //$.log(`ã€é˜…è¯»èµ„è®¯ã€‘:`+data)
       let task = JSON.parse(data)
-      $.log(`¡¾ÔÄ¶Á×ÊÑ¶¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾ÔÄ¶Á×ÊÑ¶¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€é˜…è¯»èµ„è®¯ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€é˜…è¯»èµ„è®¯ã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1207,9 +1208,9 @@ function statuid1() {
        if (logs == 1) $.log(data)
       statuid1 = JSON.parse(data)
       if (statuid1.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1241,17 +1242,17 @@ function wxtaskid1(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WXÔÄ¶Á×ÊÑ¶¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WXÔÄ¶Á×ÊÑ¶¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXé˜…è¯»èµ„è®¯ã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXé˜…è¯»èµ„è®¯ã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -1285,15 +1286,15 @@ function wxstatuid1() {
       if (logs == 1) $.log(data)
       wxstatuid1 = JSON.parse(data)
       if (wxstatuid1.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//·ÖÏí¹ÉÆ±ĞĞÇé
+//åˆ†äº«è‚¡ç¥¨è¡Œæƒ…
 function taskid12(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1313,11 +1314,11 @@ function taskid12(ticket) {
     $.get(testurl, async (error, resp, data) => {
       try {
        if (logs == 1) $.log(data)
-      //$.log(`¡¾·ÖÏíĞĞÇé¡¿:`+data)
+      //$.log(`ã€åˆ†äº«è¡Œæƒ…ã€‘:`+data)
       let task = JSON.parse(data)
-      $.log(`¡¾·ÖÏíĞĞÇé¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾·ÖÏíĞĞÇé¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€åˆ†äº«è¡Œæƒ…ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€åˆ†äº«è¡Œæƒ…ã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1348,9 +1349,9 @@ function statuid12() {
        if (logs == 1) $.log(data)
       statuid12 = JSON.parse(data)
       if (statuid12.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1382,7 +1383,7 @@ function wxtaskid12(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1390,12 +1391,12 @@ function wxtaskid12(wxticket) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if(data.retcode == 0){
-              $.log(`¡¾WX·ÖÏíĞĞÇé¡¿:»ñµÃ${data.reward_desc}`);
-              tz += `¡¾WX·ÖÏíĞĞÇé¡¿:»ñµÃ${data.reward_desc}\n`
-              await $.wait(5000); //µÈ´ı5Ãë
+              $.log(`ã€WXåˆ†äº«è¡Œæƒ…ã€‘:è·å¾—${data.reward_desc}`);
+              tz += `ã€WXåˆ†äº«è¡Œæƒ…ã€‘:è·å¾—${data.reward_desc}\n`
+              await $.wait(5000); //ç­‰å¾…5ç§’
             }else{
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-              tz += `¡¾WX·ÖÏíĞĞÇé¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+              tz += `ã€WXåˆ†äº«è¡Œæƒ…ã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -1430,15 +1431,15 @@ function wxstatuid12() {
       if (logs == 1) $.log(data)
       wxstatuid12 = JSON.parse(data)
       if (wxstatuid12.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//·ÖÏí¸£ÀûÖĞĞÄ
+//åˆ†äº«ç¦åˆ©ä¸­å¿ƒ
 function taskid11(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1459,9 +1460,9 @@ function taskid11(ticket) {
       try {
        if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾·ÖÏí¸£ÀûÖĞĞÄ¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾·ÖÏí¸£ÀûÖĞĞÄ¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€åˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€åˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1492,9 +1493,9 @@ function statuid11() {
        if (logs == 1) $.log(data)
       statuid11 = JSON.parse(data)
       if (statuid11.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1526,7 +1527,7 @@ function wxtaskid11(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1534,12 +1535,12 @@ function wxtaskid11(wxticket) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if(data.retcode == 0){
-              $.log(`¡¾WX·ÖÏí¸£ÀûÖĞĞÄ¡¿:»ñµÃ${data.reward_desc}`);
-              tz += `¡¾WX·ÖÏí¸£ÀûÖĞĞÄ¡¿:»ñµÃ${data.reward_desc}\n`
-              await $.wait(5000); //µÈ´ı5Ãë
+              $.log(`ã€WXåˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:è·å¾—${data.reward_desc}`);
+              tz += `ã€WXåˆ†äº«ç¦åˆ©ä¸­å¿ƒã€‘:è·å¾—${data.reward_desc}\n`
+              await $.wait(5000); //ç­‰å¾…5ç§’
             }else{
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-              tz += `¡¾WX¸£ÀûÖĞĞÄ¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+              tz += `ã€WXç¦åˆ©ä¸­å¿ƒã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -1574,15 +1575,15 @@ function wxstatuid11() {
       if (logs == 1) $.log(data)
       wxstatuid11 = JSON.parse(data)
       if (wxstatuid11.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//·ÖÏíÒ»Æª×ÊÑ¶
+//åˆ†äº«ä¸€ç¯‡èµ„è®¯
 function taskid14(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1603,9 +1604,9 @@ function taskid14(ticket) {
       try {
        if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾·ÖÏí×ÊÑ¶¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾·ÖÏí×ÊÑ¶¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€åˆ†äº«èµ„è®¯ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€åˆ†äº«èµ„è®¯ã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1636,9 +1637,9 @@ function statuid14() {
        if (logs == 1) $.log(data)
       statuid14 = JSON.parse(data)
       if (statuid14.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1670,7 +1671,7 @@ function wxtaskid14(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1678,12 +1679,12 @@ function wxtaskid14(wxticket) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if(data.retcode == 0){
-              $.log(`¡¾WX·ÖÏí×ÊÑ¶¡¿:»ñµÃ${data.reward_desc}`);
-              tz += `¡¾WX·ÖÏí×ÊÑ¶¡¿:»ñµÃ${data.reward_desc}\n`
-              await $.wait(5000); //µÈ´ı5Ãë
+              $.log(`ã€WXåˆ†äº«èµ„è®¯ã€‘:è·å¾—${data.reward_desc}`);
+              tz += `ã€WXåˆ†äº«èµ„è®¯ã€‘:è·å¾—${data.reward_desc}\n`
+              await $.wait(5000); //ç­‰å¾…5ç§’
             }else{
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-              tz += `¡¾WX·ÖÏí×ÊÑ¶¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+              tz += `ã€WXåˆ†äº«èµ„è®¯ã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -1718,15 +1719,15 @@ function wxstatuid14() {
       if (logs == 1) $.log(data)
       wxstatuid14 = JSON.parse(data)
       if (wxstatuid14.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//·ÖÏíÒ»ÆªÉçÇøÌû×Ó
+//åˆ†äº«ä¸€ç¯‡ç¤¾åŒºå¸–å­
 function taskid15(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1747,9 +1748,9 @@ function taskid15(ticket) {
       try {
        if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾·ÖÏíÉçÇøÌû×Ó¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾·ÖÏíÉçÇøÌû×Ó¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€åˆ†äº«ç¤¾åŒºå¸–å­ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€åˆ†äº«ç¤¾åŒºå¸–å­ã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1780,9 +1781,9 @@ function statuid15() {
        if (logs == 1) $.log(data)
       statuid15 = JSON.parse(data)
       if (statuid15.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1814,7 +1815,7 @@ function wxtaskid15(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1822,12 +1823,12 @@ function wxtaskid15(wxticket) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
             if(data.retcode == 0){
-              $.log(`¡¾WX·ÖÏíÉçÇøÌû×Ó¡¿:»ñµÃ${data.reward_desc}`);
-              tz += `¡¾WX·ÖÏíÉçÇøÌû×Ó¡¿:»ñµÃ${data.reward_desc}\n`
-              await $.wait(5000); //µÈ´ı5Ãë
+              $.log(`ã€WXåˆ†äº«ç¤¾åŒºå¸–å­ã€‘:è·å¾—${data.reward_desc}`);
+              tz += `ã€WXåˆ†äº«ç¤¾åŒºå¸–å­ã€‘:è·å¾—${data.reward_desc}\n`
+              await $.wait(5000); //ç­‰å¾…5ç§’
             }else{
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}\n`)
-              tz += `¡¾WX·ÖÏíÉçÇøÌû×Ó¡¿:${data.retmsg}\n`
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}\n`)
+              tz += `ã€WXåˆ†äº«ç¤¾åŒºå¸–å­ã€‘:${data.retmsg}\n`
             }
           }
         }
@@ -1862,15 +1863,15 @@ function wxstatuid15() {
       if (logs == 1) $.log(data)
       wxstatuid15 = JSON.parse(data)
       if (wxstatuid15.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//Íê³ÉÒ»´Î²ÂÕÇµøÓÎÏ·
+//å®Œæˆä¸€æ¬¡çŒœæ¶¨è·Œæ¸¸æˆ
 function taskid3(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -1891,9 +1892,9 @@ function taskid3(ticket) {
       try {
        if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾²ÂÕÇµø¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾²ÂÕÇµø¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€çŒœæ¶¨è·Œã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€çŒœæ¶¨è·Œã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -1925,9 +1926,9 @@ function statuid3() {
        if (logs == 1) $.log(data)
       statuid3 = JSON.parse(data)
       if (statuid3.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -1959,17 +1960,17 @@ function wxtaskid3(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WX²ÂÕÇµø¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WX²ÂÕÇµø¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXçŒœæ¶¨è·Œã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXçŒœæ¶¨è·Œã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -2003,15 +2004,15 @@ function wxstatuid3() {
       if (logs == 1) $.log(data)
       wxstatuid3 = JSON.parse(data)
       if (wxstatuid3.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//µãÔŞ
+//ç‚¹èµ
 function taskid4(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -2032,9 +2033,9 @@ function taskid4(ticket) {
       try {
        if (logs == 1) $.log(data)
       let task = JSON.parse(data)
-      $.log(`¡¾µãÔŞÆÀÂÛ¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾µãÔŞÆÀÂÛ¡¿:»ñµÃ ${task.reward_desc}\n`
-      await $.wait(10000); //µÈ´ı10Ãë
+      $.log(`ã€ç‚¹èµè¯„è®ºã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€ç‚¹èµè¯„è®ºã€‘:è·å¾— ${task.reward_desc}\n`
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -2065,9 +2066,9 @@ function statuid4() {
        if (logs == 1) $.log(data)
       statuid4 = JSON.parse(data)
       if (statuid4.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -2099,17 +2100,17 @@ function wxtaskid4(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WXµãÔŞÆÀÂÛ¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WXµãÔŞÆÀÂÛ¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXç‚¹èµè¯„è®ºã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXç‚¹èµè¯„è®ºã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -2143,15 +2144,15 @@ function wxstatuid4() {
       if (logs == 1) $.log(data)
       wxstatuid4 = JSON.parse(data)
       if (wxstatuid4.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//Ä£Äâ³´¹É
+//æ¨¡æ‹Ÿç‚’è‚¡
 function taskid6(ticket) {
   return new Promise((resolve, reject) => {
     let testurl = {
@@ -2171,16 +2172,16 @@ function taskid6(ticket) {
     $.get(testurl, async (error, resp, data) => {
       try {
        if (logs == 1) $.log(data)
-      //$.log(`¡¾Ä£Äâ³´¹É¡¿:`+data)
+      //$.log(`ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘:`+data)
       let task = JSON.parse(data)
       if (typeof(task.reward_desc) == 'undefined') {
-        $.log(`¡¾Ä£Äâ³´¹É¡¿: ${task.retmsg}\n`);
-      tz += `¡¾Ä£Äâ³´¹É¡¿: ${task.retmsg}\n`
+        $.log(`ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘: ${task.retmsg}\n`);
+      tz += `ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘: ${task.retmsg}\n`
       } else {
-      $.log(`¡¾Ä£Äâ³´¹É¡¿:»ñµÃ ${task.reward_desc}\n`);
-      tz += `¡¾Ä£Äâ³´¹É¡¿:»ñµÃ ${task.reward_desc}\n`
+      $.log(`ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘:è·å¾— ${task.reward_desc}\n`);
+      tz += `ã€æ¨¡æ‹Ÿç‚’è‚¡ã€‘:è·å¾— ${task.reward_desc}\n`
       }
-      await $.wait(10000); //µÈ´ı10Ãë
+      await $.wait(10000); //ç­‰å¾…10ç§’
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -2211,9 +2212,9 @@ function statuid6() {
        if (logs == 1) $.log(data)
       statuid6 = JSON.parse(data)
       if (statuid6.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       } catch (e) {
         $.logErr(e, resp);
@@ -2245,17 +2246,17 @@ function wxtaskid6(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WXÄ£Äâ³´¹É¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WXÄ£Äâ³´¹É¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXæ¨¡æ‹Ÿç‚’è‚¡ã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXæ¨¡æ‹Ÿç‚’è‚¡ã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -2289,15 +2290,15 @@ function wxstatuid6() {
       if (logs == 1) $.log(data)
       wxstatuid6 = JSON.parse(data)
       if (wxstatuid6.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//ä¯ÀÀÉçÇøÌû×Ó
+//æµè§ˆç¤¾åŒºå¸–å­
 function wxtaskid16(wxticket) {
   return new Promise((resolve) => {
     let url = {
@@ -2319,17 +2320,17 @@ function wxtaskid16(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WXä¯ÀÀÉçÇøÌû×Ó¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WXä¯ÀÀÉçÇøÌû×Ó¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXæµè§ˆç¤¾åŒºå¸–å­ã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXæµè§ˆç¤¾åŒºå¸–å­ã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -2363,15 +2364,15 @@ function wxstatuid16() {
       if (logs == 1) $.log(data)
       wxstatuid16 = JSON.parse(data)
       if (wxstatuid16.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//WX×¨Êôºì°ü??
+//WXä¸“å±çº¢åŒ…??
 function wxtaskid10(wxticket) {
   return new Promise((resolve) => {
     let url = {
@@ -2393,17 +2394,17 @@ function wxtaskid10(wxticket) {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`¡¾WX×¨Êôºì°ü??¡¿:»ñµÃ${data.reward_desc}`);
-            tz += `¡¾WX×¨Êôºì°ü??¡¿:»ñµÃ${data.reward_desc}\n`
+            $.log(`ã€WXä¸“å±çº¢åŒ…??ã€‘:è·å¾—${data.reward_desc}`);
+            tz += `ã€WXä¸“å±çº¢åŒ…??ã€‘:è·å¾—${data.reward_desc}\n`
           } else {
-            console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬´íÎóĞÅÏ¢£º${JSON.stringify(data)}`)
+            console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${JSON.stringify(data)}`)
           }
         }
       } catch (e) {
@@ -2437,15 +2438,15 @@ function wxstatuid10() {
       if (logs == 1) $.log(data)
       wxstatuid10 = JSON.parse(data)
       if (wxstatuid10.done == 1) {
-        $.log(`ÑéÖ¤×´Ì¬Ê§°Ü,ÈÎÎñÒÑÖ´ĞĞ??`);
+        $.log(`éªŒè¯çŠ¶æ€å¤±è´¥,ä»»åŠ¡å·²æ‰§è¡Œ??`);
       } else {
-        $.log(`ÑéÖ¤×´Ì¬³É¹¦,¿ÉÖ´ĞĞÈÎÎñ??`);
+        $.log(`éªŒè¯çŠ¶æ€æˆåŠŸ,å¯æ‰§è¡Œä»»åŠ¡??`);
       }
       resolve()
     })
   })
 }
-//Æ±¾İÉêÇë
+//ç¥¨æ®ç”³è¯·
 
 function taskticket() {
   return new Promise((resolve, reject) => {
@@ -2467,10 +2468,10 @@ function taskticket() {
       try {
        if (logs == 1) $.log(data)
       let test2 = JSON.parse(data)
-      $.log(`±¾´ÎÑéÖ¤Ê±¼ä??£º` + time(rndtime));
-      $.log(`±¾´ÎÑéÖ¤Æ±¾İ??£º${test2.task_ticket}`);
+      $.log(`æœ¬æ¬¡éªŒè¯æ—¶é—´??ï¼š` + time(rndtime));
+      $.log(`æœ¬æ¬¡éªŒè¯ç¥¨æ®??ï¼š${test2.task_ticket}`);
       ticket = test2.task_ticket
-      //tz += `¡¾ÏÖ½ğÓà¶î¡¿£º£¤ ${task.data.activity_money.money}Ôª\n`
+      //tz += `ã€ç°é‡‘ä½™é¢ã€‘ï¼šï¿¥ ${task.data.activity_money.money}å…ƒ\n`
 
       } catch (e) {
         $.logErr(e, resp);
@@ -2501,15 +2502,15 @@ function wxtaskticket() {
     $.post(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("ÌÚÑ¶×ÔÑ¡¹É: API²éÑ¯ÇëÇóÊ§°Ü ????");
+          console.log("è…¾è®¯è‡ªé€‰è‚¡: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ ????");
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
           if (safeGet(data)) {
             if (logs == 1) $.log(data)
             data = JSON.parse(data);
-            $.log(`±¾´ÎÑéÖ¤Ê±¼ä??£º` + time(rndtime));
-            $.log(`±¾´ÎÑéÖ¤Æ±¾İ??£º${data.task_ticket}`);
+            $.log(`æœ¬æ¬¡éªŒè¯æ—¶é—´??ï¼š` + time(rndtime));
+            $.log(`æœ¬æ¬¡éªŒè¯ç¥¨æ®??ï¼š${data.task_ticket}`);
             wxticket = data.task_ticket
           }
         }
@@ -2524,12 +2525,12 @@ function wxtaskticket() {
 
 ////////////////////////////////////////////////////////////////////
 function Jsname() {
-  $.log(`¨q©­©­¨r¨q¨r¨q¨r¨q©­©­¨r¨q©­©­¨r¨q©­©­¨r¨q©­©­¨r¨q¨r¨q¨r`)
-  $.log(`¨t¨r¨q¨s©¯¨t¨s©¯©¯¨q©­¨s¨t¨r¨q¨s©¯¨q¨r©¯©¯¨q©­¨s©¯¨t¨s©¯`)
-  $.log(` ©¯©¯ ¨t¨r¨q¨s©¯¨t©­¨r ©¯©¯ ©¯©¯©¯©¯©¯©¯  ©¯ ¨q¨s`)
-  $.log(` ©¯©¯ ¨q¨s¨t¨r¨t©­¨r©¯ ©¯©¯ ©¯©¯©¯©¯©¯©¯  ©¯ ¨t¨r`)
-  $.log(` ©¯©¯ ©¯¨q¨r©¯¨q©­¨s©¯ ©¯©¯ ©¯¨t¨s©¯©¯¨t©­¨r©¯¨q¨r©¯`)
-  $.log(` ¨t¨s ¨t¨s¨t¨s¨t©­©­¨s ¨t¨s ¨t©­©­¨s¨t©­©­¨s¨t¨s¨t¨s`)
+  $.log(`â•­â”‰â”‰â•®â•­â•®â•­â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â”‰â”‰â•®â•­â•®â•­â•®`)
+  $.log(`â•°â•®â•­â•¯â”‹â•°â•¯â”‹â”‹â•­â”‰â•¯â•°â•®â•­â•¯â”‹â•­â•®â”‹â”‹â•­â”‰â•¯â”‹â•°â•¯â”‹`)
+  $.log(` â”‹â”‹ â•°â•®â•­â•¯â”‹â•°â”‰â•® â”‹â”‹ â”‹â”‹â”‹â”‹â”‹â”‹  â”‹ â•­â•¯`)
+  $.log(` â”‹â”‹ â•­â•¯â•°â•®â•°â”‰â•®â”‹ â”‹â”‹ â”‹â”‹â”‹â”‹â”‹â”‹  â”‹ â•°â•®`)
+  $.log(` â”‹â”‹ â”‹â•­â•®â”‹â•­â”‰â•¯â”‹ â”‹â”‹ â”‹â•°â•¯â”‹â”‹â•°â”‰â•®â”‹â•­â•®â”‹`)
+  $.log(` â•°â•¯ â•°â•¯â•°â•¯â•°â”‰â”‰â•¯ â•°â•¯ â•°â”‰â”‰â•¯â•°â”‰â”‰â•¯â•°â•¯â•°â•¯`)
 }
 
 function time(time) {
@@ -2544,7 +2545,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`æœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
