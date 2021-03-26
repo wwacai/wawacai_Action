@@ -32,13 +32,13 @@ jobs:
 
       - name: npm install
         run: |
-          cd ~/Scripts
+          cd ~/js
           npm install -g npm
           npm update
 
       - name: '运行 【11】'
         run: |
-          cd ~/Scripts
+          cd ~/js
           node Task/youth.js
         env:
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
