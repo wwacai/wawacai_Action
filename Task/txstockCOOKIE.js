@@ -1,10 +1,9 @@
-//独立COOKIE文件     ck在``里面填写，多账号换行
+//鐙珛COOKIE鏂囦欢     ck鍦╜`閲岄潰濉啓锛屽璐﹀彿鎹㈣
 let userheaderVal= `oA0GbjuEEWGzxPZaKMZMzKBqcqHs&_appName=ios&_dev=iPhone12,1&_devId=5fc77b682807965ef82c4b71d31916a6fcce730e&_appver=8.7.1&_ifChId=&_isChId=1&_osVer=13.6.1&openid=oA0GbjuEEWGzxPZaKMZMzKBqcqHs&fskey=v0aaf8a8220600a5bb08d18d93d26eb4&appid=wxcbc3ab3807acb685&access_token=41_S7qDy2ZJ3Hba4uE2xnpRgIHkk9-FoZoOVNtac_HA1mTj6cm_F_hcbFm5No3YbsPax0B72A7bj_3-phZxvgqtAtQbOqBfd8vmg7pewa120Tg&buildType=store&check=11&_idfa=C6B1D4DF-7192-4D58-99E1-344E824B3474&lang=zh_CN
 	`
 
 let userkeyVal= `pgv_pvid=6402428650
 	`
-
 let cashheaderVal= `5
 	5
 	5`
