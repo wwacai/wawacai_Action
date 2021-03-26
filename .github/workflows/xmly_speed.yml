@@ -1,4 +1,4 @@
-name: Ï²ÂíÀ­ÑÅ¼«ËÙ°æ
+name: å–œé©¬æ‹‰é›…æé€Ÿç‰ˆ
 
 on:
     workflow_dispatch:
@@ -26,14 +26,14 @@ jobs:
                 pip install requests
                 pip install rsa
                 npm install util
-            - name: "°²×°ÒÀÀµ°ü"
+            - name: "å®‰è£…ä¾èµ–åŒ…"
               run: pip install -r ./requirements.txt
 
-            - name: "ÔËĞĞ Ï²ÂíÀ­ÑÅ¼«ËÙ°æ"
+            - name: "è¿è¡Œ å–œé©¬æ‹‰é›…æé€Ÿç‰ˆ"
               run: python3 Task/xmly_speed.py
               env:
-                  XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}  #±ØĞë cookie ¶àÕËºÅ \n ·Ö¸î
-                  AUTO_TAKE_OUT: ${{ secrets.AUTO_TAKE_OUT }}  #·Ç±ØĞë ÊÇ·ñ×Ô¶¯ÌáÏÖÖ§¸¶±¦20
-                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #·Ç±ØĞë tg»úÆ÷ÈËtoken
-                  TG_USER_ID: ${{ secrets.TG_USER_ID }}  #·Ç±ØĞë tg»úÆ÷ÈËuserId
+                  XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}  #å¿…é¡» cookie å¤šè´¦å· \n åˆ†å‰²
+                  AUTO_TAKE_OUT: ${{ secrets.AUTO_TAKE_OUT }}  #éå¿…é¡» æ˜¯å¦è‡ªåŠ¨æç°æ”¯ä»˜å®20
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #éå¿…é¡» tgæœºå™¨äººtoken
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}  #éå¿…é¡» tgæœºå™¨äººuserId
                   SYNCURL: https://raw.githubusercontent.com/whyour/hundun/master/quanx/xmly_speed.py
