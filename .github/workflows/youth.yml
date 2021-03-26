@@ -25,59 +25,8 @@ jobs:
       - name: "安装依赖包"
         run: pip install -r requirements.txt
 
-      - name: 'run 中青看点1'
+      - name: 'run 中青看点'
         run: python3 Task/youth.py
         env:
-          COOKIES: cookies1
-          PUSH_KEY: ${{ secrets.PUSH_KEY }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
-
-  build2:
-      runs-on: ubuntu-latest
-      if: github.event.repository.owner.id == github.event.sender.id
-      steps:
-        - name: Checkout`
-          uses: actions/checkout@v2
-
-        - name: 'Set up Python'
-          uses: actions/setup-python@v1
-          with:
-            python-version: 3.7
-
-        - name: 'Install requests'
-          run: pip install requests
-
-        - name: "安装依赖包"
-          run: pip install -r requirements.txt
-
-        - name: 'run 中青看点2'
-          run: python3 Task/youth.py
-          env:
-            COOKIES: cookies2
-            PUSH_KEY: ${{ secrets.PUSH_KEY }}
-            BARK_PUSH: ${{ secrets.BARK_PUSH }}
-            
-  build3:
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
-    steps:
-      - name: Checkout`
-        uses: actions/checkout@v2
-
-      - name: 'Set up Python'
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.7
-
-      - name: 'Install requests'
-        run: pip install requests
-
-      - name: "安装依赖包"
-        run: pip install -r requirements.txt
-
-      - name: 'run 中青看点3'
-        run: python3 Task/youth.py
-        env:
-          COOKIES: cookies3
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
