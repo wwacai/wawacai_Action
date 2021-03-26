@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # _*_ coding:utf-8 _*_
 
-# ´Ë½Å±¾²Î¿¼ https://github.com/Sunert/Scripts/blob/master/Task/youth.js
+# æ­¤è„šæœ¬å‚è€ƒ https://github.com/Sunert/Scripts/blob/master/Task/youth.js
 
 import traceback
 import time
@@ -12,10 +12,10 @@ import os
 from util import send, requests_session
 from datetime import datetime, timezone, timedelta
 
-# YOUTH_HEADER Îª¶ÔÏó, ÆäËû²ÎÊıÎª×Ö·û´®
-# Ñ¡ÔñÎ¢ĞÅÌáÏÖ30Ôª£¬Á¢¼´¶Ò»»£¬ÔÚÇëÇó°üÖĞÕÒµ½withdraw2µÄÇëÇó£¬¿½±´ÇëÇóbodyÀàĞÍ p=****** µÄ×Ö·û´®£¬·ÅÈëÏÂÃæ¶ÔÓ¦²ÎÊı¼´¿É YOUTH_WITHDRAWBODY
-# ·ÖÏíÒ»ÆªÎÄÕÂ£¬ÕÒµ½ put.json µÄÇëÇó£¬¿½±´ÇëÇóÌå£¬·ÅÈë¶ÔÓ¦²ÎÊı YOUTH_SHAREBODY
-# Çå³ıAppºóÌ¨£¬ÖØĞÂÆô¶¯App£¬ÕÒµ½ start.json µÄÇëÇó£¬¿½±´ÇëÇóÌå£¬·ÅÈë¶ÔÓ¦²ÎÊı YOUTH_STARTBODY
+# YOUTH_HEADER ä¸ºå¯¹è±¡, å…¶ä»–å‚æ•°ä¸ºå­—ç¬¦ä¸²
+# é€‰æ‹©å¾®ä¿¡æç°30å…ƒï¼Œç«‹å³å…‘æ¢ï¼Œåœ¨è¯·æ±‚åŒ…ä¸­æ‰¾åˆ°withdraw2çš„è¯·æ±‚ï¼Œæ‹·è´è¯·æ±‚bodyç±»å‹ p=****** çš„å­—ç¬¦ä¸²ï¼Œæ”¾å…¥ä¸‹é¢å¯¹åº”å‚æ•°å³å¯ YOUTH_WITHDRAWBODY
+# åˆ†äº«ä¸€ç¯‡æ–‡ç« ï¼Œæ‰¾åˆ° put.json çš„è¯·æ±‚ï¼Œæ‹·è´è¯·æ±‚ä½“ï¼Œæ”¾å…¥å¯¹åº”å‚æ•° YOUTH_SHAREBODY
+# æ¸…é™¤Appåå°ï¼Œé‡æ–°å¯åŠ¨Appï¼Œæ‰¾åˆ° start.json çš„è¯·æ±‚ï¼Œæ‹·è´è¯·æ±‚ä½“ï¼Œæ”¾å…¥å¯¹åº”å‚æ•° YOUTH_STARTBODY
 
 cookies1 = {
   'YOUTH_HEADER': {"Accept": "*/*","Accept-Encoding": "gzip, deflate, br","Accept-Language": "zh-cn","Connection": "keep-alive","Content-Type": "","Cookie": "Hm_lvt_268f0a31fc0d047e5253dd69ad3a4775=1616410326,1616410330,1616410341,1616410347; sensorsdata2019jssdkcross=%7B%22distinct_id%22%3A%2249551026%22%2C%22%24device_id%22%3A%22178594d929a9af-07037d27f9a77a-724c1151-370944-178594d929b10e4%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%22178594d929a9af-07037d27f9a77a-724c1151-370944-178594d929b10e4%22%7D; sajssdk_2019_cross_new_user=1","Host": "kd.youth.cn","Referer": "https://kd.youth.cn/h5/20190301taskcenter/ios/index.html?uuid=b9c6f64cc2a22570b18ff76b2b49b2c8&sign=f5fcbb1c75ffcee8626358b2b14d514a&channel_code=80000000&uid=49551026&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=2f3fa98006a9b445333c1a9154438e57&openudid=b9c6f64cc2a22570b18ff76b2b49b2c8&device_type=1&device_brand=iphone&sm_device_id=20201128104856f4dab4b672ff5f451a1ac0dc61f370ad0118dbfb33459f28&device_id=48527064&version_code=202&os_version=13.6&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWKyt4lqhIx236_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFonqYr6miZIOJiWyEY2Ft&device_model=iPhone_6_Plus&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWKyt4lqhIx236_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFonqYr6miZIOJiWyEY2Ft&cookie_id=2f3fa98006a9b445333c1a9154438e57","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148","X-Requested-With": "XMLHttpRequest"},
@@ -50,9 +50,9 @@ cookies4 = {
   'YOUTH_STARTBODY': 'access=WIFI&app_version=2.0.2&channel=80000000&channel_code=80000000&cid=80000000&client_version=2.0.2&device_brand=iphone&device_id=50788190&device_model=iPhone&device_platform=iphone&device_type=iphone&isnew=1&mobile_type=2&net_type=1&openudid=ab4246bab983396ccf50994c779c9b52&os_version=13.6&phone_code=ab4246bab983396ccf50994c779c9b52&phone_network=WIFI&platform=3&request_time=1616390020&resolution=828x1792&sm_device_id=20201128104856f4dab4b672ff5f451a1ac0dc61f370ad0118dbfb33459f28&szlm_ddid=D2OK2fPp1do5vVBCVUpVWSvdtmlzYRLVvDt6UZzFTN47wX19&time=1616390020&token=1a9a811a09d4fff07b419e298aec3fbc&uid=53470502&uuid=ab4246bab983396ccf50994c779c9b52'
 }
 
-COOKIELIST = [cookies1,cookies2,cookies3,cookies4,]  # ¶àÕËºÅ×¼±¸
+COOKIELIST = [cookies1,cookies2,cookies3,cookies4,]  # å¤šè´¦å·å‡†å¤‡
 
-# ac¶ÁÈ¡»·¾³±äÁ¿
+# acè¯»å–ç¯å¢ƒå˜é‡
 if "YOUTH_HEADER1" in os.environ:
   COOKIELIST = []
   for i in range(5):
@@ -79,17 +79,17 @@ YOUTH_HOST = "https://kd.youth.cn/WebApi/"
 
 def get_standard_time():
   """
-  »ñÈ¡utcÊ±¼äºÍ±±¾©Ê±¼ä
+  è·å–utcæ—¶é—´å’ŒåŒ—äº¬æ—¶é—´
   :return:
   """
   # <class 'datetime.datetime'>
-  utc_datetime = datetime.utcnow().replace(tzinfo=timezone.utc)  # utcÊ±¼ä
-  beijing_datetime = utc_datetime.astimezone(timezone(timedelta(hours=8)))  # ±±¾©Ê±¼ä
+  utc_datetime = datetime.utcnow().replace(tzinfo=timezone.utc)  # utcæ—¶é—´
+  beijing_datetime = utc_datetime.astimezone(timezone(timedelta(hours=8)))  # åŒ—äº¬æ—¶é—´
   return beijing_datetime
 
 def pretty_dict(dict):
     """
-    ¸ñÊ½»¯Êä³ö json »òÕß dict ¸ñÊ½µÄ±äÁ¿
+    æ ¼å¼åŒ–è¾“å‡º json æˆ–è€… dict æ ¼å¼çš„å˜é‡
     :param dict:
     :return:
     """
@@ -97,7 +97,7 @@ def pretty_dict(dict):
 
 def sign(headers):
   """
-  Ç©µ½
+  ç­¾åˆ°
   :param headers:
   :return:
   """
@@ -105,7 +105,7 @@ def sign(headers):
   url = 'https://kd.youth.cn/TaskCenter/sign'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('Ç©µ½')
+    print('ç­¾åˆ°')
     print(response)
     if response['status'] == 1:
       return response
@@ -117,7 +117,7 @@ def sign(headers):
 
 def signInfo(headers):
   """
-  Ç©µ½ÏêÇé
+  ç­¾åˆ°è¯¦æƒ…
   :param headers:
   :return:
   """
@@ -125,7 +125,7 @@ def signInfo(headers):
   url = 'https://kd.youth.cn/TaskCenter/getSign'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('Ç©µ½ÏêÇé')
+    print('ç­¾åˆ°è¯¦æƒ…')
     print(response)
     if response['status'] == 1:
       return response['data']
@@ -137,7 +137,7 @@ def signInfo(headers):
 
 def punchCard(headers):
   """
-  ´ò¿¨±¨Ãû
+  æ‰“å¡æŠ¥å
   :param headers:
   :return:
   """
@@ -145,7 +145,7 @@ def punchCard(headers):
   url = f'{YOUTH_HOST}PunchCard/signUp'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('´ò¿¨±¨Ãû')
+    print('æ‰“å¡æŠ¥å')
     print(response)
     if response['code'] == 1:
       return response
@@ -157,7 +157,7 @@ def punchCard(headers):
 
 def doCard(headers):
   """
-  ÔçÆğ´ò¿¨
+  æ—©èµ·æ‰“å¡
   :param headers:
   :return:
   """
@@ -165,7 +165,7 @@ def doCard(headers):
   url = f'{YOUTH_HOST}PunchCard/doCard'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('ÔçÆğ´ò¿¨')
+    print('æ—©èµ·æ‰“å¡')
     print(response)
     if response['code'] == 1:
       shareCard(headers=headers)
@@ -178,7 +178,7 @@ def doCard(headers):
 
 def shareCard(headers):
   """
-  ´ò¿¨·ÖÏí
+  æ‰“å¡åˆ†äº«
   :param headers:
   :return:
   """
@@ -187,7 +187,7 @@ def shareCard(headers):
   endUrl = f'{YOUTH_HOST}PunchCard/shareEnd'
   try:
     response = requests_session().post(url=startUrl, headers=headers, timeout=30).json()
-    print('´ò¿¨·ÖÏí')
+    print('æ‰“å¡åˆ†äº«')
     print(response)
     if response['code'] == 1:
       time.sleep(0.3)
@@ -202,7 +202,7 @@ def shareCard(headers):
 
 def luckDraw(headers):
   """
-  ´ò¿¨·ÖÏí
+  æ‰“å¡åˆ†äº«
   :param headers:
   :return:
   """
@@ -210,7 +210,7 @@ def luckDraw(headers):
   url = f'{YOUTH_HOST}PunchCard/luckdraw'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('ÆßÈÕÇ©µ½')
+    print('ä¸ƒæ—¥ç­¾åˆ°')
     print(response)
     if response['code'] == 1:
       return response['data']
@@ -222,7 +222,7 @@ def luckDraw(headers):
 
 def timePacket(headers):
   """
-  ¼ÆÊ±ºì°ü
+  è®¡æ—¶çº¢åŒ…
   :param headers:
   :return:
   """
@@ -230,7 +230,7 @@ def timePacket(headers):
   url = f'{YOUTH_HOST}TimePacket/getReward'
   try:
     response = requests_session().post(url=url, data=f'{headers["Referer"].split("?")[1]}', headers=headers, timeout=30).json()
-    print('¼ÆÊ±ºì°ü')
+    print('è®¡æ—¶çº¢åŒ…')
     print(response)
     return
   except:
@@ -239,7 +239,7 @@ def timePacket(headers):
 
 def watchWelfareVideo(headers):
   """
-  ¹Û¿´¸£ÀûÊÓÆµ
+  è§‚çœ‹ç¦åˆ©è§†é¢‘
   :param headers:
   :return:
   """
@@ -247,7 +247,7 @@ def watchWelfareVideo(headers):
   url = f'{YOUTH_HOST}NewTaskIos/recordNum?{headers["Referer"].split("?")[1]}'
   try:
     response = requests_session().get(url=url, headers=headers, timeout=30).json()
-    print('¹Û¿´¸£ÀûÊÓÆµ')
+    print('è§‚çœ‹ç¦åˆ©è§†é¢‘')
     print(response)
     return
   except:
@@ -256,7 +256,7 @@ def watchWelfareVideo(headers):
 
 def shareArticle(headers, body):
   """
-  ·ÖÏíÎÄÕÂ
+  åˆ†äº«æ–‡ç« 
   :param headers:
   :return:
   """
@@ -264,7 +264,7 @@ def shareArticle(headers, body):
   headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('·ÖÏíÎÄÕÂ')
+    print('åˆ†äº«æ–‡ç« ')
     print(response)
     return
   except:
@@ -273,7 +273,7 @@ def shareArticle(headers, body):
 
 def threeShare(headers, action):
   """
-  Èı²Í·ÖÏí
+  ä¸‰é¤åˆ†äº«
   :param headers:
   :return:
   """
@@ -283,7 +283,7 @@ def threeShare(headers, action):
   body = f'{headers["Referer"].split("?")[1]}&action={action}'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('Èı²Í·ÖÏí')
+    print('ä¸‰é¤åˆ†äº«')
     print(response)
     return
   except:
@@ -292,7 +292,7 @@ def threeShare(headers, action):
 
 def openBox(headers):
   """
-  ¿ªÆô±¦Ïä
+  å¼€å¯å®ç®±
   :param headers:
   :return:
   """
@@ -300,7 +300,7 @@ def openBox(headers):
   url = f'{YOUTH_HOST}invite/openHourRed'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('¿ªÆô±¦Ïä')
+    print('å¼€å¯å®ç®±')
     print(response)
     if response['code'] == 1:
       share_box_res = shareBox(headers=headers)
@@ -313,7 +313,7 @@ def openBox(headers):
 
 def shareBox(headers):
   """
-  ±¦Ïä·ÖÏí
+  å®ç®±åˆ†äº«
   :param headers:
   :return:
   """
@@ -321,7 +321,7 @@ def shareBox(headers):
   url = f'{YOUTH_HOST}invite/shareEnd'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('±¦Ïä·ÖÏí')
+    print('å®ç®±åˆ†äº«')
     print(response)
     if response['code'] == 1:
       return response['data']
@@ -333,7 +333,7 @@ def shareBox(headers):
 
 def friendList(headers):
   """
-  ºÃÓÑÁĞ±í
+  å¥½å‹åˆ—è¡¨
   :param headers:
   :return:
   """
@@ -341,7 +341,7 @@ def friendList(headers):
   url = f'{YOUTH_HOST}ShareSignNew/getFriendActiveList'
   try:
     response = requests_session().get(url=url, headers=headers, timeout=30).json()
-    print('ºÃÓÑÁĞ±í')
+    print('å¥½å‹åˆ—è¡¨')
     print(response)
     if response['error_code'] == '0':
       if len(response['data']['active_list']) > 0:
@@ -358,7 +358,7 @@ def friendList(headers):
 
 def friendSign(headers, uid):
   """
-  ºÃÓÑÇ©µ½
+  å¥½å‹ç­¾åˆ°
   :param headers:
   :return:
   """
@@ -366,7 +366,7 @@ def friendSign(headers, uid):
   url = f'{YOUTH_HOST}ShareSignNew/sendScoreV2?friend_uid={uid}'
   try:
     response = requests_session().get(url=url, headers=headers, timeout=30).json()
-    print('ºÃÓÑÇ©µ½')
+    print('å¥½å‹ç­¾åˆ°')
     print(response)
     if response['error_code'] == '0':
       return response['data']
@@ -378,7 +378,7 @@ def friendSign(headers, uid):
 
 def sendTwentyScore(headers, action):
   """
-  Ã¿ÈÕÈÎÎñ
+  æ¯æ—¥ä»»åŠ¡
   :param headers:
   :return:
   """
@@ -386,7 +386,7 @@ def sendTwentyScore(headers, action):
   url = f'{YOUTH_HOST}NewTaskIos/sendTwentyScore?{headers["Referer"].split("?")[1]}&action={action}'
   try:
     response = requests_session().get(url=url, headers=headers, timeout=30).json()
-    print(f'Ã¿ÈÕÈÎÎñ {action}')
+    print(f'æ¯æ—¥ä»»åŠ¡ {action}')
     print(response)
     if response['status'] == 1:
       return response
@@ -398,7 +398,7 @@ def sendTwentyScore(headers, action):
 
 def watchAdVideo(headers):
   """
-  ¿´¹ã¸æÊÓÆµ
+  çœ‹å¹¿å‘Šè§†é¢‘
   :param headers:
   :return:
   """
@@ -407,7 +407,7 @@ def watchAdVideo(headers):
   headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
   try:
     response = requests_session().post(url=url, data="type=taskCenter", headers=headers, timeout=30).json()
-    print('¿´¹ã¸æÊÓÆµ')
+    print('çœ‹å¹¿å‘Šè§†é¢‘')
     print(response)
     if response['status'] == 1:
       return response
@@ -419,7 +419,7 @@ def watchAdVideo(headers):
 
 def watchGameVideo(body):
   """
-  ¼¤ÀøÊÓÆµ
+  æ¿€åŠ±è§†é¢‘
   :param headers:
   :return:
   """
@@ -428,7 +428,7 @@ def watchGameVideo(body):
   headers = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}
   try:
     response = requests_session().post(url=url, headers=headers, data=body, timeout=30).json()
-    print('¼¤ÀøÊÓÆµ')
+    print('æ¿€åŠ±è§†é¢‘')
     print(response)
     if response['success'] == True:
       return response['items']
@@ -440,7 +440,7 @@ def watchGameVideo(body):
 
 def visitReward(body):
   """
-  »Ø·Ã½±Àø
+  å›è®¿å¥–åŠ±
   :param headers:
   :return:
   """
@@ -452,7 +452,7 @@ def visitReward(body):
   }
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('»Ø·Ã½±Àø')
+    print('å›è®¿å¥–åŠ±')
     print(response)
     if response['success'] == True:
       return response['items']
@@ -464,7 +464,7 @@ def visitReward(body):
 
 def articleRed(body):
   """
-  ¾ªÏ²ºì°ü
+  æƒŠå–œçº¢åŒ…
   :param headers:
   :return:
   """
@@ -476,7 +476,7 @@ def articleRed(body):
   }
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('¾ªÏ²ºì°ü')
+    print('æƒŠå–œçº¢åŒ…')
     print(response)
     if response['success'] == True:
       return response['items']
@@ -488,7 +488,7 @@ def articleRed(body):
 
 def readTime(body):
   """
-  ÔÄ¶ÁÊ±³¤
+  é˜…è¯»æ—¶é•¿
   :param headers:
   :return:
   """
@@ -500,7 +500,7 @@ def readTime(body):
   }
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('ÔÄ¶ÁÊ±³¤')
+    print('é˜…è¯»æ—¶é•¿')
     print(response)
     if response['error_code'] == '0':
       return response
@@ -512,7 +512,7 @@ def readTime(body):
 
 def rotary(headers, body):
   """
-  ×ªÅÌÈÎÎñ
+  è½¬ç›˜ä»»åŠ¡
   :param headers:
   :return:
   """
@@ -521,7 +521,7 @@ def rotary(headers, body):
   url = f'{YOUTH_HOST}RotaryTable/turnRotary?_={currentTime}'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('×ªÅÌÈÎÎñ')
+    print('è½¬ç›˜ä»»åŠ¡')
     print(response)
     return response
   except:
@@ -530,7 +530,7 @@ def rotary(headers, body):
 
 def rotaryChestReward(headers, body):
   """
-  ×ªÅÌ±¦Ïä
+  è½¬ç›˜å®ç®±
   :param headers:
   :return:
   """
@@ -539,7 +539,7 @@ def rotaryChestReward(headers, body):
   url = f'{YOUTH_HOST}RotaryTable/getData?_={currentTime}'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('×ªÅÌ±¦Ïä')
+    print('è½¬ç›˜å®ç®±')
     print(response)
     if response['status'] == 1:
       i = 0
@@ -558,7 +558,7 @@ def rotaryChestReward(headers, body):
 
 def runRotary(headers, body):
   """
-  ×ªÅÌ±¦Ïä
+  è½¬ç›˜å®ç®±
   :param headers:
   :return:
   """
@@ -567,7 +567,7 @@ def runRotary(headers, body):
   url = f'{YOUTH_HOST}RotaryTable/chestReward?_={currentTime}'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('ÁìÈ¡±¦Ïä')
+    print('é¢†å–å®ç®±')
     print(response)
     if response['status'] == 1:
       return response['data']
@@ -579,7 +579,7 @@ def runRotary(headers, body):
 
 def doubleRotary(headers, body):
   """
-  ×ªÅÌË«±¶
+  è½¬ç›˜åŒå€
   :param headers:
   :return:
   """
@@ -588,7 +588,7 @@ def doubleRotary(headers, body):
   url = f'{YOUTH_HOST}RotaryTable/toTurnDouble?_={currentTime}'
   try:
     response = requests_session().post(url=url, data=body, headers=headers, timeout=30).json()
-    print('×ªÅÌË«±¶')
+    print('è½¬ç›˜åŒå€')
     print(response)
     if response['status'] == 1:
       return response['data']
@@ -600,7 +600,7 @@ def doubleRotary(headers, body):
 
 def incomeStat(headers):
   """
-  ÊÕÒæÍ³¼Æ
+  æ”¶ç›Šç»Ÿè®¡
   :param headers:
   :return:
   """
@@ -608,7 +608,7 @@ def incomeStat(headers):
   url = f'https://kd.youth.cn/wap/user/balance?{headers["Referer"].split("?")[1]}'
   try:
     response = requests_session().get(url=url, headers=headers, timeout=50).json()
-    print('ÊÕÒæÍ³¼Æ')
+    print('æ”¶ç›Šç»Ÿè®¡')
     print(response)
     if response['status'] == 0:
       return response
@@ -620,7 +620,7 @@ def incomeStat(headers):
 
 def withdraw(body):
   """
-  ×Ô¶¯ÌáÏÖ
+  è‡ªåŠ¨æç°
   :param headers:
   :return:
   """
@@ -632,7 +632,7 @@ def withdraw(body):
   }
   try:
     response = requests_session().post(url=url, headers=headers, data=body, timeout=30).json()
-    print('×Ô¶¯ÌáÏÖ')
+    print('è‡ªåŠ¨æç°')
     print(response)
     if response['success'] == True:
       return response['items']
@@ -644,7 +644,7 @@ def withdraw(body):
 
 def bereadRed(headers):
   """
-  Ê±¶Îºì°ü
+  æ—¶æ®µçº¢åŒ…
   :param headers:
   :return:
   """
@@ -652,7 +652,7 @@ def bereadRed(headers):
   url = f'{YOUTH_HOST}Task/receiveBereadRed'
   try:
     response = requests_session().post(url=url, headers=headers, timeout=30).json()
-    print('Ê±¶Îºì°ü')
+    print('æ—¶æ®µçº¢åŒ…')
     print(response)
     if response['code'] == 1:
       return response['data']
@@ -664,7 +664,7 @@ def bereadRed(headers):
 
 def startApp(headers, body):
   """
-  Æô¶¯App
+  å¯åŠ¨App
   :param headers:
   :return:
   """
@@ -676,7 +676,7 @@ def startApp(headers, body):
   }
   try:
     response = requests_session().post(url=url, headers=headers, data=body, timeout=30).json()
-    print('Æô¶¯App')
+    print('å¯åŠ¨App')
     print(response)
     if response['success'] == True:
       return response
@@ -687,11 +687,11 @@ def startApp(headers, body):
     return
 
 def run():
-  title = f'??ÖĞÇà¿´µã'
+  title = f'??ä¸­é’çœ‹ç‚¹'
   content = ''
   result = ''
   beijing_datetime = get_standard_time()
-  print(f'\n¡¾ÖĞÇà¿´µã¡¿{beijing_datetime.strftime("%Y-%m-%d %H:%M:%S")}')
+  print(f'\nã€ä¸­é’çœ‹ç‚¹ã€‘{beijing_datetime.strftime("%Y-%m-%d %H:%M:%S")}')
   hour = beijing_datetime.hour
   for i, account in enumerate(COOKIELIST):
     headers = account.get('YOUTH_HEADER')
@@ -706,31 +706,31 @@ def run():
       startApp(headers=headers, body=startBody)
     sign_res = sign(headers=headers)
     if sign_res and sign_res['status'] == 1:
-      content += f'¡¾Ç©µ½½á¹û¡¿£º³É¹¦ ?? Ã÷ÈÕ+{sign_res["nextScore"]}Çà¶¹'
+      content += f'ã€ç­¾åˆ°ç»“æœã€‘ï¼šæˆåŠŸ ?? æ˜æ—¥+{sign_res["nextScore"]}é’è±†'
     elif sign_res and sign_res['status'] == 2:
-      send(title=title, content=f'¡¾ÕË»§{i+1}¡¿CookieÒÑ¹ıÆÚ£¬Çë¼°Ê±ÖØĞÂ»ñÈ¡')
+      send(title=title, content=f'ã€è´¦æˆ·{i+1}ã€‘Cookieå·²è¿‡æœŸï¼Œè¯·åŠæ—¶é‡æ–°è·å–')
       continue
 
     sign_info = signInfo(headers=headers)
     if sign_info:
-      content += f'\n¡¾ÕËºÅ¡¿£º{sign_info["user"]["nickname"]}'
-      content += f'\n¡¾Ç©µ½¡¿£º+{sign_info["sign_score"]}Çà¶¹ ÒÑÁ¬Ç©{sign_info["total_sign_days"]}Ìì'
-      result += f'¡¾ÕËºÅ¡¿: {sign_info["user"]["nickname"]}'
+      content += f'\nã€è´¦å·ã€‘ï¼š{sign_info["user"]["nickname"]}'
+      content += f'\nã€ç­¾åˆ°ã€‘ï¼š+{sign_info["sign_score"]}é’è±† å·²è¿ç­¾{sign_info["total_sign_days"]}å¤©'
+      result += f'ã€è´¦å·ã€‘: {sign_info["user"]["nickname"]}'
     friendList(headers=headers)
     if hour > 12:
       punch_card_res = punchCard(headers=headers)
       if punch_card_res:
-        content += f'\n¡¾´ò¿¨±¨Ãû¡¿£º´ò¿¨±¨Ãû{punch_card_res["msg"]} ?'
+        content += f'\nã€æ‰“å¡æŠ¥åã€‘ï¼šæ‰“å¡æŠ¥å{punch_card_res["msg"]} ?'
     if hour >= 5 and hour <= 8:
       do_card_res = doCard(headers=headers)
       if do_card_res:
-        content += f'\n¡¾ÔçÆğ´ò¿¨¡¿£º{do_card_res["card_time"]} ?'
+        content += f'\nã€æ—©èµ·æ‰“å¡ã€‘ï¼š{do_card_res["card_time"]} ?'
     luck_draw_res = luckDraw(headers=headers)
     if luck_draw_res:
-      content += f'\n¡¾ÆßÈÕÇ©µ½¡¿£º+{luck_draw_res["score"]}Çà¶¹'
+      content += f'\nã€ä¸ƒæ—¥ç­¾åˆ°ã€‘ï¼š+{luck_draw_res["score"]}é’è±†'
     visit_reward_res = visitReward(body=readBody)
     if visit_reward_res:
-      content += f'\n¡¾»Ø·Ã½±Àø¡¿£º+{visit_reward_res["score"]}Çà¶¹'
+      content += f'\nã€å›è®¿å¥–åŠ±ã€‘ï¼š+{visit_reward_res["score"]}é’è±†'
     if shareBody:
       shareArticle(headers=headers, body=shareBody)
       for action in ['beread_extra_reward_one', 'beread_extra_reward_two', 'beread_extra_reward_three']:
@@ -738,20 +738,20 @@ def run():
         threeShare(headers=headers, action=action)
     open_box_res = openBox(headers=headers)
     if open_box_res:
-      content += f'\n¡¾¿ªÆô±¦Ïä¡¿£º+{open_box_res["score"]}Çà¶¹ ÏÂ´Î½±Àø{open_box_res["time"] / 60}·ÖÖÓ'
+      content += f'\nã€å¼€å¯å®ç®±ã€‘ï¼š+{open_box_res["score"]}é’è±† ä¸‹æ¬¡å¥–åŠ±{open_box_res["time"] / 60}åˆ†é’Ÿ'
     watch_ad_video_res = watchAdVideo(headers=headers)
     if watch_ad_video_res:
-      content += f'\n¡¾¹Û¿´ÊÓÆµ¡¿£º+{watch_ad_video_res["score"]}¸öÇà¶¹'
+      content += f'\nã€è§‚çœ‹è§†é¢‘ã€‘ï¼š+{watch_ad_video_res["score"]}ä¸ªé’è±†'
     watch_game_video_res = watchGameVideo(body=readBody)
     if watch_game_video_res:
-      content += f'\n¡¾¼¤ÀøÊÓÆµ¡¿£º{watch_game_video_res["score"]}¸öÇà¶¹'
+      content += f'\nã€æ¿€åŠ±è§†é¢‘ã€‘ï¼š{watch_game_video_res["score"]}ä¸ªé’è±†'
     read_time_res = readTime(body=readTimeBody)
     if read_time_res:
-      content += f'\n¡¾ÔÄ¶ÁÊ±³¤¡¿£º¹²¼Æ{int(read_time_res["time"]) // 60}·ÖÖÓ'
+      content += f'\nã€é˜…è¯»æ—¶é•¿ã€‘ï¼šå…±è®¡{int(read_time_res["time"]) // 60}åˆ†é’Ÿ'
     if (hour >= 6 and hour <= 8) or (hour >= 11 and hour <= 13) or (hour >= 19 and hour <= 21):
       beread_red_res = bereadRed(headers=headers)
       if beread_red_res:
-        content += f'\n¡¾Ê±¶Îºì°ü¡¿£º+{beread_red_res["score"]}¸öÇà¶¹'
+        content += f'\nã€æ—¶æ®µçº¢åŒ…ã€‘ï¼š+{beread_red_res["score"]}ä¸ªé’è±†'
     for i in range(0, 5):
       time.sleep(5)
       rotary_res = rotary(headers=headers, body=rotaryBody)
@@ -759,11 +759,11 @@ def run():
         if rotary_res['status'] == 0:
           break
         elif rotary_res['status'] == 1:
-          content += f'\n¡¾×ªÅÌ³é½±¡¿£º+{rotary_res["data"]["score"]}¸öÇà¶¹ Ê£Óà{rotary_res["data"]["remainTurn"]}´Î'
+          content += f'\nã€è½¬ç›˜æŠ½å¥–ã€‘ï¼š+{rotary_res["data"]["score"]}ä¸ªé’è±† å‰©ä½™{rotary_res["data"]["remainTurn"]}æ¬¡'
           if rotary_res['data']['doubleNum'] != 0 and rotary_res['data']['score'] > 0:
             double_rotary_res = doubleRotary(headers=headers, body=rotaryBody)
             if double_rotary_res:
-              content += f'\n¡¾×ªÅÌË«±¶¡¿£º+{double_rotary_res["score"]}Çà¶¹ Ê£Óà{double_rotary_res["doubleNum"]}´Î'
+              content += f'\nã€è½¬ç›˜åŒå€ã€‘ï¼š+{double_rotary_res["score"]}é’è±† å‰©ä½™{double_rotary_res["doubleNum"]}æ¬¡'
 
     rotaryChestReward(headers=headers, body=rotaryBody)
     for i in range(5):
@@ -775,7 +775,7 @@ def run():
     stat_res = incomeStat(headers=headers)
     if stat_res['status'] == 0:
       for group in stat_res['history'][0]['group']:
-        content += f'\n¡¾{group["name"]}¡¿£º+{group["money"]}Çà¶¹'
+        content += f'\nã€{group["name"]}ã€‘ï¼š+{group["money"]}é’è±†'
       today_score = int(stat_res["user"]["today_score"])
       score = int(stat_res["user"]["score"])
       total_score = int(stat_res["user"]["total_score"])
@@ -783,26 +783,26 @@ def run():
       if score >= 300000 and withdrawBody:
         with_draw_res = withdraw(body=withdrawBody)
         if with_draw_res:
-          result += f'\n¡¾×Ô¶¯ÌáÏÖ¡¿£º·¢ÆğÌáÏÖ30Ôª³É¹¦'
-          content += f'\n¡¾×Ô¶¯ÌáÏÖ¡¿£º·¢ÆğÌáÏÖ30Ôª³É¹¦'
-          send(title=title, content=f'¡¾ÕËºÅ¡¿: {sign_info["user"]["nickname"]} ·¢ÆğÌáÏÖ30Ôª³É¹¦')
+          result += f'\nã€è‡ªåŠ¨æç°ã€‘ï¼šå‘èµ·æç°30å…ƒæˆåŠŸ'
+          content += f'\nã€è‡ªåŠ¨æç°ã€‘ï¼šå‘èµ·æç°30å…ƒæˆåŠŸ'
+          send(title=title, content=f'ã€è´¦å·ã€‘: {sign_info["user"]["nickname"]} å‘èµ·æç°30å…ƒæˆåŠŸ')
 
-      result += f'\n¡¾½ñÈÕÊÕÒæ¡¿£º+{"{:4.2f}".format(today_score / 10000)}'
-      content += f'\n¡¾½ñÈÕÊÕÒæ¡¿£º+{"{:4.2f}".format(today_score / 10000)}'
-      result += f'\n¡¾ÕË»§Ê£Óà¡¿£º{"{:4.2f}".format(score / 10000)}'
-      content += f'\n¡¾ÕË»§Ê£Óà¡¿£º{"{:4.2f}".format(score / 10000)}'
-      result += f'\n¡¾ÀúÊ·ÊÕÒæ¡¿£º{"{:4.2f}".format(total_score / 10000)}\n\n'
-      content += f'\n¡¾ÀúÊ·ÊÕÒæ¡¿£º{"{:4.2f}".format(total_score / 10000)}\n'
+      result += f'\nã€ä»Šæ—¥æ”¶ç›Šã€‘ï¼š+{"{:4.2f}".format(today_score / 10000)}'
+      content += f'\nã€ä»Šæ—¥æ”¶ç›Šã€‘ï¼š+{"{:4.2f}".format(today_score / 10000)}'
+      result += f'\nã€è´¦æˆ·å‰©ä½™ã€‘ï¼š{"{:4.2f}".format(score / 10000)}'
+      content += f'\nã€è´¦æˆ·å‰©ä½™ã€‘ï¼š{"{:4.2f}".format(score / 10000)}'
+      result += f'\nã€å†å²æ”¶ç›Šã€‘ï¼š{"{:4.2f}".format(total_score / 10000)}\n\n'
+      content += f'\nã€å†å²æ”¶ç›Šã€‘ï¼š{"{:4.2f}".format(total_score / 10000)}\n'
 
   print(content)
 
-  # Ã¿Ìì 23:00 ·¢ËÍÏûÏ¢ÍÆËÍ
+  # æ¯å¤© 23:00 å‘é€æ¶ˆæ¯æ¨é€
   if beijing_datetime.hour == 23 and beijing_datetime.minute >= 0 and beijing_datetime.minute < 30:
     send(title=title, content=result)
   elif not beijing_datetime.hour == 23:
-    print('Î´½øĞĞÏûÏ¢ÍÆËÍ£¬Ô­Òò£ºÃ»µ½¶ÔÓ¦µÄÍÆËÍÊ±¼äµã\n')
+    print('æœªè¿›è¡Œæ¶ˆæ¯æ¨é€ï¼ŒåŸå› ï¼šæ²¡åˆ°å¯¹åº”çš„æ¨é€æ—¶é—´ç‚¹\n')
   else:
-    print('Î´ÔÚ¹æ¶¨µÄÊ±¼ä·¶Î§ÄÚ\n')
+    print('æœªåœ¨è§„å®šçš„æ—¶é—´èŒƒå›´å†…\n')
 
 if __name__ == '__main__':
     run()
