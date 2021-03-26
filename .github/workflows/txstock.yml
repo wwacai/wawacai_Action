@@ -18,14 +18,12 @@ jobs:
           node-version: 14.x
       - name: npm install
         run: |
-          cd ~/js
           npm install
           npm install cron
           npm install request
           curl ipinfo.io/txstockCOOKIE.js
       - name: '运行 【腾讯自选股】'
         run: |
-          cd ~/js   
           node Task/txstock.js
     env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
