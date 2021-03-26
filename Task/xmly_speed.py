@@ -718,7 +718,7 @@ def saveListenTime(cookies, date_stamp):
         'Host': 'mobile.ximalaya.com',
         'Content-Type': 'application/x-www-form-urlencoded',
     }
-    listentime = date_stamp//60
+    listentime = date_stamp//50
     print(f"收听时长1: {date_stamp}分钟")
     print(f"上传本地收听时长1: {listentime//60}分钟")
     currentTimeMillis = int(time.time()*1000)-2
@@ -748,8 +748,8 @@ def listenData(cookies, date_stamp):
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json',
     }
-    listentime = date_stamp//60-1
-    print(f"收听时长1: {listentime}分钟")
+    listentime = (date_stamp//50)-1
+    print(f"收听时长1: {date_stamp}分钟")
     print(f"上传本地收听时长2: {listentime//60}分钟")
     currentTimeMillis = int(time.time()*1000)
     uid = get_uid(cookies)
