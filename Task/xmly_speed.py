@@ -37,7 +37,7 @@ if "AUTO_TAKE_OUT" in os.environ:
     autoTakeOut = os.environ["AUTO_TAKE_OUT"]
 
 # 自定义设备命名,非必须 ;devices=["iPhone7P","huawei"];与cookiesList对应
-devices = ["iPhone11","iPhone 7 Plus"]
+devices = ["iPhone11","iPhone 7 Plus","iPhone11"]
 notify_time = 23                            # 通知时间,24小时制,默认19
 XMLY_ACCUMULATE_TIME = 1                    # 希望刷时长的,此处置1,默认打开;关闭置0
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 iting/2.1.3 kdtunion_iting/1.0 iting(main)/2.1.3/ios_1"
