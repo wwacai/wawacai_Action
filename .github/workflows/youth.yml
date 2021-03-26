@@ -26,7 +26,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 'run 中青看点'
-        run: python3 Task/youth.py
+        run: python3 Task/youth.js
         env:            
             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}  #非必须 tg机器人token
             TG_USER_ID: ${{ secrets.TG_USER_ID }}  #非必须 tg机器人userId
