@@ -9,26 +9,26 @@ import os
 import re
 from util import send, requests_session
 
-# ²Î¿¼ https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.py
+# å‚è€ƒ https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.py
 
 cookies1 = ""
 
 cookies2 = ""
 
-cookiesList = [cookies1, ]   # ¶àÕËºÅ×¼±¸
+cookiesList = [cookies1, ]   # å¤šè´¦å·å‡†å¤‡
 
-# Ä¬ÈÏ²»×Ô¶¯ÌáÏÖ
+# é»˜è®¤ä¸è‡ªåŠ¨æç°
 autoTakeOut = True
-# ÌáÏÖ½ğ¶î
+# æç°é‡‘é¢
 amount = 20
 takeOutType = 1
-# ÌáÏÖÕË»§: 1 -> Ö§¸¶±¦ 2 -> Î¢ĞÅ
+# æç°è´¦æˆ·: 1 -> æ”¯ä»˜å® 2 -> å¾®ä¿¡
 thirdPayType = 1
 
-# ac¶ÁÈ¡»·¾³±äÁ¿
+# acè¯»å–ç¯å¢ƒå˜é‡
 if "XMLY_SPEED_COOKIE" in os.environ:
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
-    cookiesList = []  # ÖØÖÃcookiesList
+    cookiesList = []  # é‡ç½®cookiesList
     for line in xmly_speed_cookie.split('\n'):
         if not line:
             continue
@@ -36,12 +36,12 @@ if "XMLY_SPEED_COOKIE" in os.environ:
 if "AUTO_TAKE_OUT" in os.environ:
     autoTakeOut = os.environ["AUTO_TAKE_OUT"]
 
-# ×Ô¶¨ÒåÉè±¸ÃüÃû,·Ç±ØĞë ;devices=["iPhone7P","huawei"];ÓëcookiesList¶ÔÓ¦
+# è‡ªå®šä¹‰è®¾å¤‡å‘½å,éå¿…é¡» ;devices=["iPhone7P","huawei"];ä¸cookiesListå¯¹åº”
 devices = ["iPhone11","iPhone 7 Plus"]
-notify_time = 23                            # Í¨ÖªÊ±¼ä,24Ğ¡Ê±ÖÆ,Ä¬ÈÏ19
-XMLY_ACCUMULATE_TIME = 1                    # Ï£ÍûË¢Ê±³¤µÄ,´Ë´¦ÖÃ1,Ä¬ÈÏ´ò¿ª;¹Ø±ÕÖÃ0
+notify_time = 23                            # é€šçŸ¥æ—¶é—´,24å°æ—¶åˆ¶,é»˜è®¤19
+XMLY_ACCUMULATE_TIME = 1                    # å¸Œæœ›åˆ·æ—¶é•¿çš„,æ­¤å¤„ç½®1,é»˜è®¤æ‰“å¼€;å…³é—­ç½®0
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101 iting/2.1.3 kdtunion_iting/1.0 iting(main)/2.1.3/ios_1"
-# ·ÇiOSÉè±¸µÄĞèÒªµÄ×ÔĞĞĞŞ¸Ä,×Ô¼º×¥°ü ÓëcookieĞÎÊ½ÀàËÆ
+# éiOSè®¾å¤‡çš„éœ€è¦çš„è‡ªè¡Œä¿®æ”¹,è‡ªå·±æŠ“åŒ… ä¸cookieå½¢å¼ç±»ä¼¼
 
 def str2dict(str_cookie):
     if type(str_cookie) == dict:
@@ -63,23 +63,23 @@ def str2dict(str_cookie):
         print(dict_cookie["1&_device"])
 
     except (IndexError, KeyError):
-        print("cookieÌîĞ´³ö´í ?,×ĞÏ¸²é¿´ËµÃ÷")
+        print("cookieå¡«å†™å‡ºé”™ âŒ,ä»”ç»†æŸ¥çœ‹è¯´æ˜")
         raise
     return dict_cookie
 
 def get_time():
     mins = int(time.time())
     date_stamp = (mins-57600) % 86400
-    utc_dt = datetime.utcnow()  # UTCÊ±¼ä
-    bj_dt = utc_dt+timedelta(hours=8)  # ±±¾©Ê±¼ä
+    utc_dt = datetime.utcnow()  # UTCæ—¶é—´
+    bj_dt = utc_dt+timedelta(hours=8)  # åŒ—äº¬æ—¶é—´
     _datatime = bj_dt.strftime("%Y%m%d", )
     notify_time = bj_dt.strftime("%H %M")
-    print(f"\nµ±Ç°Ê±¼ä´Á: {mins}")
-    print(f"±±¾©Ê±¼ä: {bj_dt}\n\n")
+    print(f"\nå½“å‰æ—¶é—´æˆ³: {mins}")
+    print(f"åŒ—äº¬æ—¶é—´: {bj_dt}\n\n")
     return mins, date_stamp, _datatime, notify_time
 
 def read(cookies):
-    print("\n¡¾ÔÄ¶Á¡¿")
+    print("\nã€é˜…è¯»ã€‘")
     headers = {
         'Host': '51gzdhh.xyz',
         'accept': 'application/json, text/plain, */*',
@@ -97,7 +97,7 @@ def read(cookies):
         response = requests_session().get(
             'https://51gzdhh.xyz/api/new/newConfig', headers=headers, params=params)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
     pid = str(result["pid"])
@@ -119,15 +119,15 @@ def read(cookies):
         response = requests_session().post(
             'https://51gzdhh.xyz/api/new/hui/complete', headers=headers, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
     if result["status"] == -2:
-        # print("ÎŞ·¨ÔÄ¶Á,³¢ÊÔ´Ó°²×¿¶ËÊÖ¶¯¿ªÆô")
+        # print("æ— æ³•é˜…è¯»,å°è¯•ä»å®‰å“ç«¯æ‰‹åŠ¨å¼€å¯")
         return
     # print(result["completeList"])
     if result["isComplete"] or result["count_finish"] == 9:
-        print("½ñÈÕÍê³ÉÔÄ¶Á")
+        print("ä»Šæ—¥å®Œæˆé˜…è¯»")
         return
     headers = {
         'Host': '51gzdhh.xyz',
@@ -151,7 +151,7 @@ def read(cookies):
         response = requests_session().get(
             'https://51gzdhh.xyz/new/userCompleteNew', headers=headers, params=params)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return 0
     result = response.json()
     print(result)
@@ -177,12 +177,12 @@ def ans_receive(cookies, paperId, lastTopicId, receiveType):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/topic/receive',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return 0
     return response.json()
 
 def stage(cookies):
-    print("\n¡¾ĞÂÊÖÈÎÎñ¡¿")
+    print("\nã€æ–°æ‰‹ä»»åŠ¡ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Accept': 'application/json, text/plain, */*',
@@ -196,7 +196,7 @@ def stage(cookies):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/task/stage-rewards-daily', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     data = response.json()["data"]
     if not data:
@@ -220,7 +220,7 @@ def stage(cookies):
                 response = requests.get('https://m.ximalaya.com/speed/web-earn/task/stage-reward/receive',
                                         headers=headers, params=params, cookies=cookies)
             except:
-                print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+                print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
                 return
             print(response.text)
 
@@ -242,7 +242,7 @@ def ans_restore(cookies):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/topic/restore',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return 0
     result = response.json()
     if "errorCode" in result:
@@ -263,7 +263,7 @@ def ans_getTimes(cookies):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/topic/user', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return {"stamina": 0,
                 "remainingTimes": 0}
     print(response.text)
@@ -287,7 +287,7 @@ def ans_start(cookies):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/topic/start', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return 0, 0, 0
     # print(response.text)
     result = response.json()
@@ -299,7 +299,7 @@ def ans_start(cookies):
         print(paperId, dateStr, lastTopicId)
         return paperId, dateStr, lastTopicId
     except:
-        print("?1 ÖØĞÂ×¥°ü 2 ÊÖ¶¯´ğÌâ")
+        print("âŒ1 é‡æ–°æŠ“åŒ… 2 æ‰‹åŠ¨ç­”é¢˜")
         return 0, 0, 0
 
 def _str2key(s):
@@ -329,9 +329,9 @@ def rsa_encrypt(s, pubkey_str):
 pubkey_str = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCVhaR3Or7suUlwHUl2Ly36uVmboZ3+HhovogDjLgRE9CbaUokS2eqGaVFfbxAUxFThNDuXq/fBD+SdUgppmcZrIw4HMMP4AtE2qJJQH/KxPWmbXH7Lv+9CisNtPYOlvWJ/GHRqf9x3TBKjjeJ2CjuVxlPBDX63+Ecil2JR9klVawIDAQAB"
 
 def lottery_info(cookies):
-    print("\n¡¾ĞÒÔË´ó×ªÅÌ¡¿")
+    print("\nã€å¹¸è¿å¤§è½¬ç›˜ã€‘")
     """
-    ×ªÅÌĞÅÏ¢²éÑ¯
+    è½¬ç›˜ä¿¡æ¯æŸ¥è¯¢
     """
     headers = {
         'Host': 'm.ximalaya.com',
@@ -346,13 +346,13 @@ def lottery_info(cookies):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/inspire/lottery/info', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
     remainingTimes = result["data"]["remainingTimes"]
-    print(f'×ªÅÌinfo: {result["data"]}\n')
+    print(f'è½¬ç›˜info: {result["data"]}\n')
     if remainingTimes in [0, 1]:
-        print("½ñÈÕÍê±Ï")
+        print("ä»Šæ—¥å®Œæ¯•")
         return
     response = requests_session().get(
         'https://m.ximalaya.com/speed/web-earn/inspire/lottery/token', headers=headers, cookies=cookies)
@@ -375,7 +375,7 @@ def lottery_info(cookies):
     print(response.text)
 
 def index_baoxiang_award(cookies):
-    print("\n  ¡¾Ê×Ò³¡¢±¦Ïä½±Àø¼°·­±¶¡¿")
+    print("\n  ã€é¦–é¡µã€å®ç®±å¥–åŠ±åŠç¿»å€ã€‘")
     headers = {
         'User-Agent': UserAgent,
         'Host': 'mobile.ximalaya.com',
@@ -388,7 +388,7 @@ def index_baoxiang_award(cookies):
     except:
         return
     result = response.json()
-    print("±¦Ïä½±Àø: ", result)
+    print("å®ç®±å¥–åŠ±: ", result)
     if "ret" in result and result["ret"] == 0:
         awardReceiveId = result["awardReceiveId"]
         headers = {
@@ -408,9 +408,9 @@ def index_baoxiang_award(cookies):
             response = requests_session().get('http://mobile.ximalaya.com/pizza-category/activity/awardMultiple',
                                               headers=headers, params=params, cookies=cookies)
         except:
-            print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+            print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
             return
-        print("·­±¶ ", response.text)
+        print("ç¿»å€ ", response.text)
     uid = get_uid(cookies)
     ###################################
     params = (
@@ -424,10 +424,10 @@ def index_baoxiang_award(cookies):
         response = requests_session().get('https://mobile.ximalaya.com/pizza-category/activity/getAward',
                                           headers=headers, cookies=cookies, params=params)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
-    print("Ê×Ò³½±Àø: ", result)
+    print("é¦–é¡µå¥–åŠ±: ", result)
     if "ret" in result and result["ret"] == 0:
         awardReceiveId = result["awardReceiveId"]
         headers = {
@@ -447,12 +447,12 @@ def index_baoxiang_award(cookies):
             response = requests_session().get('http://mobile.ximalaya.com/pizza-category/activity/awardMultiple',
                                               headers=headers, params=params, cookies=cookies)
         except:
-            print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+            print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
             return
-        print("·­±¶: ", response.text)
+        print("ç¿»å€: ", response.text)
 
 def checkin(cookies, _datatime):
-    print("\n¡¾Á¬ĞøÇ©µ½¡¿")
+    print("\nã€è¿ç»­ç­¾åˆ°ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Accept': 'application/json, text/plain, */*',
@@ -469,14 +469,14 @@ def checkin(cookies, _datatime):
         response = requests_session().get('https://m.ximalaya.com/speed/task-center/check-in/record',
                                           headers=headers, params=params, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return 0
     result = json.loads(response.text)
     print(result)
-    print(f"""Á¬ĞøÇ©µ½{result["continuousDays"]}/30Ìì""")
+    print(f"""è¿ç»­ç­¾åˆ°{result["continuousDays"]}/30å¤©""")
     print(result["isTickedToday"])
     if not result["isTickedToday"]:
-        print("!!!¿ªÊ¼Ç©µ½")
+        print("!!!å¼€å§‹ç­¾åˆ°")
         headers = {
             'User-Agent': UserAgent,
             'Content-Type': 'application/json;charset=utf-8',
@@ -509,7 +509,7 @@ def ad_score(cookies, businessType, taskId):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/task-center/ad/token', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
     token = result["id"]
@@ -523,13 +523,13 @@ def ad_score(cookies, businessType, taskId):
         response = requests_session().post(f'https://m.ximalaya.com/speed/task-center/ad/score',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print(response.text)
     print("\n")
 
 def bubble(cookies):
-    print("\n¡¾bubble¡¿")
+    print("\nã€bubbleã€‘")
     headers = {
         'User-Agent': UserAgent,
         'Content-Type': 'application/json;charset=utf-8',
@@ -544,20 +544,20 @@ def bubble(cookies):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/listen/bubbles',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     result = response.json()
     # print(result)
 
     if not result["data"]["effectiveBubbles"]:
-        print("ÔİÎŞÓĞĞ§ÆøÅİ")
+        print("æš‚æ— æœ‰æ•ˆæ°”æ³¡")
         return
     for i in result["data"]["effectiveBubbles"]:
         print(i["id"])
 
         tmp = receive(cookies, i["id"])
         if tmp and "errorCode" in tmp:
-            print("? Ã¿ÌìÊÖ¶¯ÊÕÌıÒ»¶ÎÊ±¼ä£¬ÔİÎŞÆäËû·½·¨")
+            print("âŒ æ¯å¤©æ‰‹åŠ¨æ”¶å¬ä¸€æ®µæ—¶é—´ï¼Œæš‚æ— å…¶ä»–æ–¹æ³•")
             return
         time.sleep(1)
         ad_score(cookies, 7, i["id"])
@@ -578,13 +578,13 @@ def receive(cookies, taskId):
         response = requests_session().get(
             f'https://m.ximalaya.com/speed/web-earn/listen/receive/{taskId}', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print("receive: ", response.text)
     return response.json()
 
 def getOmnipotentCard(cookies, mins, date_stamp, _datatime):
-    print("\n ¡¾ÁìÈ¡ÍòÄÜ¿¨¡¿")
+    print("\n ã€é¢†å–ä¸‡èƒ½å¡ã€‘")
     headers = {
         'User-Agent': UserAgent,
         'Content-Type': 'application/json;charset=utf-8',
@@ -596,10 +596,10 @@ def getOmnipotentCard(cookies, mins, date_stamp, _datatime):
         count = requests_session().get('https://m.ximalaya.com/speed/web-earn/card/omnipotentCardInfo',
                                        headers=headers, cookies=cookies,).json()["data"]["count"]
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     if count == 5:
-        print("½ñÈÕÒÑÂú")
+        print("ä»Šæ—¥å·²æ»¡")
         return
 
     token = requests_session().get('https://m.ximalaya.com/speed/web-earn/card/token/1',
@@ -614,12 +614,12 @@ def getOmnipotentCard(cookies, mins, date_stamp, _datatime):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/card/getOmnipotentCard',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print(response.text)
 
 def cardReportTime(cookies, mins, date_stamp, _datatime):
-    print("\n¡¾ÊÕÌı»ñµÃ³é¿¨»ú»á¡¿")
+    print("\nã€æ”¶å¬è·å¾—æŠ½å¡æœºä¼šã€‘")
     headers = {
         'User-Agent': UserAgent,
         'Content-Type': 'application/json;charset=utf-8',
@@ -635,16 +635,16 @@ def cardReportTime(cookies, mins, date_stamp, _datatime):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/card/reportTime',
                                            headers=headers, cookies=cookies, data=json.dumps(data)).json()
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     try:
         response["data"]["upperLimit"]
-        print("½ñÈÕÒÑ´ïÉÏÏŞ")
+        print("ä»Šæ—¥å·²è¾¾ä¸Šé™")
     except:
         return
 
 def account(cookies):
-    print("\n¡¾ ´òÓ¡ÕËºÅĞÅÏ¢¡¿")
+    print("\nã€ æ‰“å°è´¦å·ä¿¡æ¯ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -659,22 +659,22 @@ def account(cookies):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/account/coin', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return '', '', ''
     result = response.json()
     total = result["total"]/10000
     todayTotal = result["todayTotal"]/10000
     historyTotal = result["historyTotal"]/10000
-    print(f"""µ±Ç°Ê£Óà:{total}\n½ñÈÕ»ñµÃ:{todayTotal}\nÀÛ¼Æ»ñµÃ:{historyTotal}\n""")
+    print(f"""å½“å‰å‰©ä½™:{total}\nä»Šæ—¥è·å¾—:{todayTotal}\nç´¯è®¡è·å¾—:{historyTotal}\n""")
     return total, todayTotal, historyTotal
 
 def answer(cookies):
-    print("\n¡¾´ğÌâ¡¿")
+    print("\nã€ç­”é¢˜ã€‘")
     ans_times = ans_getTimes(cookies)
     if not ans_times:
         return
     if ans_times["stamina"] == 0:
-        print("Ê±¼äÎ´µ½")
+        print("æ—¶é—´æœªåˆ°")
     for _ in range(ans_times["stamina"]):
         paperId, _, lastTopicId = ans_start(cookies)
         if paperId == 0:
@@ -682,7 +682,7 @@ def answer(cookies):
         tmp = ans_receive(cookies, paperId, lastTopicId, 1)
         print(tmp)
         if "errorCode" in tmp:
-            print("? Ã¿ÌìÊÖ¶¯ÊÕÌıÒ»¶ÎÊ±¼ä£¬ÔİÎŞÆäËû·½·¨")
+            print("âŒ æ¯å¤©æ‰‹åŠ¨æ”¶å¬ä¸€æ®µæ—¶é—´ï¼Œæš‚æ— å…¶ä»–æ–¹æ³•")
             return
         time.sleep(1)
         tmp = ans_receive(cookies, paperId, lastTopicId, 2)
@@ -692,7 +692,7 @@ def answer(cookies):
         time.sleep(1)
 
     if ans_times["remainingTimes"] > 0:
-        print("[¿´ÊÓÆµ»Ø¸´ÌåÁ¦]")
+        print("[çœ‹è§†é¢‘å›å¤ä½“åŠ›]")
         if ans_restore(cookies) == 0:
             return
         for _ in range(5):
@@ -702,7 +702,7 @@ def answer(cookies):
             tmp = ans_receive(cookies, paperId, lastTopicId, 1)
             print(tmp)
             if "errorCode" in tmp:
-                print("? Ã¿ÌìÊÖ¶¯ÊÕÌıÒ»¶ÎÊ±¼ä£¬ÔİÎŞÆäËû·½·¨")
+                print("âŒ æ¯å¤©æ‰‹åŠ¨æ”¶å¬ä¸€æ®µæ—¶é—´ï¼Œæš‚æ— å…¶ä»–æ–¹æ³•")
                 return
             time.sleep(1)
             tmp = ans_receive(cookies, paperId, lastTopicId, 2)
@@ -712,14 +712,14 @@ def answer(cookies):
             time.sleep(1)
 
 def saveListenTime(cookies, date_stamp):
-    print("\n¡¾Ë¢Ê±³¤1¡¿")
+    print("\nã€åˆ·æ—¶é•¿1ã€‘")
     headers = {
         'User-Agent': UserAgent,
         'Host': 'mobile.ximalaya.com',
         'Content-Type': 'application/x-www-form-urlencoded',
     }
     listentime = date_stamp
-    print(f"ÉÏ´«±¾µØÊÕÌıÊ±³¤1: {listentime//60}·ÖÖÓ")
+    print(f"ä¸Šä¼ æœ¬åœ°æ”¶å¬æ—¶é•¿1: {listentime//60}åˆ†é’Ÿ")
     currentTimeMillis = int(time.time()*1000)-2
     uid = get_uid(cookies)
     sign = hashlib.md5(
@@ -736,19 +736,19 @@ def saveListenTime(cookies, date_stamp):
         response = requests_session().post('http://mobile.ximalaya.com/pizza-category/ball/saveListenTime',
                                            headers=headers, cookies=cookies, data=data)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print(response.text)
 
 def listenData(cookies, date_stamp):
-    print("\n¡¾Ë¢Ê±³¤2¡¿")
+    print("\nã€åˆ·æ—¶é•¿2ã€‘")
     headers = {
         'User-Agent': 'ting_v1.1.9_c5(CFNetwork, iOS 14.0.1, iPhone9,2)',
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json',
     }
     listentime = date_stamp-1
-    print(f"ÉÏ´«±¾µØÊÕÌıÊ±³¤2: {listentime//60}·ÖÖÓ")
+    print(f"ä¸Šä¼ æœ¬åœ°æ”¶å¬æ—¶é•¿2: {listentime//60}åˆ†é’Ÿ")
     currentTimeMillis = int(time.time()*1000)
     uid = get_uid(cookies)
     sign = hashlib.md5(
@@ -763,7 +763,7 @@ def listenData(cookies, date_stamp):
         response = requests_session().post('http://m.ximalaya.com/speed/web-earn/listen/client/data',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print(response.text)
 
@@ -797,7 +797,7 @@ def card_exchangeCoin(cookies, themeId, cardIdList, _datatime):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/card/exchangeCoin',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print("card_exchangeCoin: ", response.text)
 
@@ -819,11 +819,11 @@ def card_exchangeCard(cookies, toCardAwardId, fromRecordIdList):
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/card/exchangeCard',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     print(response.text)
 
-def draw_5card(cookies, drawRecordIdList):  # ÎåÁ¬³é
+def draw_5card(cookies, drawRecordIdList):  # äº”è¿æŠ½
     drawRecordIdList = sorted(drawRecordIdList)
     headers = {
         'User-Agent': UserAgent,
@@ -842,12 +842,12 @@ def draw_5card(cookies, drawRecordIdList):  # ÎåÁ¬³é
         response = requests_session().post('https://m.ximalaya.com/speed/web-earn/card/draw',
                                            headers=headers, cookies=cookies, data=json.dumps(data))
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
-    print("ÎåÁ¬³é: ", response.text)
+    print("äº”è¿æŠ½: ", response.text)
 
 def card(cookies, _datatime):
-    print("\n¡¾³é¿¨¡¿")
+    print("\nã€æŠ½å¡ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Accept': 'application/json, text/plain, */*',
@@ -861,22 +861,22 @@ def card(cookies, _datatime):
         response = requests_session().get(
             'https://m.ximalaya.com/speed/web-earn/card/userCardInfo', headers=headers, cookies=cookies)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
     data = response.json()["data"]
     #######
-    # 5Á¬³é
+    # 5è¿æŠ½
     drawRecordIdList = data["drawRecordIdList"]
-    print("³é¿¨»ú»á: ", drawRecordIdList)
+    print("æŠ½å¡æœºä¼š: ", drawRecordIdList)
     for _ in range(len(drawRecordIdList)//5):
         tmp = []
         for _ in range(5):
             tmp.append(drawRecordIdList.pop())
         draw_5card(cookies, tmp)
     ########
-    # ÊÖÅÆ¶Ò»»½ğ±Ò
-    # 1 ÍòÄÜ¿¨  10 ËéÆ¬
-    print("¼ì²éÊÖÅÆ£¬¿¨ÅÆ¶Ò½ğ±Ò")
+    # æ‰‹ç‰Œå…‘æ¢é‡‘å¸
+    # 1 ä¸‡èƒ½å¡  10 ç¢ç‰‡
+    print("æ£€æŸ¥æ‰‹ç‰Œï¼Œå¡ç‰Œå…‘é‡‘å¸")
     themeId_id_map = {
         2: [2, 3],
         3: [4, 5, 6, 7],
@@ -893,7 +893,7 @@ def card(cookies, _datatime):
     except:
         return
     data = response.json()["data"]
-    userCardsList = data["userCardsList"]  # ÊÖÅÆ
+    userCardsList = data["userCardsList"]  # æ‰‹ç‰Œ
     lstg = groupby(userCardsList, key=lambda x: x["themeId"])
     for key, group in lstg:
         if key in [1, 10]:
@@ -908,10 +908,10 @@ def card(cookies, _datatime):
             tmp_recordId.append(i["recordId"])
             tmp_id.append(i["id"])
         if len(tmp_recordId) == len(themeId_id_map[key]):
-            print("¿ÉÒÔ¶Ò»»")
+            print("å¯ä»¥å…‘æ¢")
             card_exchangeCoin(cookies, themeId, tmp_recordId, _datatime)
     ###############
-    # ÍòÄÜ¿¨¶Ò»»Ï¡ÓĞ¿¨
+    # ä¸‡èƒ½å¡å…‘æ¢ç¨€æœ‰å¡
     response = requests_session().get(
         'https://m.ximalaya.com/speed/web-earn/card/userCardInfo', headers=headers, cookies=cookies)
     data = response.json()["data"]
@@ -920,21 +920,21 @@ def card(cookies, _datatime):
     cityCardId = [i["id"] for i in userCardsList if i["themeId"] == 9]
     need = set(themeId_id_map[9])-set(cityCardId)
 
-    print("ÍòÄÜ¿¨: ", [i['recordId'] for i in omnipotentCard])
+    print("ä¸‡èƒ½å¡: ", [i['recordId'] for i in omnipotentCard])
     for _ in range(len(omnipotentCard)//4):
         tmp = []
         for _ in range(4):
             tmp.append(omnipotentCard.pop())
         fromRecordIdList = [i['recordId'] for i in tmp]
         if need:
-            print("ÍòÄÜ¿¨¶Ò»»Ï¡ÓĞ¿¨:")
+            print("ä¸‡èƒ½å¡å…‘æ¢ç¨€æœ‰å¡:")
             card_exchangeCard(cookies, need.pop(), fromRecordIdList)
 
 def get_uid(cookies):
     return cookies["1&_token"].split("&")[0]
 
 def third_pay_info(cookies):
-    print("\n¡¾»ñÈ¡ÌáÏÖÕËºÅĞÅÏ¢¡¿")
+    print("\nã€è·å–æç°è´¦å·ä¿¡æ¯ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -954,11 +954,11 @@ def third_pay_info(cookies):
         else:
             return
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
 
 def task_out_info(cookies):
-    print("\n¡¾»ñÈ¡ÌáÏÖĞÅÏ¢¡¿")
+    print("\nã€è·å–æç°ä¿¡æ¯ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -978,11 +978,11 @@ def task_out_info(cookies):
         else:
             return
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
         return
 
 def task_out(cookies, body):
-    print("\n¡¾×Ô¶¯ÌáÏÖ¡¿")
+    print("\nã€è‡ªåŠ¨æç°ã€‘")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -1000,10 +1000,10 @@ def task_out(cookies, body):
             return True
         print(response)
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
 
 def user_info(cookies):
-    print("\n¡¾ÓÃ»§ĞÅÏ¢¡¿")
+    print("\nã€ç”¨æˆ·ä¿¡æ¯ã€‘")
     headers = {
         'Host': 'mobile.ximalaya.com',
         'Accept': '*/*',
@@ -1019,38 +1019,38 @@ def user_info(cookies):
         if response['ret'] == 0:
             return response
     except:
-        print("ÍøÂçÇëÇóÒì³£,Îª±ÜÃâGitHub action±¨´í,Ö±½ÓÌø¹ı")
+        print("ç½‘ç»œè¯·æ±‚å¼‚å¸¸,ä¸ºé¿å…GitHub actionæŠ¥é”™,ç›´æ¥è·³è¿‡")
 
 def run():
-    print(f"Ï²ÂíÀ­ÑÅ¼«ËÙ°æ (https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.md ) ,»¶Ó­´òÉÍ¡¥\(¡ã_o)/¡¥")
+    print(f"å–œé©¬æ‹‰é›…æé€Ÿç‰ˆ (https://github.com/Zero-S1/xmly_speed/blob/master/xmly_speed.md ) ,æ¬¢è¿æ‰“èµÂ¯\(Â°_o)/Â¯")
     mins, date_stamp, _datatime, _notify_time = get_time()
-    title = '? Ï²ÂíÀ­ÑÅ¼«ËÙ°æ'
+    title = 'â° å–œé©¬æ‹‰é›…æé€Ÿç‰ˆ'
     table = []
     for k, v in enumerate(cookiesList):
-        print(f">>>>>>>¡¾ÕËºÅ¿ªÊ¼{k+1}¡¿\n")
+        print(f">>>>>>>ã€è´¦å·å¼€å§‹{k+1}ã€‘\n")
         cookies = str2dict(v)
         user_info_res = user_info(cookies)
         if XMLY_ACCUMULATE_TIME == 1:
             saveListenTime(cookies, date_stamp)
             listenData(cookies, date_stamp)
-        stage(cookies)  # ĞÂÊÖÈÎÎñ
-        read(cookies)  # ÔÄ¶Á
-        bubble(cookies)  # ÊÕ½ğ±ÒÆøÅİ
+        stage(cookies)  # æ–°æ‰‹ä»»åŠ¡
+        read(cookies)  # é˜…è¯»
+        bubble(cookies)  # æ”¶é‡‘å¸æ°”æ³¡
         # continue
-        continuousDays = checkin(cookies, _datatime)  # ×Ô¶¯Ç©µ½
-        # lottery_info(cookies)  # ´ó×ªÅÌ4´Î
-        answer(cookies)      # ´ğÌâ×¬½ğ±Ò
-        cardReportTime(cookies, mins, date_stamp, _datatime)  # ¿¨ÅÆ
-        getOmnipotentCard(cookies, mins, date_stamp, _datatime)  # ÁìÈ¡ÍòÄÜ¿¨
-        card(cookies, _datatime)  # ³é¿¨
-        index_baoxiang_award(cookies)  # Ê×Ò³¡¢±¦Ïä½±Àø¼°·­±¶
+        continuousDays = checkin(cookies, _datatime)  # è‡ªåŠ¨ç­¾åˆ°
+        # lottery_info(cookies)  # å¤§è½¬ç›˜4æ¬¡
+        answer(cookies)      # ç­”é¢˜èµšé‡‘å¸
+        cardReportTime(cookies, mins, date_stamp, _datatime)  # å¡ç‰Œ
+        getOmnipotentCard(cookies, mins, date_stamp, _datatime)  # é¢†å–ä¸‡èƒ½å¡
+        card(cookies, _datatime)  # æŠ½å¡
+        index_baoxiang_award(cookies)  # é¦–é¡µã€å®ç®±å¥–åŠ±åŠç¿»å€
         total, todayTotal, historyTotal = account(cookies)
         try:
             device = devices[k]
         except IndexError:
             device = cookies['device_model']
         else:
-            device = f"Éè±¸{k+1}"
+            device = f"è®¾å¤‡{k+1}"
 
         table.append((user_info_res['nickname'], total, todayTotal,
                       historyTotal, continuousDays,))
@@ -1062,9 +1062,9 @@ def run():
                         "accountNumber": pay_info["accountNumber"], "amount": amount, "takeOutType": takeOutType}
                 task_out_res = task_out(cookies=cookies, body=body)
                 if task_out_res:
-                    send(title=title, content=f"{user_info_res['nickname']} ÌáÏÖµ½ÕË»§¡¾{pay_info['accountNumber']}¡¿20Ôª³É¹¦")
+                    send(title=title, content=f"{user_info_res['nickname']} æç°åˆ°è´¦æˆ·ã€{pay_info['accountNumber']}ã€‘20å…ƒæˆåŠŸ")
             else:
-                send(title=title, content=f"ÇëÏÈÊÖ¶¯ÌîĞ´¡¾user_info_res['nickname']¡¿Ö§¸¶±¦ÕËºÅÌáÏÖÒ»´Î")
+                send(title=title, content=f"è¯·å…ˆæ‰‹åŠ¨å¡«å†™ã€user_info_res['nickname']ã€‘æ”¯ä»˜å®è´¦å·æç°ä¸€æ¬¡")
         print("###"*20)
         print("\n"*4)
 
@@ -1072,11 +1072,11 @@ def run():
     # if 1:
         message = ''
         for i in table:
-            message += f"¡¾ÕË»§¡¿£º{i[0].replace(' ',''):<9}\n"
-            message += f"¡¾µ±Ç°Ê£Óà¡¿£º{i[1]:<6.2f}\n"
-            message += f"¡¾½ñÌì¡¿£º£«{i[2]:<4.2f}\n"
-            message += f"¡¾ÀúÊ·¡¿£º{i[3]:<7.2f}\n"
-            message += f"¡¾Á¬ĞøÇ©µ½¡¿£º{i[4]}/30\n"
+            message += f"ã€è´¦æˆ·ã€‘ï¼š{i[0].replace(' ',''):<9}\n"
+            message += f"ã€å½“å‰å‰©ä½™ã€‘ï¼š{i[1]:<6.2f}\n"
+            message += f"ã€ä»Šå¤©ã€‘ï¼šï¼‹{i[2]:<4.2f}\n"
+            message += f"ã€å†å²ã€‘ï¼š{i[3]:<7.2f}\n"
+            message += f"ã€è¿ç»­ç­¾åˆ°ã€‘ï¼š{i[4]}/30\n"
             message += f"\n"
 
         send(title=title, content=message)
