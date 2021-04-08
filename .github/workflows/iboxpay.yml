@@ -1,0 +1,32 @@
+name: 笑谱
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 0-15/2 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+          npm install cron
+          npm install request
+          curl ipinfo.io/iboxpayCOOKIE.js
+      - name: '运行 【笑谱】'
+        run: | 
+          node Task/iboxpay.js
+    env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
