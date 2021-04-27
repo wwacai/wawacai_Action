@@ -1,5 +1,5 @@
 
-const $ = Env('wwcfhxz')
+const $ = Env('fhxz')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -99,8 +99,8 @@ if (!CGIDArr[0]) {
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
         console.log(random);
         await refreshToken()
-        for (let i = 1; i < 10; i++) {
           await carglod()
+        for (let i = 1; i < 10; i++) {
           await $.wait(random);
           console.log('开始执行土地'+i);
           await harvest(i)
@@ -388,9 +388,9 @@ async function txmarket_exchange(){
     try{
         const result = JSON.parse(data)
         $.log(data)
-        if(result[0].type == "farmland_getSpeedUp"){
+        if(result[0].type == "market_getItemList"){
           console.log(`🎈获取订单列表成功\n`)
-          await txmarket(itemId)
+          //await txmarket(itemId)
         }else{
           console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
