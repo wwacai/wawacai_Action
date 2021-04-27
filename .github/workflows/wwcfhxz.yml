@@ -1,0 +1,26 @@
+name: wwcfhxz
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '02,33 0-5,6-15/2 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+          npm install cron
+          npm install request
+      - name: '运行 【wwcfhxz】'
+        run: | 
+          node Task/wwcfhxz.js
