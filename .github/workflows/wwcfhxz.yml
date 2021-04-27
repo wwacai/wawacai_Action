@@ -19,8 +19,6 @@ jobs:
       - name: npm install
         run: |
           npm install
-          npm install cron
-          npm install request
       - name: '运行 【wwcfhxz】'
         run: | 
           node Task/wwcfhxz.js
