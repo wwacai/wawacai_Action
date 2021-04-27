@@ -33,8 +33,8 @@ if (isGetCookie) {
 }
 
 
-const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
-const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93']
+const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
+const CGIDArr = ['192270_1619530164_554a793159f42544f18d921f18728509','187941_1619496880_261f8db29348ae0541c66bcf031cbb93']
 if ($.isNode()) {
   /*
   if (process.env.CGHD && process.env.CGHD.indexOf('#') > -1) {
