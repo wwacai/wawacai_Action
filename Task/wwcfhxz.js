@@ -17,7 +17,7 @@ var hour=''
 var minute=''
 if ($.isNode()) {
    hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
-   minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes
+   minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes();
    console.log(`现在时间为${hour}：${minute}\n`)
 }else{
    hour = (new Date()).getHours();
@@ -147,7 +147,7 @@ async function refreshToken(){
    $.post(refreshToken_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "account_signInAccessToken"){
           console.log(`🎈刷新token成功\n`)
         }else{
@@ -173,7 +173,7 @@ async function carglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -200,7 +200,7 @@ async function harvest(farmlandId){
    $.post(harvest_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         //if(result[0].type == "farmland_plant"){
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈收获成功 土地${result[2].data.farmland.farmlandDefId}收获${result[2].data.farmland.plantPriceCoin}金币。 \n`)
@@ -243,7 +243,7 @@ async function repair(farmlandId){
    $.post(repair_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_repair"){
           console.log(`🎈维修成功 土地${result[0].data.farmland.farmlandDefId}维修成功。 \n`)
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -273,7 +273,7 @@ async function plant(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
@@ -309,7 +309,7 @@ async function plant2(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else{
@@ -335,7 +335,7 @@ async function speedUpAll(farmlandId){
    $.post(speedUpAll_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈加速成功\n`)
         }else{
@@ -361,7 +361,7 @@ async function buyPet(farmlandId){
    $.post(buyPet_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈购买宠物成功\n`)
         }else{
@@ -387,7 +387,7 @@ async function txmarket_exchange(){
    $.post(txmarket_exchange_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "market_getItemList"){
           console.log(`🎈获取订单列表成功\n`)
           //await txmarket(itemId)
@@ -414,7 +414,7 @@ async function txmarket(itemId){
    $.post(txmarket_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈获取订单列表成功\n`)
         }else{
