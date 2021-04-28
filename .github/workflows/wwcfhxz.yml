@@ -3,7 +3,7 @@ name: wwcfhxz
 on:
   workflow_dispatch:
   schedule:
-      - cron: '02,33 0-5,6-15/2 * * *'
+      - cron: '02,33 0-16 * * *'
 jobs:
   build:
     runs-on: macos-latest
