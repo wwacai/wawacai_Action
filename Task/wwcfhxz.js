@@ -1,7 +1,7 @@
 
 const $ = Env('fhxz')
 const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId
+let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 //const CGHDArr = [], CGIDArr = []
 let CGHD = $.getdata('CGHD')
@@ -34,7 +34,7 @@ if (isGetCookie) {
 
 
 const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
-const CGIDArr = ['192270_1619530164_554a793159f42544f18d921f18728509','187941_1619496880_261f8db29348ae0541c66bcf031cbb93']
+const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93','192270_1619530164_554a793159f42544f18d921f18728509']
 if ($.isNode()) {
   /*
   if (process.env.CGHD && process.env.CGHD.indexOf('#') > -1) {
@@ -95,11 +95,14 @@ if (!CGIDArr[0]) {
       CGID = CGIDArr[i];
       $.index = i + 1;
       console.log(`\n开始【${$.name} ${$.index}】`)
+      random = Math.floor(Math.random()*(max-min+1)+min)*1000
+      console.log(random);
+      await refreshToken()
+      await carglod()
+      if (18< hour <20){
+        await txmarket_exchange()
+      }
       for (let w = 1; w < 2; w++) {
-        random = Math.floor(Math.random()*(max-min+1)+min)*1000
-        console.log(random);
-        await refreshToken()
-          await carglod()
         for (let i = 1; i < 10; i++) {
           await $.wait(random);
           console.log('开始执行土地'+i);
@@ -108,13 +111,10 @@ if (!CGIDArr[0]) {
           //await plant(i)
           //await $.wait(random);
           }
-        await $.wait(random);
-        await buyPet()
-        await $.wait(random);
-        await speedUpAll()
-        await $.wait(random);
-        await txmarket_exchange()
-      }
+        }
+      await buyPet()
+      await $.wait(random);
+      await speedUpAll()
 
   }
  }
@@ -149,7 +149,8 @@ async function refreshToken(){
         const result = JSON.parse(data)
         //$.log(data)
         if(result[0].type == "account_signInAccessToken"){
-          console.log(`🎈刷新token成功\n`)
+          CGID = result[0].data.accessToken
+          console.log(`🎈刷新token成功 ${CGID}\n`)
         }else{
           console.log('👀刷新token失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -174,6 +175,7 @@ async function carglod(){
     try{
         const result = JSON.parse(data)
         //$.log(data)
+        console.log(`🎈更新新token成功 ${CGID}\n`)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -390,7 +392,16 @@ async function txmarket_exchange(){
         //$.log(data)
         if(result[0].type == "market_getItemList"){
           console.log(`🎈获取订单列表成功\n`)
-          //await txmarket(itemId)
+          for (let i = 0; i < 9; i++) {
+            //console.log(result[0].data.marketItemList[i].funcType)
+            if(result[0].data.marketItemList[i].funcType == 1){
+              itemId = result[0].data.marketItemList[i].itemDefId
+              title = result[0].data.marketItemList[i].title
+              cashAmount = result[0].data.marketItemList[i].cashAmount
+              console.log(`🎈订单列表${itemId} ${title}可以提现${cashAmount} \n`)
+              await txmarket(itemId)
+            }
+            }
         }else{
           console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -409,16 +420,16 @@ async function txmarket(itemId){
     let txmarket_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=market_exchange`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"market_exchange","data":{"itemDefId":10101}}]`
+        body: `[{"type":"market_exchange","data":{"itemDefId":${itemId}}}]`
     	}
    $.post(txmarket_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         //$.log(data)
-        if(result[0].type == "farmland_getSpeedUp"){
-          console.log(`🎈获取订单列表成功\n`)
+        if(result[0].type == "market_exchange"){
+          console.log(`🎈🎈订单 ${result[0].data.marketItem[0].title}提现${result[0].data.marketItem[0].cashAmount}\成功🎈🎈 \n`)
         }else{
-          console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀订单提现失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
