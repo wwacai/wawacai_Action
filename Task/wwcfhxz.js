@@ -98,15 +98,17 @@ if (!CGIDArr[0]) {
       random = Math.floor(Math.random()*(max-min+1)+min)*1000
       console.log(random);
       await refreshToken()
-      if (18< hour <20){
+      await refreshstealing()
+      await addstealing()
+      await $.wait(random);
+      await stealingVege()
+      if ( hour == 9 || hour == 15 ){
         await txmarket_exchange()
       }
       for (let i = 1; i < 10; i++) {
         console.log('开始执行土地'+i);
         await harvest(i)
         await $.wait(random);
-        //await plant(i)
-        //await $.wait(random);
         }
       await Boxglod()
       await $.wait(random);
@@ -152,7 +154,7 @@ async function refreshToken(){
         //$.log(data)
         if(result[0].type == "account_signInAccessToken"){
           CGID = result[0].data.accessToken
-          console.log(`🎈刷新token成功 ${CGID}\n`)
+          console.log(`🎈刷新token成功 \n`)//${CGID}
         }else{
           console.log('👀刷新token失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -177,7 +179,6 @@ async function carglod(){
     try{
         const result = JSON.parse(data)
         //$.log(data)
-        console.log(`🎈更新新token成功 ${CGID}\n`)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -192,7 +193,7 @@ async function carglod(){
    })
   }
 
-//carglod
+//Boxglod
 async function Boxglod(){
  return new Promise((resolve) => {
     let carglod_url = {
@@ -205,9 +206,89 @@ async function Boxglod(){
         const result = JSON.parse(data)
         //$.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
+          console.log(`🎈热气球收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
-          console.log('👀小车金币失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀热气球失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
+//refreshstealing
+async function refreshstealing(){
+return new Promise((resolve) => {
+  let refreshstealing_url = {
+      url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_refreshTargetUsers`,
+      headers: JSON.parse(CGHD),
+      body: `[{"type":"stealingVege_refreshTargetUsers","data":{}}]`
+    }
+ $.post(refreshstealing_url,async(error, response, data) =>{
+  try{
+      const result = JSON.parse(data)
+      //$.log(data)
+      if(result[0].type == "stealingVege_addTicket"){
+        console.log(`🎈刷新偷取列表成功 。\n`)
+      }else{
+        console.log('👀刷新偷取列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+       }
+      }catch(error) {
+        $.logErr(error, response);
+    } finally {
+      resolve();
+    }
+  })
+ })
+}
+
+
+  //addstealing
+  async function addstealing(){
+   return new Promise((resolve) => {
+      let addstealing_url = {
+          url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_addTicket`,
+          headers: JSON.parse(CGHD),
+          body: `[{"type":"stealingVege_addTicket","data":{}}]`
+      	}
+     $.post(addstealing_url,async(error, response, data) =>{
+      try{
+          const result = JSON.parse(data)
+          //$.log(data)
+          if(result[0].type == "stealingVege_addTicket"){
+            console.log(`🎈增加偷取次数成功 剩余增加次数${result[0].data.stealingVege.remainingAddTickets}。 \n`)
+          }else{
+            console.log('👀增加偷取次数失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+           }
+          }catch(error) {
+            $.logErr(error, response);
+        } finally {
+          resolve();
+        }
+      })
+     })
+    }
+
+//stealingVege
+async function stealingVege(){
+ return new Promise((resolve) => {
+    let stealingVege_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_attackTarget`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"stealingVege_attackTarget","data":{"recordId":1}}]`
+    	}
+   $.post(stealingVege_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        //$.log(data)
+        if(result[0].type == "stealingVege_attackTarget"){
+          console.log(`🎈偷取成功。 \n`)
+        }else{
+          console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
@@ -264,10 +345,11 @@ async function harvest(farmlandId){
           await $.wait(random);
           await plant(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await plant(farmlandId)
+          console.log(`🎈还没成熟。\n`)
+          //random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          //console.log(random);
+          //await $.wait(random);
+          //await plant(farmlandId)
         }else if (result[0].data.rawMessage == "farmland not idle") {
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
