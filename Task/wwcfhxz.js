@@ -33,8 +33,8 @@ if (isGetCookie) {
 }
 
 
-const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
-const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93','192270_1619530164_554a793159f42544f18d921f18728509']
+const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
+const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93','192270_1619530164_554a793159f42544f18d921f18728509']//三加一，菜鸡，娃娃菜1，
 if ($.isNode()) {
   /*
   if (process.env.CGHD && process.env.CGHD.indexOf('#') > -1) {
@@ -98,13 +98,11 @@ if (!CGIDArr[0]) {
       random = Math.floor(Math.random()*(max-min+1)+min)*1000
       console.log(random);
       await refreshToken()
-      await carglod()
       if (18< hour <20){
         await txmarket_exchange()
       }
-      for (let w = 1; w < 2; w++) {
+      for (let w = 1; w < 3; w++) {
         for (let i = 1; i < 10; i++) {
-          await $.wait(random);
           console.log('开始执行土地'+i);
           await harvest(i)
           await $.wait(random);
@@ -112,6 +110,12 @@ if (!CGIDArr[0]) {
           //await $.wait(random);
           }
         }
+      await Boxglod()
+      await $.wait(random);
+      await carglod()
+      await $.wait(random);
+      await lottery()
+      await $.wait(random);
       await buyPet()
       await $.wait(random);
       await speedUpAll()
@@ -147,7 +151,7 @@ async function refreshToken(){
    $.post(refreshToken_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "account_signInAccessToken"){
           CGID = result[0].data.accessToken
           console.log(`🎈刷新token成功 ${CGID}\n`)
@@ -174,7 +178,7 @@ async function carglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         console.log(`🎈更新新token成功 ${CGID}\n`)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
@@ -190,6 +194,57 @@ async function carglod(){
    })
   }
 
+//carglod
+async function Boxglod(){
+ return new Promise((resolve) => {
+    let carglod_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=carBox_receiveBoxReward`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"carBox_receiveBoxReward","data":{}}]`
+    	}
+   $.post(carglod_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result[0].type == "user_notifyPropertyUpdated"){
+          console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
+        }else{
+          console.log('👀小车金币失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+//lottery
+async function lottery(){
+ return new Promise((resolve) => {
+    let lottery_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=lottery_draw`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"lottery_draw","data":{"priceType":3001}}]`
+    	}
+   $.post(lottery_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result[0].type == "lottery_draw"){
+          console.log(`🎈抽奖成功。\n`)
+        }else{
+          console.log('👀抽奖失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
 
 //harvest
 async function harvest(farmlandId){
@@ -202,7 +257,7 @@ async function harvest(farmlandId){
    $.post(harvest_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         //if(result[0].type == "farmland_plant"){
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈收获成功 土地${result[2].data.farmland.farmlandDefId}收获${result[2].data.farmland.plantPriceCoin}金币。 \n`)
@@ -245,7 +300,7 @@ async function repair(farmlandId){
    $.post(repair_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "farmland_repair"){
           console.log(`🎈维修成功 土地${result[0].data.farmland.farmlandDefId}维修成功。 \n`)
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -275,7 +330,7 @@ async function plant(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
@@ -311,7 +366,7 @@ async function plant2(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else{
@@ -337,7 +392,7 @@ async function speedUpAll(farmlandId){
    $.post(speedUpAll_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈加速成功\n`)
         }else{
@@ -363,7 +418,7 @@ async function buyPet(farmlandId){
    $.post(buyPet_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈购买宠物成功\n`)
         }else{
@@ -389,7 +444,7 @@ async function txmarket_exchange(){
    $.post(txmarket_exchange_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "market_getItemList"){
           console.log(`🎈获取订单列表成功\n`)
           for (let i = 0; i < 9; i++) {
@@ -425,7 +480,7 @@ async function txmarket(itemId){
    $.post(txmarket_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
+        $.log(data)
         if(result[0].type == "market_exchange"){
           console.log(`🎈🎈订单 ${result[0].data.marketItem[0].title}提现${result[0].data.marketItem[0].cashAmount}\成功🎈🎈 \n`)
         }else{
