@@ -1,5 +1,13 @@
+/*
+[mitm]
+hostname = r1.nullpointerexception.cn
+#圈x
+[rewrite local]
+https://wx.chinaxing.cn/app/index.php url script-request-header https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/ranlv.js
 
-const $ = Env('wdkzq')
+*/
+
+const $ = Env('微打卡赚钱')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,spanswer,spbdid,gold
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -47,7 +55,6 @@ const sptongjiurlArr = ['https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1
 const spvideourlArr = ['https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=user&sign=977aded0283121ef5a9a319be7bff696&m=skai_tooli&dopost=get_some_answernum_ad_video&userid=62','https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=user&sign=a7ba4c73bded4f4cba5aad49b62ba3c6&m=skai_tooli&dopost=get_some_answernum_ad_video&userid=337']
 const spshiwanurlArr = ['https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=user&sign=76fa356c537053c3b4344d2fb5580938&m=skai_tooli&dopost=get_shiwan_card&userid=62&xcxid=','https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=user&sign=a7ba4c73bded4f4cba5aad49b62ba3c6&m=skai_tooli&dopost=get_shiwan_card&userid=337&xcxid=']
 const sptxurlArr = ['https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=cashout&sign=ec5681d2e9f15ec0f47f32caedbd8504&m=skai_tooli&dopost=make_money&userid=62&id=3','https://zm.shujumagician.com/app/index.php?i=24&t=0&v=1.0.0&from=wxapp&c=entry&a=wxapp&do=cashout&sign=a7ba4c73bded4f4cba5aad49b62ba3c6&m=skai_tooli&dopost=make_money&userid=337&id=3'] //id3为3元提现，id4为10元提现，id5为30元提现
-
 
 
 if ($.isNode()) {
@@ -118,18 +125,28 @@ if (!spsignurlArr[0]) {
       console.log(`\n开始【${$.name} ${$.index}】`)
       await userinfo()
       await signin()
-      await answer()
+      for (let i = 1; i < 29; i++) {
+         console.log('开始刷答题'+i);
+         await answer()
+         random = Math.floor(Math.random()*(max-min+1)+min)*1000
+         console.log(random);
+         await $.wait(random);
+         }
       await readvideo()
-      if (hour<23){
+      if (hour<21){
          randomnum = Math.floor(Math.random()*(4000-1+1)+1)
-        for (let i = randomnum; i < 5000; i++) {
+         cishu = 1
+         for (let i = randomnum; i < 5000; i++) {
             console.log('开始刷小程序'+i);
+            cishu += 1
             await readxcx(i)
             random = Math.floor(Math.random()*(max-min+1)+min)*1000
             console.log(random);
             await $.wait(random);
+            if (cishu>180){
+              return
+             }
             }
-
       }
       //await withdraw()
       await showmsg()
@@ -234,9 +251,6 @@ async function answer(){
           console.log(random);
           await $.wait(random);
           await answer_tongji()
-          if(result.data.res == "end"){
-             console.log(`🎈可提现。\n`)
-           }
           }else{
           console.log('👀回答错误'+result.message+"\n")
           message += '👀回答错误'+result.message+"\n"
@@ -270,7 +284,7 @@ async function answer_tongji(){
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
           await $.wait(random);
-          await answer()
+          //await answer()
           }else{
           console.log('👀答题上报统计错误'+result.message+"\n")
           message += '👀答题上报统计错误'+result.message+"\n"
