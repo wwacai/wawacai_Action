@@ -101,14 +101,12 @@ if (!CGIDArr[0]) {
       if (18< hour <20){
         await txmarket_exchange()
       }
-      for (let w = 1; w < 3; w++) {
-        for (let i = 1; i < 10; i++) {
-          console.log('开始执行土地'+i);
-          await harvest(i)
-          await $.wait(random);
-          //await plant(i)
-          //await $.wait(random);
-          }
+      for (let i = 1; i < 10; i++) {
+        console.log('开始执行土地'+i);
+        await harvest(i)
+        await $.wait(random);
+        //await plant(i)
+        //await $.wait(random);
         }
       await Boxglod()
       await $.wait(random);
@@ -151,7 +149,7 @@ async function refreshToken(){
    $.post(refreshToken_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "account_signInAccessToken"){
           CGID = result[0].data.accessToken
           console.log(`🎈刷新token成功 ${CGID}\n`)
@@ -178,7 +176,7 @@ async function carglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         console.log(`🎈更新新token成功 ${CGID}\n`)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
@@ -205,7 +203,7 @@ async function Boxglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -231,7 +229,7 @@ async function lottery(){
    $.post(lottery_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "lottery_draw"){
           console.log(`🎈抽奖成功。\n`)
         }else{
@@ -257,7 +255,7 @@ async function harvest(farmlandId){
    $.post(harvest_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         //if(result[0].type == "farmland_plant"){
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈收获成功 土地${result[2].data.farmland.farmlandDefId}收获${result[2].data.farmland.plantPriceCoin}金币。 \n`)
@@ -300,7 +298,7 @@ async function repair(farmlandId){
    $.post(repair_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_repair"){
           console.log(`🎈维修成功 土地${result[0].data.farmland.farmlandDefId}维修成功。 \n`)
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -330,7 +328,7 @@ async function plant(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
@@ -366,7 +364,7 @@ async function plant2(farmlandId){
    $.post(plant_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
         }else{
@@ -392,7 +390,7 @@ async function speedUpAll(farmlandId){
    $.post(speedUpAll_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈加速成功\n`)
         }else{
@@ -418,7 +416,7 @@ async function buyPet(farmlandId){
    $.post(buyPet_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈购买宠物成功\n`)
         }else{
@@ -444,7 +442,7 @@ async function txmarket_exchange(){
    $.post(txmarket_exchange_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "market_getItemList"){
           console.log(`🎈获取订单列表成功\n`)
           for (let i = 0; i < 9; i++) {
@@ -480,7 +478,7 @@ async function txmarket(itemId){
    $.post(txmarket_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "market_exchange"){
           console.log(`🎈🎈订单 ${result[0].data.marketItem[0].title}提现${result[0].data.marketItem[0].cashAmount}\成功🎈🎈 \n`)
         }else{
