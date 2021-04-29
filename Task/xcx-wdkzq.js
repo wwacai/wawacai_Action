@@ -281,10 +281,6 @@ async function answer_tongji(){
         if(result.result == "success"){
           console.log(`🎈答题上报统计成功\n`)
           message += `🎈答题上报统计成功\n`
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          //await answer()
           }else{
           console.log('👀答题上报统计错误'+result.message+"\n")
           message += '👀答题上报统计错误'+result.message+"\n"
