@@ -99,6 +99,7 @@ if (!CGIDArr[0]) {
       console.log(random);
       await refreshToken()
       await refreshstealing()
+      await $.wait(random);
       await addstealing()
       await $.wait(random);
       await stealingVege()
