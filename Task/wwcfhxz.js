@@ -102,7 +102,7 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege()
-      if ( 1< hour < 3 ){
+      if ( 9< hour < 11 ){
         await txmarket_exchange()
       }
       for (let i = 1; i < 10; i++) {
