@@ -125,7 +125,7 @@ if (!spsignurlArr[0]) {
       console.log(`\n开始【${$.name} ${$.index}】`)
       await userinfo()
       await signin()
-      for (let i = 1; i < 29; i++) {
+      for (let i = 1; i < 25; i++) {
          console.log('开始刷答题'+i);
          await answer()
          random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -143,8 +143,8 @@ if (!spsignurlArr[0]) {
             random = Math.floor(Math.random()*(max-min+1)+min)*1000
             console.log(random);
             await $.wait(random);
-            if (cishu>180){
-              return
+            if (cishu>36){
+              i = 50001
              }
             }
       }
