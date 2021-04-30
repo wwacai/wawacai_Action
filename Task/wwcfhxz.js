@@ -102,7 +102,7 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege()
-      if ( hour == 9 || hour == 15 ){
+      if ( 1< hour < 3 ){
         await txmarket_exchange()
       }
       for (let i = 1; i < 10; i++) {
@@ -529,7 +529,7 @@ async function txmarket_exchange(){
           console.log(`🎈获取订单列表成功\n`)
           for (let i = 0; i < 9; i++) {
             //console.log(result[0].data.marketItemList[i].funcType)
-            if(result[0].data.marketItemList[i].funcType == 1){
+            if(result[0].data.marketItemList[i].stateCode == 1){
               itemId = result[0].data.marketItemList[i].itemDefId
               title = result[0].data.marketItemList[i].title
               cashAmount = result[0].data.marketItemList[i].cashAmount
@@ -562,7 +562,9 @@ async function txmarket(itemId){
         const result = JSON.parse(data)
         //$.log(data)
         if(result[0].type == "market_exchange"){
-          console.log(`🎈🎈订单 ${result[0].data.marketItem[0].title}提现${result[0].data.marketItem[0].cashAmount}\成功🎈🎈 \n`)
+          console.log(`🎈🎈订单 ${result[1].data.marketItem.title}提现${result[1].data.marketItem.cashAmount}\成功🎈🎈 \n`)
+        }elif(result[0].type == "backpack_notifyItemUpdated"){
+          console.log(`🎈🎈订单 ${result[1].data.marketItem.title}提现${result[1].data.marketItem.cashAmount}\成功🎈🎈 \n`)
         }else{
           console.log('👀订单提现失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
