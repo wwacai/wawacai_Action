@@ -344,7 +344,7 @@ async function harvest(farmlandId){
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
           await $.wait(random);
-          await plant(farmlandId)
+          await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
           console.log(`🎈还没成熟。\n`)
           //random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -387,7 +387,7 @@ async function repair(farmlandId){
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
           await $.wait(random);
-          await plant(farmlandId)
+          await plant1(farmlandId)
         }else{
           console.log('👀维修失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -401,12 +401,12 @@ async function repair(farmlandId){
   }
 
 //plant
-async function plant(farmlandId){
+async function plant1(farmlandId){
  return new Promise((resolve) => {
     let plant_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_plant`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_plant","data":{"farmlandDefId":${farmlandId},"priceType":3001}}]`
+        body: `[{"type":"farmland_plant","data":{"farmlandDefId":${farmlandId},"priceType":2001}}]`
     	}
    $.post(plant_url,async(error, response, data) =>{
     try{
