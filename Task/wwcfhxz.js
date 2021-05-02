@@ -347,10 +347,10 @@ async function harvest(farmlandId){
           await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
           console.log(`🎈还没成熟。\n`)
-          //random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          //console.log(random);
-          //await $.wait(random);
-          //await plant(farmlandId)
+          random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          console.log(random);
+          await $.wait(random);
+          await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "farmland not idle") {
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
