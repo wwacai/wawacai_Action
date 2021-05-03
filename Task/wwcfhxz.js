@@ -36,7 +36,11 @@ if (isGetCookie) {
 const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
 const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93','192270_1619530164_554a793159f42544f18d921f18728509','198628_1619617925_07620b1bda45fe4db845beeae23684ae','211126_1619777406_0dac8e5f20e1a8d115579922b73763fa','211465_1619787896_5988be524ef28813fd7023ff5408cb4b']//三，菜，娃1，娃2，小肥肥，
 if ($.isNode()) {
-  /*
+  /*        for (let i = 2001; i < 2013; i++) {
+        console.log('开始执行领取加速器'+i);
+        await dailyQuest(i)
+        await $.wait(random);
+        }
   if (process.env.CGHD && process.env.CGHD.indexOf('#') > -1) {
   CGHD = process.env.CGHD.split('#');
   console.log(`您选择的是用"#"隔开\n`)
@@ -103,12 +107,7 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege(2)
-      if ( 8< hour < 10){
-        for (let i = 2001; i < 2013; i++) {
-        console.log('开始执行领取加速器'+i);
-        await dailyQuest(i)
-        await $.wait(random);
-        }
+      if ( 8< hour < 10 || 21< hour < 23 ){
         await txmarket_exchange()
       }
       for (let i = 1; i < 10; i++) {
