@@ -103,8 +103,8 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege(2)
-      if ( 8< hour < 10 || 20< hour < 22){
-        for (let i = 2001; i < 20013; i++) {
+      if ( 8< hour < 10){
+        for (let i = 2001; i < 2013; i++) {
         console.log('开始执行领取加速器'+i);
         await dailyQuest(i)
         await $.wait(random);
