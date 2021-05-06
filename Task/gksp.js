@@ -34,9 +34,6 @@ if ($.isNode()) {
    console.log(`现在时间为${hour}：${minute}\n`)
 }
 
-
-const sphd = '{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Referer":"https://servicewechat.com/wxfee92da0316cc6ae/13/page-frame.html","Content-Type":"application/x-www-form-urlencoded","Host":"zm.shujumagician.com","User-Agent":"Mozilla/5.0(iPhone;CPUiPhoneOS13_6_1likeMacOSX)AppleWebKit/605.1.15(KHTML,likeGecko)Mobile/15E148MicroMessenger/8.0.1(0x1800012a)NetType/WIFILanguage/zh_CN","Accept-Language":"zh-cn"}'
-
 function GetCookie() {
     //获取CK
     if ($request && $request.url.indexOf("i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
@@ -74,6 +71,8 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
     GetCookie()
     !(async () => {
+	var wxstate = $.getdata('wxstate')
+	var wxsign = $.getdata('wxsign')
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -93,8 +92,6 @@ if (isGetCookie) {
 //userinfo
 async function userinfo(){
  return new Promise((resolve) => {
-    let wxstate = $.getdata('wxstate')
-    let wxsign = $.getdata('wxsign')
     let userinfo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}`,
         headers: {
@@ -109,8 +106,7 @@ async function userinfo(){
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
-        $.log(JSON.stringify(userinfo_url))
-        $.log(data)
+        //$.log(data)
         const result = JSON.parse(data)
         message += '🔔【个人信息】 '
         if(result.errno == 0){
@@ -133,8 +129,6 @@ async function userinfo(){
 //readvideo
 async function readvideo(){
  return new Promise((resolve) => {
-    let wxstate = $.getdata('wxstate')
-    let wxsign = $.getdata('wxsign')
     let readvideo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wxstate}&${wxsign}&type=1&sharer=0`,
         headers: {
@@ -149,8 +143,7 @@ async function readvideo(){
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
-        $.log(JSON.stringify(readvideo_url))
-        $.log(data)
+        //$.log(data)
         const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【观看视频】 '
@@ -183,8 +176,6 @@ async function readvideo(){
 //withdraw
 async function withdraw(){
  return new Promise((resolve) => {
-    let wxstate = $.getdata('wxstate')
-    let wxsign = $.getdata('wxsign')
     let withdraw_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wxstate}&m=jyt_txvideo&${wxsign}`,
         headers: {
@@ -199,8 +190,7 @@ async function withdraw(){
     	}
    $.get(withdraw_url,async(error, response, data) =>{
     try{
-        $.log(JSON.stringify(withdraw_url))
-        $.log(data)
+        //$.log(data)
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`${result.message}\n`)
