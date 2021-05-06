@@ -108,10 +108,10 @@ async function userinfo(){
     try{
         //$.log(data)
         const result = JSON.parse(data)
-        message += '🔔【个人信息】 '
+        message += '🔔【观看视频-个人信息】 '
         if(result.errno == 0){
-          console.log(`🎈个人信息\n 用户名：${result.data.userinfo.nickname}\n openid为：${result.data.userinfo.openid}\n sessionid为${result.data.sessionid} 。\n`)
-          message += `🎈个人信息\n 用户名：${result.data.userinfo.nickname}\n openid为：${result.data.userinfo.openid}\n sessionid为${result.data.sessionid} 。\n`
+          console.log(`🎈观看视频-个人信息\n 用户名：${result.data.userinfo.nickname}\n openid为：${result.data.userinfo.openid}\n sessionid为${result.data.sessionid} 。\n`)
+          message += `🎈观看视频-个人信息\n 用户名：${result.data.userinfo.nickname}\n openid为：${result.data.userinfo.openid}\n sessionid为${result.data.sessionid} 。\n`
           }else{
           console.log('👀个人信息错误'+result.message+"\n")
           message += '👀个人信息错误'+result.message+"\n"
@@ -148,10 +148,10 @@ async function readvideo(){
         await sleep(Math.random()*3*1000)
         message += '🔔【观看视频】 '
         if(result.errno == 0){
-          console.log(`🎈今天共获取金币${result.data.res}个。\n`)
-          message += `🎈今天共获取金币${result.data.res}个。\n`
+          console.log(`🎈观看视频-今天共获取金币${result.data.res}个。\n`)
+          message += `🎈观看视频-今天共获取金币${result.data.res}个。\n`
           if(result.data.res == "end"){
-             console.log(`🎈可提现。\n`)
+             console.log(`🎈观看视频-可提现。\n`)
              await withdraw()
            }else{
              random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -194,8 +194,8 @@ async function withdraw(){
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`${result.message}\n`)
-          console.log(`成功提现0.3元\n`)
-          message += `成功提现0.3元\n`
+          console.log(`观看视频-成功提现0.3元\n`)
+          message += `观看视频-成功提现0.3元\n`
         }else{
         console.log('👀提现错误'+result.message+'\n')
         }
