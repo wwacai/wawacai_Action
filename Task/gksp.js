@@ -96,7 +96,15 @@ async function userinfo(){
  return new Promise((resolve) => {
     let userinfo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}&code=063ua6Ga1YeQSA0a6wIa1wObjN1ua6GR`,
-        headers: JSON.parse(sphd),
+        headers: {
+	"Accept-Encoding": "gzip,deflate,br",
+	"Connection": "keep-alive",
+	"Referer": "https://servicewechat.com/wxfee92da0316cc6ae/13/page-frame.html",
+	"Content-Type": "application/x-www-form-urlencoded",
+	"Host": "zm.shujumagician.com",
+	"User-Agent": "Mozilla/5.0(iPhone;CPUiPhoneOS13_6_1likeMacOSX)AppleWebKit/605.1.15(KHTML,likeGecko)Mobile/15E148MicroMessenger/8.0.1(0x1800012a)NetType/WIFILanguage/zh_CN",
+	"Accept-Language": "zh-cn"
+},
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
@@ -125,7 +133,15 @@ async function readvideo(){
  return new Promise((resolve) => {
     let readvideo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wxstate}&${wxsign}&type=1&sharer=0`,
-        headers: JSON.parse(sphd),
+        headers: {
+	"Accept-Encoding": "gzip,deflate,br",
+	"Connection": "keep-alive",
+	"Referer": "https://servicewechat.com/wxfee92da0316cc6ae/13/page-frame.html",
+	"Content-Type": "application/x-www-form-urlencoded",
+	"Host": "zm.shujumagician.com",
+	"User-Agent": "Mozilla/5.0(iPhone;CPUiPhoneOS13_6_1likeMacOSX)AppleWebKit/605.1.15(KHTML,likeGecko)Mobile/15E148MicroMessenger/8.0.1(0x1800012a)NetType/WIFILanguage/zh_CN",
+	"Accept-Language": "zh-cn"
+},
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
@@ -164,7 +180,15 @@ async function withdraw(){
  return new Promise((resolve) => {
     let withdraw_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wxstate}&m=jyt_txvideo&${wxsign}`,
-        headers: JSON.parse(sphd),
+        headers: {
+	"Accept-Encoding": "gzip,deflate,br",
+	"Connection": "keep-alive",
+	"Referer": "https://servicewechat.com/wxfee92da0316cc6ae/13/page-frame.html",
+	"Content-Type": "application/x-www-form-urlencoded",
+	"Host": "zm.shujumagician.com",
+	"User-Agent": "Mozilla/5.0(iPhone;CPUiPhoneOS13_6_1likeMacOSX)AppleWebKit/605.1.15(KHTML,likeGecko)Mobile/15E148MicroMessenger/8.0.1(0x1800012a)NetType/WIFILanguage/zh_CN",
+	"Accept-Language": "zh-cn"
+},
     	}
    $.get(withdraw_url,async(error, response, data) =>{
     try{
