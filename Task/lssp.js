@@ -116,7 +116,7 @@ async function userinfo(){
           if (result.data > 10){
             console.log(`🎈余额大于10，执行签到5日提现\n`)
             await getmoney1()
-          }elif (result.data > 50){
+          }elseif (result.data > 50){
             console.log(`🎈余额大于50，执行签到5日提现\n`)
             await getmoney2()
           }
