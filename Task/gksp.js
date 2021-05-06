@@ -93,7 +93,7 @@ if (isGetCookie) {
 async function userinfo(){
  return new Promise((resolve) => {
     let userinfo_url = {
-        url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}&code=063ua6Ga1YeQSA0a6wIa1wObjN1ua6GR`,
+        url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}`,
         headers: {
 	"Accept-Encoding": "gzip,deflate,br",
 	"Connection": "keep-alive",
@@ -106,8 +106,9 @@ async function userinfo(){
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        $.log(JSON.stringify(userinfo_url))
         $.log(data)
+        const result = JSON.parse(data)
         message += '🔔【个人信息】 '
         if(result.errno == 0){
           console.log(`🎈个人信息\n 用户名：${result.data.userinfo.nickname}\n openid为：${result.data.userinfo.openid}\n sessionid为${result.data.sessionid} 。\n`)
@@ -143,8 +144,9 @@ async function readvideo(){
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        $.log(JSON.stringify(readvideo_url))
         $.log(data)
+        const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【观看视频】 '
         if(result.errno == 0){
@@ -190,8 +192,9 @@ async function withdraw(){
     	}
    $.get(withdraw_url,async(error, response, data) =>{
     try{
-        const result = JSON.parse(data)
+        $.log(JSON.stringify(withdraw_url))
         $.log(data)
+        const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`${result.message}\n`)
           console.log(`成功提现0.3元\n`)
