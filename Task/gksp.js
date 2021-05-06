@@ -8,6 +8,7 @@ https://zm.shujumagician.com/app/index.php url script-request-header https://raw
 */
 
 const $ = Env('观看视频')
+$.idx = ($.idx = ($.getval('tlsSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,spanswer,spbdid,gold,wxstate,wxsign
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -73,6 +74,8 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
     GetCookie()
     !(async () => {
+	let wxstate = $.getdata('wxstate')
+	let wxsign = $.getdata('wxsign')
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
