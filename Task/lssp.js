@@ -87,6 +87,7 @@ if (isGetCookie) {
         })
 }
 
+
 //userinfo
 async function userinfo(){
  return new Promise((resolve) => {
@@ -116,14 +117,15 @@ async function userinfo(){
           if (result.data > 10){
             console.log(`🎈余额大于10，执行签到5日提现\n`)
             await getmoney1()
-          }elseif (result.data > 50){
+          }
+          if (result.data > 50){
             console.log(`🎈余额大于50，执行签到5日提现\n`)
             await getmoney2()
           }
-          }else{
-          console.log('👀个人信息错误'+result.message+"\n")
-          message += '👀个人信息错误'+result.message+"\n"
-          }
+        }else{
+        console.log('👀个人信息错误'+result.message+"\n")
+        message += '👀个人信息错误'+result.message+"\n"
+        }
         }catch(error) {
           $.logErr(error, response);
       } finally {
