@@ -70,6 +70,7 @@ let isGetCookie = typeof $request !== 'undefined'
 
 if (isGetCookie) {
     GetCookie()
+    await $.wait(5000);
     !(async () => {
         var wwxstate = $.getdata('wwxstate')
         var wwxsign = $.getdata('wwxsign')
