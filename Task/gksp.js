@@ -19,8 +19,8 @@ let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 let cash = ($.getval('rlcash') || '1')//默认不自动提现
 const logs =0;//0为关闭日志，1为开启
 
-let min = 30;
-let max = 45;
+let min = 20;
+let max = 35;
 
 var hour=''
 var minute=''
