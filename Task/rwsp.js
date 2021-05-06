@@ -106,8 +106,8 @@ async function userinfo(){
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
-        $.log(data)
-        $.log(JSON.stringify(userinfo_url))
+        //$.log(data)
+        //$.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【热舞视频-个人信息】 '
         if(result.errno == 0){
@@ -146,8 +146,8 @@ async function readvideo(){
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
-        $.log(data)
-        $.log(JSON.stringify(readvideo_url))
+        //$.log(data)
+        //$.log(JSON.stringify(readvideo_url))
         const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【热舞视频】 '
@@ -196,8 +196,8 @@ async function withdraw(){
     	}
    $.get(withdraw_url,async(error, response, data) =>{
     try{
-        $.log(data)
-        $.log(JSON.stringify(withdraw_url))
+        //$.log(data)
+        //$.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`${result.message}\n`)
