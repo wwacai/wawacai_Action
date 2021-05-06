@@ -10,7 +10,7 @@ https://zm.shujumagician.com/app/index.php url script-request-header https://raw
 const $ = Env('热舞视频')
 $.idx = ($.idx = ($.getval('tlsSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,spanswer,spbdid,gold,wxstate,wxsign
+let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,spanswer,spbdid,gold,wwxstate,wwxsign
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 let spsignurl = $.getdata('spsignurl')
 let spvideourl = $.getdata('spvideourl')
@@ -38,20 +38,20 @@ function GetCookie() {
     //获取CK
     if ($request && $request.url.indexOf("i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
 
-        const wxstate = $request.url.split('&')[9];
-        const wxsign = $request.url.split('&')[11];
-        if (wxstate && wxsign) {
+        const wwxstate = $request.url.split('&')[9];
+        const wwxsign = $request.url.split('&')[11];
+        if (wwxstate && wwxsign) {
 
-            $.setdata(wxstate, "wxstate" + $.idx);
+            $.setdata(wwxstate, "wwxstate" + $.idx);
             $.log(
-                `[${$.name + $.idx}] 获取wxstate✅: 成功,wxstate: ${wxstate}`
+                `[${$.name + $.idx}] 获取wwxstate✅: 成功,wwxstate: ${wwxstate}`
             );
-            $.msg($.name + $.idx, `获取wxstate: 成功🎉`, ``);
-            $.setdata(wxsign, "wxsign" + $.idx);
+            $.msg($.name + $.idx, `获取wwxstate: 成功🎉`, ``);
+            $.setdata(wwxsign, "wwxsign" + $.idx);
             $.log(
-                `[${$.name + $.idx}] 获取wxsign✅: 成功,wxsign: ${wxsign}`
+                `[${$.name + $.idx}] 获取wwxsign✅: 成功,wwxsign: ${wwxsign}`
             );
-            $.msg($.name + $.idx, `获取wxsign: 成功🎉`, ``);
+            $.msg($.name + $.idx, `获取wwxsign: 成功🎉`, ``);
 
         }
     }
@@ -71,8 +71,8 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
     GetCookie()
     !(async () => {
-        var wxstate = $.getdata('wxstate')
-        var wxsign = $.getdata('wxsign')
+        var wwxstate = $.getdata('wwxstate')
+        var wwxsign = $.getdata('wwxsign')
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -93,7 +93,7 @@ if (isGetCookie) {
 async function userinfo(){
  return new Promise((resolve) => {
     let userinfo_url = {
-        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}`,
+        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wwxsign}`,
         headers: {
 	"Accept-Encoding": "gzip,deflate,br",
 	"Connection": "keep-alive",
@@ -106,7 +106,8 @@ async function userinfo(){
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
+        $.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【热舞视频-个人信息】 '
         if(result.errno == 0){
@@ -130,7 +131,7 @@ async function userinfo(){
 async function readvideo(){
  return new Promise((resolve) => {
     let readvideo_url = {
-        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wxstate}&${wxsign}&type=1&sharer=0`,
+        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wwxstate}&${wwxsign}&type=1&sharer=0`,
         headers: {
 	"Accept-Encoding": "gzip,deflate,br",
 	"Connection": "keep-alive",
@@ -143,7 +144,8 @@ async function readvideo(){
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
+        $.log(JSON.stringify(readvideo_url))
         const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【热舞视频】 '
@@ -177,7 +179,7 @@ async function readvideo(){
 async function withdraw(){
  return new Promise((resolve) => {
     let withdraw_url = {
-        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wxstate}&m=jyt_txvideo&${wxsign}`,
+        url: `https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wwxstate}&m=jyt_txvideo&${wwxsign}`,
         headers: {
 	"Accept-Encoding": "gzip,deflate,br",
 	"Connection": "keep-alive",
@@ -190,7 +192,8 @@ async function withdraw(){
     	}
    $.get(withdraw_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
+        $.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`${result.message}\n`)
