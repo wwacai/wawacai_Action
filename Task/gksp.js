@@ -36,8 +36,8 @@ if ($.isNode()) {
 
 function GetCookie() {
     //获取CK
-    //if ($request && $request.url.indexOf("i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
-    if ($request) {
+    if ($request && $request.url.indexOf("i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
+    //if ($request) {
 
         const wxstate = $request.url.split('&')[9];
         const wxsign = $request.url.split('&')[11];
