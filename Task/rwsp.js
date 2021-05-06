@@ -3,7 +3,7 @@
 hostname = zm.shujumagician.com
 #圈x
 [rewrite local]
-https://zm.shujumagician.com/app/index.php url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/rwsp.js
+https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/rwsp.js
 
 */
 
