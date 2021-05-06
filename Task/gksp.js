@@ -55,7 +55,6 @@ function GetCookie() {
                 `[${$.name + $.idx}] 获取wxsign✅: 成功,wxsign: ${wxsign}`
             );
             $.msg($.name + $.idx, `获取wxsign: 成功🎉`, ``);
-            $.done();
 
         }
     }
@@ -74,7 +73,6 @@ let isGetCookie = typeof $request !== 'undefined'
 
 if (isGetCookie) {
     GetCookie()
-    $.done();
 } else {
     !(async () => {
         await readvideo()
