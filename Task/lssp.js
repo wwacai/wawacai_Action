@@ -3,7 +3,7 @@
 hostname = wx.fxzhe.top
 #圈x
 [rewrite local]
-https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskCenter url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/lssp.js
+https://wx.fxzhe.top/app/index.php url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/lssp.js
 
 */
 
@@ -36,7 +36,7 @@ if ($.isNode()) {
 
 function GetCookie() {
     //获取CK
-    if ($request && $request.url.indexOf("do=taskCenter") >= 0) {
+    if ($request && $request.url.indexOf("i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskCenter") >= 0) {
 
         const lsstate = $request.url.split('&')[9];
         const lssign = $request.url.split('&')[10];
