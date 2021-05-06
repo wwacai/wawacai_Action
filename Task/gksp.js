@@ -74,8 +74,6 @@ let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
     GetCookie()
     !(async () => {
-	let wxstate = $.getdata('wxstate')
-	let wxsign = $.getdata('wxsign')
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -95,6 +93,8 @@ if (isGetCookie) {
 //userinfo
 async function userinfo(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let userinfo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}`,
         headers: {
@@ -133,6 +133,8 @@ async function userinfo(){
 //readvideo
 async function readvideo(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let readvideo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wxstate}&${wxsign}&type=1&sharer=0`,
         headers: {
@@ -181,6 +183,8 @@ async function readvideo(){
 //withdraw
 async function withdraw(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let withdraw_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wxstate}&m=jyt_txvideo&${wxsign}`,
         headers: {
