@@ -1,6 +1,6 @@
 /*
 [mitm]
-hostname = zm.shujumagician.com
+hostname = wx.fxzhe.top
 #圈x
 [rewrite local]
 https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskCenter url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/lssp.js
