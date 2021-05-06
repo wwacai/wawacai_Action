@@ -73,7 +73,6 @@ let isGetCookie = typeof $request !== 'undefined'
 
 if (isGetCookie) {
     GetCookie()
-} else {
     !(async () => {
         await readvideo()
         await userinfo()
