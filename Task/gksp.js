@@ -3,7 +3,7 @@
 hostname = zm.shujumagician.com
 #圈x
 [rewrite local]
-https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/gksp.js
+^https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=index url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/gksp.js
 
 */
 
@@ -37,7 +37,7 @@ if ($.isNode()) {
 
 async function GetCookie() {
     //获取CK
-    if ($request && $request.url.indexOf("i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
+    if ($request.url.indexOf("do=index") >= 0) {
     //if ($request) {
         const wxstate = $request.url.split('&')[9];
         const wxsign = $request.url.split('&')[11];
