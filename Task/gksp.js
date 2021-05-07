@@ -34,25 +34,25 @@ if ($.isNode()) {
    console.log(`现在时间为${hour}：${minute}\n`)
 }
 
-function GetCookie() {
+
+async function GetCookie() {
     //获取CK
     if ($request && $request.url.indexOf("i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
     //if ($request) {
-
         const wxstate = $request.url.split('&')[9];
         const wxsign = $request.url.split('&')[11];
         if (wxstate && wxsign) {
 
-            $.setdata(wxstate, "wxstate" + $.idx);
+            $.setdata(wxstate, "wxstate");
             $.log(
-                `[${$.name + $.idx}] 获取wxstate✅: 成功,wxstate: ${wxstate}`
+                `[${$.name}] 获取wxstate✅: 成功,wxstate: ${wxstate}`
             );
-            $.msg($.name + $.idx, `获取wxstate: 成功🎉`, ``);
-            $.setdata(wxsign, "wxsign" + $.idx);
+            $.msg($.name , `获取wxstate: 成功🎉`, ``);
+            $.setdata(wxsign, "wxsign");
             $.log(
-                `[${$.name + $.idx}] 获取wxsign✅: 成功,wxsign: ${wxsign}`
+                `[${$.name}] 获取wxsign✅: 成功,wxsign: ${wxsign}`
             );
-            $.msg($.name + $.idx, `获取wxsign: 成功🎉`, ``);
+            $.msg($.name , `获取wxsign: 成功🎉`, ``);
 
         }
     }
@@ -69,11 +69,13 @@ console.log(
 
 let isGetCookie = typeof $request !== 'undefined'
 
-if (isGetCookie) {
-    GetCookie()
-    !(async () => {
-	var wxstate = $.getdata('wxstate')
-	var wxsign = $.getdata('wxsign')
+
+
+!(async () => {
+  if (isGetCookie) {
+      GetCookie()
+  }
+  if ($.getdata('wxstate') != "") {
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -81,18 +83,22 @@ if (isGetCookie) {
         await $.wait(random);
         await readvideo()
         await showmsg()
-    })()
-    .catch((e) => {
-            $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-        })
-        .finally(() => {
-            $.done();
-        })
-}
+  }
+
+
+})()
+.catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
 
 //userinfo
 async function userinfo(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let userinfo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=auth&a=session&do=openid&${wxsign}`,
         headers: {
@@ -130,6 +136,8 @@ async function userinfo(){
 //readvideo
 async function readvideo(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let readvideo_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=insertred&${wxstate}&${wxsign}&type=1&sharer=0`,
         headers: {
@@ -177,6 +185,8 @@ async function readvideo(){
 //withdraw
 async function withdraw(){
  return new Promise((resolve) => {
+    let wxstate = $.getdata('wxstate')
+    let wxsign = $.getdata('wxsign')
     let withdraw_url = {
         url: `https://zm.shujumagician.com/app/index.php?i=9&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=getcash&&${wxstate}&m=jyt_txvideo&${wxsign}`,
         headers: {
