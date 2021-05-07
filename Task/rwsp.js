@@ -36,7 +36,7 @@ if ($.isNode()) {
 
 function GetCookie() {
     //获取CK
-    if ($request && $request.url.indexOf("i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig") >= 0) {
+    if ($request && $request.url.indexOf("do=index") >= 0) {
 
         const wwxstate = $request.url.split('&')[9];
         const wwxsign = $request.url.split('&')[11];
@@ -68,9 +68,11 @@ console.log(
 
 let isGetCookie = typeof $request !== 'undefined'
 
-if (isGetCookie) {
-    GetCookie()
-    !(async () => {
+!(async () => {
+  if (isGetCookie) {
+      GetCookie()
+  }
+  if ($.getdata('wwxstate') != "") {
         await readvideo()
         await userinfo()
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
@@ -78,14 +80,17 @@ if (isGetCookie) {
         await $.wait(random);
         await readvideo()
         await showmsg()
-    })()
-    .catch((e) => {
-            $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-        })
-        .finally(() => {
-            $.done();
-        })
-}
+  }
+
+
+})()
+.catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
+
 
 //userinfo
 async function userinfo(){
