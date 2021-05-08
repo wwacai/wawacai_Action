@@ -240,7 +240,7 @@ async function readvideo(){
    $.get(readvideo_url,async(error, response, data) =>{
     try{
         $.log(data)
-        //$.log(JSON.stringify(readvideo_url))
+        $.log(JSON.stringify(readvideo_url))
         const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【乐上视频】 '
@@ -291,7 +291,7 @@ async function sign(){
    $.get(luckybox_url,async(error, response, data) =>{
     try{
         $.log(data)
-        //$.log(JSON.stringify(withdraw_url))
+        $.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`乐上视频-签到获取金币${result.data.award}个。 \n`)
