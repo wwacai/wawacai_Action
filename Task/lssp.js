@@ -3,7 +3,7 @@
 hostname = wx.fxzhe.top
 #圈x
 [rewrite local]
-https://wx.fxzhe.top/app/index.php url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/lssp.js
+^https:\/\/wx.fxzhe.top/app/index.php\?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskCenter url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/lssp.js
 
 */
 
@@ -36,12 +36,11 @@ if ($.isNode()) {
 
 function GetCookie() {
     //获取CK
-    if ($request && $request.url.indexOf("i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskCenter") >= 0) {
+    if ($request && $request.url.indexOf("do=taskCenter") >= 0) {
 
         const lsstate = $request.url.split('&')[9];
         const lssign = $request.url.split('&')[10];
         if (lsstate && lssign) {
-
             $.setdata(lsstate, "lsstate" + $.idx);
             $.log(
                 `[${$.name + $.idx}] 获取lsstate✅: 成功,lsstate: ${lsstate}`
@@ -52,7 +51,6 @@ function GetCookie() {
                 `[${$.name + $.idx}] 获取lssign✅: 成功,lssign: ${lssign}`
             );
             $.msg($.name + $.idx, `获取lssign: 成功🎉`, ``);
-
         }
     }
 
@@ -68,24 +66,32 @@ console.log(
 
 let isGetCookie = typeof $request !== 'undefined'
 
-if (isGetCookie) {
-    GetCookie()
-    !(async () => {
-        await readvideo()
-        await userinfo()
+
+!(async () => {
+  if (isGetCookie) {
+      GetCookie()
+  }
+  if ($.getdata('lsstate') != "") {
         random = Math.floor(Math.random()*(max-min+1)+min)*1000
         console.log(random);
+        await readvideo()
         await $.wait(random);
         await readvideo()
+        await sign()
+        await $.wait(random);
+        await luckybox()
+        await $.wait(random);
+        await eat()
+        await userinfo()
         await showmsg()
-    })()
-    .catch((e) => {
-            $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-        })
-        .finally(() => {
-            $.done();
-        })
-}
+  }
+})()
+.catch((e) => {
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
 
 
 //userinfo
@@ -107,7 +113,7 @@ async function userinfo(){
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【乐上视频-个人信息】 '
@@ -154,7 +160,7 @@ async function getmoney1(){
     	}
    $.get(getmoney1_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【乐上视频-个人信息】 '
@@ -193,7 +199,7 @@ async function getmoney2(){
     	}
    $.get(getmoney2_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【乐上视频-个人信息】 '
@@ -229,17 +235,18 @@ async function readvideo(){
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.1(0x1800012a) NetType/4G Language/zh_CN`,
 'Accept-Language' : `zh-cn`
 },
+        body:`type=video`
     	}
    $.get(readvideo_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(readvideo_url))
         const result = JSON.parse(data)
         await sleep(Math.random()*3*1000)
         message += '🔔【乐上视频】 '
         if(result.errno == 0){
-          console.log(`🎈乐上视频-今天共获取金币${result.data.res}个。\n`)
-          message += `🎈乐上视频-今天共获取金币${result.data.res}个。\n`
+          console.log(`🎈乐上视频-共获取金币${result.data.award}个。\n`)
+          message += `🎈乐上视频-共获取金币${result.data.award}个。\n`
           if(result.data.res == "end"){
              console.log(`🎈乐上视频-可提现。\n`)
              await withdraw()
@@ -263,6 +270,47 @@ async function readvideo(){
   }
 
 
+//sign
+async function sign(){
+ return new Promise((resolve) => {
+    let lsstate = $.getdata('lsstate')
+    let lssign = $.getdata('lssign')
+    let luckybox_url = {
+        url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskaward&&${lsstate}&${lssign}`,
+        headers: {
+'Accept-Encoding' : `gzip, deflate, br`,
+'Connection' : `keep-alive`,
+'Referer' : `https://servicewechat.com/wxd43f74ad84dba818/2/page-frame.html`,
+'Content-Type' : `application/x-www-form-urlencoded`,
+'Host' : `wx.fxzhe.top`,
+'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.1(0x1800012a) NetType/4G Language/zh_CN`,
+'Accept-Language' : `zh-cn`
+},
+        body:`type=sign`
+    	}
+   $.get(luckybox_url,async(error, response, data) =>{
+    try{
+        $.log(data)
+        //$.log(JSON.stringify(withdraw_url))
+        const result = JSON.parse(data)
+        if(result.errno == 0){
+          console.log(`乐上视频-签到获取金币${result.data.award}个。 \n`)
+          message += `乐上视频-签到获取金币${result.data.award}个。 \n`
+          let viewid = result.data.viewad
+          let sign = 'sign'
+          await viewadAward(viewid,sign)
+        }else{
+        console.log('👀签到错误'+result.message+'\n')
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+}
+
 //luckybox
 async function luckybox(){
  return new Promise((resolve) => {
@@ -283,14 +331,15 @@ async function luckybox(){
     	}
    $.get(luckybox_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
-          console.log(`乐上视频-开箱子 \n`)
-          message += `乐上视频-成功提现0.3元\n`
-          let lsluckyid = result.message
-          await luckyboxvideo()
+          console.log(`乐上视频-开箱子获取金币${result.data.award}个。 \n`)
+          message += `乐上视频-开箱子获取金币${result.data.award}个。 \n`
+          let viewid = result.data.viewad
+          let luckybox = 'luckybox'
+          await viewadAward(viewid,luckybox)
         }else{
         console.log('👀开箱子错误'+result.message+'\n')
         }
@@ -304,12 +353,53 @@ async function luckybox(){
 }
 
 //luckybox
-async function luckyboxvideo(){
+async function eat(){
+ return new Promise((resolve) => {
+    let lsstate = $.getdata('lsstate')
+    let lssign = $.getdata('lssign')
+    let luckybox_url = {
+        url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskaward&&${lsstate}&${lssign}`,
+        headers: {
+'Accept-Encoding' : `gzip, deflate, br`,
+'Connection' : `keep-alive`,
+'Referer' : `https://servicewechat.com/wxd43f74ad84dba818/2/page-frame.html`,
+'Content-Type' : `application/x-www-form-urlencoded`,
+'Host' : `wx.fxzhe.top`,
+'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.1(0x1800012a) NetType/4G Language/zh_CN`,
+'Accept-Language' : `zh-cn`
+},
+        body:`type=eat`
+    	}
+   $.get(luckybox_url,async(error, response, data) =>{
+    try{
+        $.log(data)
+        //$.log(JSON.stringify(withdraw_url))
+        const result = JSON.parse(data)
+        if(result.errno == 0){
+          console.log(`乐上视频-吃饭获取金币${result.data.award}个。 \n`)
+          message += `乐上视频-吃饭获取金币${result.data.award}个。 \n`
+          let viewid = result.data.viewad
+          let eat = 'eat'
+          await viewadAward(viewid,eat)
+        }else{
+        console.log('👀吃饭错误'+result.message+'\n')
+        }
+        }catch(e) {
+          $.logErr(e, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+}
+
+//viewadAward
+async function viewadAward(viewid,type){
  return new Promise((resolve) => {
     let lsstate = $.getdata('lsstate')
     let lssign = $.getdata('lssign')
     let luckyboxvideo_url = {
-        url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=viewadAward&${lsstate}&${lssign}&id=${lsluckyid}&type=luckybox&award=0.6`,
+        url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=viewadAward&${lsstate}&${lssign}&id=${viewid}&type=${type}&award=0.5`,
         headers: {
 'Accept-Encoding' : `gzip, deflate, br`,
 'Connection' : `keep-alive`,
@@ -322,14 +412,14 @@ async function luckyboxvideo(){
     	}
    $.get(luckyboxvideo_url,async(error, response, data) =>{
     try{
-        //$.log(data)
+        $.log(data)
         //$.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
-          console.log(`乐上视频-箱子翻倍 \n`)
-          message += `乐上视频-成功提现0.3元\n`
+          console.log(`乐上视频-奖励翻倍 \n`)
+          message += `乐上视频-奖励翻倍 \n`
         }else{
-        console.log('👀箱子翻倍错误'+result.message+'\n')
+        console.log('👀奖励翻倍错误'+result.message+'\n')
         }
         }catch(e) {
           $.logErr(e, response);
@@ -339,6 +429,8 @@ async function luckyboxvideo(){
     })
    })
 }
+
+
 //sleep
 function sleep(time){
 	 return new Promise((resolve) => setTimeout(resolve,time));
