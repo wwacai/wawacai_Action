@@ -40,12 +40,21 @@ function GetCookie() {
 
         const lsstate = $request.url.split('&')[9];
         const lssign = $request.url.split('&')[10];
-        if (lsstate && lssign) {
+        const lsheader = JSON.stringify($request.headers);
+        if (lsstate && lssign && lsheader) {
+
+            $.setdata(lsheader, "lsheader" + $.idx);
+            $.log(
+                `[${$.name + $.idx}] 获取lsheader✅: 成功,lsheader: ${lsheader}`
+            );
+            $.msg($.name + $.idx, `获取lsheader: 成功🎉`, ``);
+
             $.setdata(lsstate, "lsstate" + $.idx);
             $.log(
                 `[${$.name + $.idx}] 获取lsstate✅: 成功,lsstate: ${lsstate}`
             );
             $.msg($.name + $.idx, `获取lsstate: 成功🎉`, ``);
+
             $.setdata(lssign, "lssign" + $.idx);
             $.log(
                 `[${$.name + $.idx}] 获取lssign✅: 成功,lssign: ${lssign}`
@@ -99,22 +108,15 @@ async function userinfo(){
  return new Promise((resolve) => {
     let lsstate = $.getdata('lsstate')
     let lssign = $.getdata('lssign')
+    let lsheader = $.getdata('lsheader')
     let userinfo_url = {
         url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=myBalance&&${lsstate}&${lssign}`,
-        headers: {
-'Accept-Encoding' : `gzip, deflate, br`,
-'Connection' : `keep-alive`,
-'Referer' : `https://servicewechat.com/wxd43f74ad84dba818/2/page-frame.html`,
-'Content-Type' : `application/x-www-form-urlencoded`,
-'Host' : `wx.fxzhe.top`,
-'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.1(0x1800012a) NetType/4G Language/zh_CN`,
-'Accept-Language' : `zh-cn`
-},
+        headers: JSON.parse(lsheader),
     	}
    $.get(userinfo_url,async(error, response, data) =>{
     try{
         $.log(data)
-        //$.log(JSON.stringify(userinfo_url))
+        $.log(JSON.stringify(userinfo_url))
         const result = JSON.parse(data)
         message += '🔔【乐上视频-个人信息】 '
         if(result.errno == 0){
@@ -224,17 +226,10 @@ async function readvideo(){
  return new Promise((resolve) => {
     let lsstate = $.getdata('lsstate')
     let lssign = $.getdata('lssign')
+    let lsheader = $.getdata('lsheader')
     let readvideo_url = {
         url: `https://wx.fxzhe.top/app/index.php?i=118&t=0&m=jyt_txvideo&v=1.64&from=wxapp&c=entry&a=wxapp&do=taskaward&&${lsstate}&${lssign}`,
-        headers: {
-'Accept-Encoding' : `gzip, deflate, br`,
-'Connection' : `keep-alive`,
-'Referer' : `https://servicewechat.com/wxd43f74ad84dba818/2/page-frame.html`,
-'Content-Type' : `application/x-www-form-urlencoded`,
-'Host' : `wx.fxzhe.top`,
-'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.1(0x1800012a) NetType/4G Language/zh_CN`,
-'Accept-Language' : `zh-cn`
-},
+        headers: JSON.parse(lsheader),
         body:`type=video`
     	}
    $.get(readvideo_url,async(error, response, data) =>{
@@ -291,7 +286,7 @@ async function sign(){
    $.get(luckybox_url,async(error, response, data) =>{
     try{
         $.log(data)
-        $.log(JSON.stringify(withdraw_url))
+        //$.log(JSON.stringify(withdraw_url))
         const result = JSON.parse(data)
         if(result.errno == 0){
           console.log(`乐上视频-签到获取金币${result.data.award}个。 \n`)
