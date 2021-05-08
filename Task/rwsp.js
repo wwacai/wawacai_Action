@@ -3,7 +3,7 @@
 hostname = zm.shujumagician.com
 #圈x
 [rewrite local]
-https://zm.shujumagician.com/app/index.php?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=redpackconfig url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/rwsp.js
+^https:\/\/zm.shujumagician.com/app/index.php\?i=10&t=0&m=jyt_txvideo&v=1.0&from=wxapp&c=entry&a=wxapp&do=index url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/rwsp.js
 
 */
 
@@ -12,14 +12,11 @@ $.idx = ($.idx = ($.getval('tlsSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,spanswer,spbdid,gold,wwxstate,wwxsign
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-let spsignurl = $.getdata('spsignurl')
-let spvideourl = $.getdata('spvideourl')
-let sptxurl = $.getdata('sptxurl')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 let cash = ($.getval('rlcash') || '1')//默认不自动提现
 const logs =0;//0为关闭日志，1为开启
 
-let min = 20;
+let min = 25;
 let max = 35;
 
 var hour=''
@@ -157,8 +154,8 @@ async function readvideo(){
         await sleep(Math.random()*3*1000)
         message += '🔔【热舞视频】 '
         if(result.errno == 0){
-          console.log(`🎈热舞视频-今天共获取金币${result.data.res}个。\n`)
-          message += `🎈热舞视频-今天共获取金币${result.data.res}个。\n`
+          console.log(`🎈热舞视频-共获取金币${result.data.res}个。\n`)
+          message += `🎈热舞视频-共获取金币${result.data.res}个。\n`
           if(result.data.res == "end"){
              console.log(`🎈热舞视频-可提现。\n`)
              await withdraw()
