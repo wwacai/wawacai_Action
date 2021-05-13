@@ -238,7 +238,7 @@ return new Promise((resolve) => {
   try{
       const result = JSON.parse(data)
       $.log(data)
-      if(result[0].type == "stealingVege_addTicket"){
+      if(result[0].type == "stealingVege_refreshTargetUsers"){
         console.log(`🎈刷新偷取列表成功 。\n`)
       }else{
         console.log('👀刷新偷取列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
@@ -538,7 +538,7 @@ async function getQuestList(){
     let getQuestList_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_getQuestList`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_getQuestList","data":{"questType":2}}] `
+        body: `[{"type":"dailyQuest_getQuestList","data":{"questType":2}}]`
     	}
    $.post(getQuestList_url,async(error, response, data) =>{
     try{
@@ -568,7 +568,7 @@ async function dailyQuest(farmlandId){
     let dailyQuest_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_addProgress`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}] `
+        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}]`
     	}
    $.post(dailyQuest_url,async(error, response, data) =>{
     try{
@@ -595,7 +595,7 @@ async function dailyQuestReward(farmlandId){
     let dailyQuestReward_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_receiveReward `,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}] `
+        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}]`
     	}
    $.post(dailyQuestReward_url,async(error, response, data) =>{
     try{
