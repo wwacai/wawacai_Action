@@ -102,15 +102,16 @@ if (!CGIDArr[0]) {
       random = Math.floor(Math.random()*(max-min+1)+min)*1000
       console.log(random);
       await refreshToken()
+      await getCheckIn()
+      if ( 8< hour < 10 || 21< hour < 23 ){
+        await txmarket_exchange()
+      }
       await refreshstealing()
       await $.wait(random);
       await addstealing()
       await $.wait(random);
-      await stealingVege(2)
+      await stealingVege(1)
       await getQuestList()
-      if ( 8< hour < 10 || 21< hour < 23 ){
-        await txmarket_exchange()
-      }
       for (let i = 1; i < 10; i++) {
         console.log('开始执行土地'+i);
         await harvest(i)
@@ -297,8 +298,9 @@ async function stealingVege(recordId){
         $.log(data)
         if(result[0].type == "stealingVege_attackTarget"){
           console.log(`🎈偷取成功。 \n`)
+          await stealingVege(2)
+          await stealingVege(3)
           await stealingVege(4)
-          await stealingVege(1)
         }else{
           console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -610,7 +612,9 @@ async function dailyQuestReward(farmlandId){
         const result = JSON.parse(data)
         $.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈领取加速卡成功 获得${result[1].data. questInfo. rewardProp.number}张。\n`)
+          console.log(`🎈领取加速卡成功 获得${result[0].data.questInfo.rewardProp.number}张。\n`)
+        }else if(result[0].type == "dailyQuest_addProgress"){
+          console.log(`🎈领取加速卡成功 获得${result[0].data.questInfo.rewardProp.number}张。\n`)
         }else{
           console.log('👀领取加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -639,6 +643,68 @@ async function buyPet(farmlandId){
           console.log(`🎈购买宠物成功\n`)
         }else{
           console.log('👀购买宠物失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
+//getCheckIn
+async function getCheckIn(){
+ return new Promise((resolve) => {
+    let getCheckIn_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmCheckIn_getCheckInInfo`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"farmCheckIn_getCheckInInfo","data":{}}]`
+    	}
+   $.post(getCheckIn_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result[0].type == "farmCheckIn_getCheckInInfo"){
+          console.log(`🎈获取签到信息成功，累计签到${result[0].data.checkInInfo.maxDayNumber}天\n`)
+          for (let i = 0; i < 7; i++) {
+            //console.log(result[0].data.marketItemList[i].funcType)
+            if(result[0].data.checkInInfo.entries[i].stateCode == 2){
+              dayNumber = result[0].data.checkInInfo.entries[i].dayNumber
+              console.log(`🎈累计签到${dayNumber}天，可以提现${result[0].data.checkInInfo.entries[i].displayCashAmount} \n`)
+              await checkInReward(dayNumber)
+            }
+            }
+        }else{
+          console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
+//checkInReward
+async function checkInReward(dayNumber){
+ return new Promise((resolve) => {
+    let checkInReward_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmCheckIn_receiveReward`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"farmCheckIn_receiveReward","data":{"dayNumber":${dayNumber}}}]`
+    	}
+   $.post(checkInReward_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result[0].type == "farmCheckIn_receiveReward"){
+          console.log(`🎈🎈签到 ${dayNumber}天提现成功🎈🎈 \n`)
+        }else{
+          console.log('👀签到提现失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
