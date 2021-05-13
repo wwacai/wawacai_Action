@@ -116,6 +116,8 @@ if (!CGIDArr[0]) {
         await harvest(i)
         await $.wait(random);
       }
+      await $.wait(random);
+      await addstealing()
       await Boxglod()
       await $.wait(random);
       await carglod()
@@ -125,6 +127,8 @@ if (!CGIDArr[0]) {
       await buyPet()
       await $.wait(random);
       await speedUpAll()
+      await $.wait(random);
+      await addstealing()
 
   }
  }
@@ -294,6 +298,7 @@ async function stealingVege(recordId){
         if(result[0].type == "stealingVege_attackTarget"){
           console.log(`🎈偷取成功。 \n`)
           await stealingVege(4)
+          await stealingVege(1)
         }else{
           console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -576,6 +581,9 @@ async function dailyQuest(farmlandId){
         $.log(data)
         if(result[0].type == "dailyQuest_addProgress"){
           console.log(`🎈获得加速卡成功\n`)
+          random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          console.log(random);
+          await $.wait(random);
           await dailyQuestReward(farmlandId)
         }else{
           console.log('👀获得加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
