@@ -107,14 +107,14 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege(2)
+      await getQuestList(i)
       if ( 8< hour < 10 || 21< hour < 23 ){
         await txmarket_exchange()
       }
       for (let i = 1; i < 10; i++) {
         console.log('开始执行土地'+i);
         await harvest(i)
-        await $.wait(random);
-        }
+        await
       await Boxglod()
       await $.wait(random);
       await carglod()
@@ -183,7 +183,7 @@ async function carglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -209,7 +209,7 @@ async function Boxglod(){
    $.post(carglod_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈热气球收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
         }else{
@@ -236,7 +236,7 @@ return new Promise((resolve) => {
  $.post(refreshstealing_url,async(error, response, data) =>{
   try{
       const result = JSON.parse(data)
-      $.log(data)
+      //$.log(data)
       if(result[0].type == "stealingVege_addTicket"){
         console.log(`🎈刷新偷取列表成功 。\n`)
       }else{
@@ -263,7 +263,7 @@ return new Promise((resolve) => {
      $.post(addstealing_url,async(error, response, data) =>{
       try{
           const result = JSON.parse(data)
-          $.log(data)
+          //$.log(data)
           if(result[0].type == "stealingVege_addTicket"){
             console.log(`🎈增加偷取次数成功 剩余增加次数${result[0].data.stealingVege.remainingAddTickets}。 \n`)
           }else{
@@ -289,10 +289,10 @@ async function stealingVege(recordId){
    $.post(stealingVege_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "stealingVege_attackTarget"){
           console.log(`🎈偷取成功。 \n`)
-      await stealingVege(4)
+          await stealingVege(4)
         }else{
           console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -316,7 +316,7 @@ async function lottery(){
    $.post(lottery_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "lottery_draw"){
           console.log(`🎈抽奖成功。\n`)
         }else{
@@ -419,10 +419,14 @@ async function plant1(farmlandId){
        $.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
-          
-        if(Math.floor(Math.random()*(max-min+1)+min)>34){
-await speedUp(farmlandId)
-}
+          if(Math.floor(Math.random()*(max-min+1)+min)>37){
+            await speedUp(farmlandId)
+            }
+        }else if(result[0].type == "user_notifyPropertyUpdated"){
+          console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
+          if(Math.floor(Math.random()*(max-min+1)+min)>37){
+            await speedUp(farmlandId)
+            }
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
@@ -526,6 +530,37 @@ async function speedUpAll(farmlandId){
   }
 
 
+
+//getQuestList
+async function getQuestList(farmlandId){
+ return new Promise((resolve) => {
+    let getQuestList_url = {
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_getQuestList`,
+        headers: JSON.parse(CGHD),
+        body: `[{"type":"dailyQuest_getQuestList","data":{"questType":2}}] `
+    	}
+   $.post(getQuestList_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        if(result[0].type == "dailyQuest_getQuestList"){
+          console.log(`🎈获得加速卡列表成功\n`)
+          farmlandId = result[0].data.QuestList[0].questDefId
+          console.log(`🎈获得加速卡列表成功++` + farmlandId)
+          await dailyQuest(farmlandId)
+        }else{
+          console.log('👀获得加速卡列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
 //dailyQuest
 async function dailyQuest(farmlandId){
  return new Promise((resolve) => {
@@ -540,7 +575,6 @@ async function dailyQuest(farmlandId){
         $.log(data)
         if(result[0].type == "dailyQuest_addProgress"){
           console.log(`🎈获得加速卡成功\n`)
-
           await dailyQuestReward(farmlandId)
         }else{
           console.log('👀获得加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
@@ -591,7 +625,7 @@ async function buyPet(farmlandId){
    $.post(buyPet_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-       $.log(data)
+       //$.log(data)
         if(result[0].type == "farmland_getSpeedUp"){
           console.log(`🎈购买宠物成功\n`)
         }else{
@@ -653,7 +687,7 @@ async function txmarket(itemId){
    $.post(txmarket_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        $.log(data)
+        //$.log(data)
         if(result[0].type == "market_exchange"){
           console.log(`🎈🎈订单 ${result[1].data.marketItem.title}提现${result[1].data.marketItem.cashAmount}\成功🎈🎈 \n`)
         }else if(result[0].type == "backpack_notifyItemUpdated"){
