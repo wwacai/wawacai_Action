@@ -536,7 +536,7 @@ async function speedUpAll(farmlandId){
 async function getQuestList(){
  return new Promise((resolve) => {
     let getQuestList_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_getQuestList`,
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_getQuestList`,
         headers: JSON.parse(CGHD),
         body: `[{"type":"dailyQuest_getQuestList","data":{"questType":2}}]`
     	}
@@ -566,9 +566,9 @@ async function getQuestList(){
 async function dailyQuest(farmlandId){
  return new Promise((resolve) => {
     let dailyQuest_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_addProgress`,
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_addProgress`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}]`
+        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId":${farmlandId},"questType":2}}]`
     	}
    $.post(dailyQuest_url,async(error, response, data) =>{
     try{
@@ -593,9 +593,9 @@ async function dailyQuest(farmlandId){
 async function dailyQuestReward(farmlandId){
  return new Promise((resolve) => {
     let dailyQuestReward_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=dailyQuest_receiveReward `,
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_receiveReward`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId": ${farmlandId},"questType":2}}]`
+        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId":${farmlandId},"questType":2}}]`
     	}
    $.post(dailyQuestReward_url,async(error, response, data) =>{
     try{
