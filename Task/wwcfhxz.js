@@ -546,7 +546,7 @@ async function getQuestList(){
         $.log(data)
         if(result[0].type == "dailyQuest_getQuestList"){
           console.log(`🎈获得加速卡列表成功\n`)
-          farmlandId = result[0].data.QuestList[0].questDefId
+          farmlandId = result[0].data.questList[0].questDefId
           console.log(`🎈获得加速卡列表成功++` + farmlandId)
           await dailyQuest(farmlandId)
         }else{
