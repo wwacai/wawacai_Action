@@ -494,9 +494,9 @@ async function plant2(farmlandId){
 async function speedUp(farmlandId){
  return new Promise((resolve) => {
     let speedUp_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID} &msgtype=farmland_speedUp`,
+        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_speedUp`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_speedUp","data":{"farmlandDefId": ${farmlandId},"priceType":2002}}]`
+        body: `[{"type":"farmland_speedUp","data":{"farmlandDefId":${farmlandId},"priceType":2002}}]`
     	}
    $.post(speedUp_url,async(error, response, data) =>{
     try{
