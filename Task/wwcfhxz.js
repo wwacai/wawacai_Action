@@ -115,6 +115,7 @@ if (!CGIDArr[0]) {
         console.log('开始执行土地'+i);
         await harvest(i)
         await
+      }
       await Boxglod()
       await $.wait(random);
       await carglod()
