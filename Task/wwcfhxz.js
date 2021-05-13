@@ -605,7 +605,7 @@ async function dailyQuestReward(farmlandId){
     let dailyQuestReward_url = {
         url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_receiveReward`,
         headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId":${farmlandId},"questType":2}}]`
+        body: `[{"type":"dailyQuest_receiveReward","data":{"questDefId":${farmlandId},"questType":2}}]`
     	}
    $.post(dailyQuestReward_url,async(error, response, data) =>{
     try{
@@ -613,8 +613,8 @@ async function dailyQuestReward(farmlandId){
         $.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈领取加速卡成功 获得${result[0].data.questInfo.rewardProp.number}张。\n`)
-        }else if(result[0].type == "dailyQuest_addProgress"){
-          console.log(`🎈领取加速卡成功 获得${result[0].data.questInfo.rewardProp.number}张。\n`)
+        }else if(result[1].type == "dailyQuest_receiveReward"){
+          console.log(`🎈领取加速卡成功 获得${result[1].data.questInfo.rewardProp.number}张。\n`)
         }else{
           console.log('👀领取加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
