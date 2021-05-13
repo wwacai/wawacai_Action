@@ -359,7 +359,9 @@ async function harvest(farmlandId){
           await $.wait(random);
           await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
-          console.log(`🎈还没成熟。\n`)
+          console.log(`🎈还没成熟。\n`)          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
           await $.wait(random);
@@ -427,14 +429,18 @@ async function plant1(farmlandId){
        $.log(data)
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
-          if(Math.floor(Math.random()*(max-min+1)+min)>37){
-            await speedUp(farmlandId)
-            }
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
         }else if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
-          if(Math.floor(Math.random()*(max-min+1)+min)>37){
-            await speedUp(farmlandId)
-            }
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
+          await speedUp(farmlandId)
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
           console.log(random);
@@ -497,7 +503,7 @@ async function speedUp(farmlandId){
         $.log(data)
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈加速成功\n`)
-          await harvest(farmlandId)
+          //await harvest(farmlandId)
         }else{
           console.log('👀加速失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
