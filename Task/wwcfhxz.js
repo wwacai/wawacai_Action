@@ -359,7 +359,8 @@ async function harvest(farmlandId){
           await $.wait(random);
           await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
-          console.log(`🎈还没成熟。\n`)          await speedUp(farmlandId)
+          console.log(`🎈还没成熟。\n`)
+          await speedUp(farmlandId)
           await speedUp(farmlandId)
           await speedUp(farmlandId)
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
