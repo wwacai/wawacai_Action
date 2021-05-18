@@ -104,6 +104,7 @@ if (!CGIDArr[0]) {
       await refreshToken()
       await getCheckIn()
       if ( 8< hour < 10 || 21< hour < 23 ){
+        await getQuestList()
         await txmarket_exchange()
       }
       await refreshstealing()
@@ -111,7 +112,6 @@ if (!CGIDArr[0]) {
       await addstealing()
       await $.wait(random);
       await stealingVege(1)
-      await getQuestList()
       for (let i = 1; i < 10; i++) {
         console.log('开始执行土地'+i);
         await harvest(i)
@@ -436,7 +436,7 @@ async function plant1(farmlandId){
           await speedUp(farmlandId)
           await speedUp(farmlandId)
         }else if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
+          console.log(`🎈种植成功 土地${result[1].data.farmland.farmlandDefId}种植成功。 \n`)
           await speedUp(farmlandId)
           await speedUp(farmlandId)
           await speedUp(farmlandId)
@@ -560,9 +560,13 @@ async function getQuestList(){
         $.log(data)
         if(result[0].type == "dailyQuest_getQuestList"){
           console.log(`🎈获得加速卡列表成功\n`)
-          farmlandId = result[0].data.questList[0].questDefId
-          console.log(`🎈获得加速卡列表成功++` + farmlandId)
-          await dailyQuest(farmlandId)
+          for (let i = 0; i < 12; i++) {
+             console.log('开始执行领取加速器'+i);
+             farmlandId = result[0].data.questList[i].questDefId
+             console.log(`🎈获得加速卡列表成功++` + farmlandId)
+             await dailyQuest(farmlandId)
+             await $.wait(random);
+           }
         }else{
           console.log('👀获得加速卡列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
@@ -675,7 +679,7 @@ async function getCheckIn(){
         $.log(data)
         if(result[0].type == "farmCheckIn_getCheckInInfo"){
           console.log(`🎈获取签到信息成功，累计签到${result[0].data.checkInInfo.maxDayNumber}天\n`)
-          for (let i = 0; i < 7; i++) {
+          for (let i = 0; i < 6; i++) {
             //console.log(result[0].data.marketItemList[i].funcType)
             if(result[0].data.checkInInfo.entries[i].stateCode == 2){
               dayNumber = result[0].data.checkInInfo.entries[i].dayNumber
