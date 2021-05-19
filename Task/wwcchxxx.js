@@ -33,7 +33,7 @@ if (isGetCookie) {
 }
 
 
-const chbodyArr = ['{"access_token":"45_y4bMsaYG3Wi7P16wG3Q-SoTltLZ7dLtmZ9cQLlkHezeGLBH2-35qOuul3HTykGdk-niJCcmfPEDHDrqo7f4zxwwiR46kLwQO22Jvm5L7DjM","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
+const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot66LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbInn4","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
 const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
 if ($.isNode()) {
   /*        for (let i = 2001; i < 2013; i++) {
@@ -144,8 +144,8 @@ async function refreshToken(){
                 'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
                 'Accept-Language' : `zh-cn`
                 },
-        body: `{"access_token":"45_GEmC4s7kIebMmVTv6mTSXMZo9Jy81BBkHmDOaFJjFhccfk2HYavUaK4dnuUU0c3y469dGoCzvjWO559Y9jraKOgIWPnAO8R6vbkQlHgn4gs","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}`
-      }
+        body: chbody
+            }
    $.post(refreshToken_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
