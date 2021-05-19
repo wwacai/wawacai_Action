@@ -108,6 +108,10 @@ if (!chidArr[0]) {
       if ( 8< hour  < 22 ){
         await diamond()
         await gamestart()
+        await gamestart()
+        await gamestart()
+        await gamestart()
+        await gamestart()
         await lottery()
       }
   }
