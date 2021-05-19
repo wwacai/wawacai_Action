@@ -33,7 +33,7 @@ if (isGetCookie) {
 }
 
 
-const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot66LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbInn4","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
+const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot88LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbIab8","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
 const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
 if ($.isNode()) {
   /*        for (let i = 2001; i < 2013; i++) {
