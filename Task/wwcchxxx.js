@@ -101,9 +101,9 @@ if (!chidArr[0]) {
       console.log(`\n开始【${$.name} ${$.index}】`)
       await refreshToken()
       await userinfo()
-      if ( 8< hour  < 11 ||   16< hour  < 19 ){
+      if ( 8< hour < 10 ||   17< hour  < 19 ){
         await signin()
-        await lottery()
+        await lotteryad()
       }
       if ( 8< hour  < 22 ){
         await diamond()
