@@ -3,7 +3,7 @@ name: wwcchxxx
 on:
   workflow_dispatch:
   schedule:
-      - cron: '00,30 * * * *'
+      - cron: '00 * * * *'
 jobs:
   build:
     runs-on: macos-latest
