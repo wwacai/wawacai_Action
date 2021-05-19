@@ -103,7 +103,7 @@ if (!chidArr[0]) {
       await userinfo()
       if ( 8< hour  < 11 ||   16< hour  < 19 ){
         await signin()
-        await lotteryad()
+        await lottery()
       }
       if ( 8< hour  < 22 ){
         await diamond()
