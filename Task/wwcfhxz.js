@@ -102,6 +102,7 @@ if (!CGIDArr[0]) {
       random = Math.floor(Math.random()*(max-min+1)+min)*1000
       console.log(random);
       await refreshToken()
+      await addstealing()
       await getCheckIn()
       if ( 8< hour < 10 || 21< hour < 23 ){
         await getQuestList()
@@ -117,15 +118,17 @@ if (!CGIDArr[0]) {
         await harvest(i)
         await $.wait(random);
       }
-      await $.wait(random);
       await addstealing()
+      await $.wait(random);
       await Boxglod()
       await $.wait(random);
       await carglod()
+      await addstealing()
       await $.wait(random);
       await lottery()
       await $.wait(random);
       await buyPet()
+      await addstealing()
       await $.wait(random);
       await speedUpAll()
       await $.wait(random);
@@ -258,31 +261,31 @@ return new Promise((resolve) => {
 }
 
 
-  //addstealing
-  async function addstealing(){
-   return new Promise((resolve) => {
-      let addstealing_url = {
-          url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_addTicket`,
-          headers: JSON.parse(CGHD),
-          body: `[{"type":"stealingVege_addTicket","data":{}}]`
-      	}
-     $.post(addstealing_url,async(error, response, data) =>{
-      try{
-          const result = JSON.parse(data)
-          $.log(data)
-          if(result[0].type == "stealingVege_addTicket"){
-            console.log(`🎈增加偷取次数成功 剩余增加次数${result[0].data.stealingVege.remainingAddTickets}。 \n`)
-          }else{
-            console.log('👀增加偷取次数失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-           }
-          }catch(error) {
-            $.logErr(error, response);
-        } finally {
-          resolve();
+//addstealing
+async function addstealing(){
+return new Promise((resolve) => {
+   let addstealing_url = {
+       url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_addTicket`,
+       headers: JSON.parse(CGHD),
+       body: `[{"type":"stealingVege_addTicket","data":{}}]`
+      }
+  $.post(addstealing_url,async(error, response, data) =>{
+   try{
+       const result = JSON.parse(data)
+       $.log(data)
+       if(result[0].type == "stealingVege_addTicket"){
+         console.log(`🎈增加偷取次数成功 剩余增加次数${result[0].data.stealingVege.remainingAddTickets}。 \n`)
+       }else{
+         console.log('👀增加偷取次数失败'+result[0].data.message+result[0].data.rawMessage+"\n")
         }
-      })
-     })
-    }
+       }catch(error) {
+         $.logErr(error, response);
+     } finally {
+       resolve();
+     }
+   })
+  })
+ }
 
 //stealingVege
 async function stealingVege(recordId){
@@ -301,6 +304,7 @@ async function stealingVege(recordId){
           await stealingVege(2)
           await stealingVege(3)
           await stealingVege(4)
+          await stealingVege(5)
         }else{
           console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
          }
