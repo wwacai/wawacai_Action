@@ -1,5 +1,14 @@
+/*
+[mitm]
+hostname = xxx2.67mob.com
+#圈x
+[rewrite local]
+https://xxx2.67mob.com/v2/auth/login-by-wx url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/wwcchxxx.js
 
-const $ = Env('fhxz')
+*/
+
+
+const $ = Env('chxxx')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount,chtoken
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -33,14 +42,9 @@ if (isGetCookie) {
 }
 
 
-const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot88LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbIab8","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
-const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
+///const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot88LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbIab8","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
+///const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
 if ($.isNode()) {
-  /*        for (let i = 2001; i < 2013; i++) {
-        console.log('开始执行领取加速器'+i);
-        await dailyQuest(i)
-        await $.wait(random);
-        }
   if (process.env.chbody && process.env.chbody.indexOf('#') > -1) {
   chbody = process.env.chbody.split('#');
   console.log(`您选择的是用"#"隔开\n`)
@@ -51,37 +55,18 @@ if ($.isNode()) {
   } else {
    chbody = process.env.chbody.split()
   };
-
-  if (process.env.chid && process.env.chid.indexOf('#') > -1) {
-   chid = process.env.chid.split('#');
-   console.log(`您选择的是用"#"隔开\n`)
-  }
-  else if (process.env.chid && process.env.chid.indexOf('\n') > -1) {
-   chid = process.env.chid.split('\n');
-   console.log(`您选择的是用换行隔开\n`)
-  } else {
-   chid = process.env.chid.split()
-  };
   Object.keys(chbody).forEach((item) => {
         if (chbody[item]) {
           chbodyArr.push(chbody[item])
         }
     });
-  Object.keys(chid).forEach((item) => {
-        if (chid[item]) {
-          chidArr.push(chid[item])
-        }
-    });
-  */
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
  } else {
-    chbodyArr.push($.getdata('chbody'))
-    chidArr.push($.getdata('chid'))
+    //chbodyArr.push($.getdata('chbody'))
     let wkcount = ($.getval('wkcount') || '1');
-  for (let i = 2; i <= wkcount; i++) {
+  for (let i = 1; i <= wkcount; i++) {
     chbodyArr.push($.getdata(`chbody${i}`))
-    chidArr.push($.getdata(`chid${i}`))
   }
 }
 
@@ -96,7 +81,6 @@ if (!chidArr[0]) {
       message = ''
       note =''
       chbody = chbodyArr[i];
-      chid = chidArr[i];
       $.index = i + 1;
       console.log(`\n开始【${$.name} ${$.index}】`)
       await refreshToken()
@@ -117,7 +101,7 @@ if (!chidArr[0]) {
            await lottery()
          }
       }
-      
+
   }
  }
 })()
@@ -125,15 +109,11 @@ if (!chidArr[0]) {
     .finally(() => $.done())
 
 function GetCookie() {
-if($request&&$request.url.indexOf("get_user_data")>=0) {
-   const chbody = $request.url.split('&')[7]
+if($request&&$request.url.indexOf("login-by-wx")>=0) {
+   const chbody = $request.body
    if(chbody)     $.setdata(chbody,`chbody${status}`)
    $.log(`[${wawacai}] 获取chbody请求: 成功,chbody: ${chbody}`)
    $.msg(`chbody${status}: 成功🎉`, ``)
-   const chid = $request.url.split('&')[10]
-    if(chid)    $.setdata(chid,`chid${status}`)
-    $.log(`[${wawacai}] 获取chid请求: 成功,chid: ${chid}`)
-    $.msg(`chid${status}: 成功🎉`, ``)
 }
 }
 
@@ -161,9 +141,11 @@ async function refreshToken(){
         //$.log(JSON.stringify(refreshToken_url))
         if(result.code == 0){
           chtoken = result.token
+          chid = result.uid
           console.log(`🎈刷新token成功 \n`)//${chid}
           console.log(chtoken)//${chid}
           return chtoken
+          return chid
         }else{
           console.log('👀刷新token失败'+result.err_msg+data+"\n")
          }
