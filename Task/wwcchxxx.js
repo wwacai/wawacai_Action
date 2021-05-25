@@ -100,20 +100,24 @@ if (!chidArr[0]) {
       $.index = i + 1;
       console.log(`\n开始【${$.name} ${$.index}】`)
       await refreshToken()
-      await userinfo()
-      if ( 8< hour < 10 ||   17< hour  < 19 ){
-        await signin()
-        await lotteryad()
+      for (let i = 1; i < 15; i++) {
+         console.log('开始执行多次任务'+i);
+         await userinfo()
+         if ( 8< hour < 10 ||   17< hour  < 19 ){
+           await signin()
+           await lotteryad()
+         }
+         if ( 8< hour  < 22 ){
+           await diamond()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await lottery()
+         }
       }
-      if ( 8< hour  < 22 ){
-        await diamond()
-        await gamestart()
-        await gamestart()
-        await gamestart()
-        await gamestart()
-        await gamestart()
-        await lottery()
-      }
+      
   }
  }
 })()
