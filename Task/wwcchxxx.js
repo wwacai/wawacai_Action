@@ -10,7 +10,7 @@ https://xxx2.67mob.com/v2/auth/login-by-wx url script-request-header https://raw
 
 const $ = Env('chxxx')
 const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount,chtoken
+let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount,chtoken,chhd
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 //const chbodyArr = [], chidArr = []
 let chbody = $.getdata('chbody')
@@ -43,7 +43,10 @@ if (isGetCookie) {
 
 
 ///const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot88LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbIab8","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
-///const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
+/const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
+const  chhdArr = [{"Accept":"*/*","uid":"30569","Connection":"keep-alive","Content-Type":"application/x-www-form-urlencoded","Accept-Encoding":"gzip, deflate, br","Host":"xxx2.67mob.com","Content-Length":"92","User-Agent":"PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0","Accept-Language":"zh-cn","token":"2b0e20f7-a029-4aa5-bb95-5e456bb1c6a5","Cache-Control":"no-cache"}]
+
+/*
 if ($.isNode()) {
   if (process.env.chbody && process.env.chbody.indexOf('#') > -1) {
   chbody = process.env.chbody.split('#');
@@ -70,37 +73,33 @@ if ($.isNode()) {
   }
 }
 
+*/
+
 !(async () => {
-if (!chidArr[0]) {
+if (!chhdArr[0]) {
     $.msg($.name, '【提示】请先获取cookie')
     return;
   }
-   console.log(`------------- 共${chidArr.length}个账号----------------\n`)
-  for (let i = 0; i < chidArr.length; i++) {
-    if (chidArr[i]) {
+   console.log(`------------- 共${chhdArr.length}个账号----------------\n`)
+  for (let i = 0; i < chhdArr.length; i++) {
+    if (chhdArr[i]) {
       message = ''
       note =''
-      chbody = chbodyArr[i];
+      chhd = chhdArr[i];
+      chid = chidArr[i];
       $.index = i + 1;
       console.log(`\n开始【${$.name} ${$.index}】`)
-      await refreshToken()
-      for (let i = 1; i < 15; i++) {
-         console.log('开始执行多次任务'+i);
-         await userinfo()
-         if ( 8< hour < 10 ||   17< hour  < 19 ){
-           await signin()
-           await lotteryad()
-         }
-         if ( 8< hour  < 22 ){
-           await diamond()
-           await gamestart()
-           await gamestart()
-           await gamestart()
-           await gamestart()
-           await gamestart()
-           await lottery()
-         }
+      await userinfo()
+      if ( 8< hour < 10 ||   17< hour  < 19 ){
+        await signin()
+        await diamond()
+        await lotteryad()
       }
+      await diamond()
+      for (let i = 1; i < 5; i++) {
+         await gamestart()
+      }
+      await lottery()
 
   }
  }
@@ -163,15 +162,7 @@ async function userinfo(){
  return new Promise((resolve) => {
     let userinfo_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
-        headers: {
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Cache-Control' : `no-cache`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`
-                },
+        headers: chhd,
         body: `{"uid":${chid},"channel_id":188}`
       }
    $.post(userinfo_url,async(error, response, data) =>{
@@ -199,18 +190,7 @@ async function signin(){
  return new Promise((resolve) => {
     let signin_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
+        headers: chhd,
         body: `{"channel_id":188,"type":1}`
       }
    $.post(signin_url,async(error, response, data) =>{
@@ -238,18 +218,7 @@ async function gamestart(){
  return new Promise((resolve) => {
     let gamestart_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/start`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
+        headers: chhd,
         body: `{"channel_id":188}`
       }
    $.post(gamestart_url,async(error, response, data) =>{
@@ -281,19 +250,8 @@ async function gamepass(){
  return new Promise((resolve) => {
     let gamepass_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/pass`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
-        body: `{"gk":3,"score":${Math.floor(Math.random()*(2500-1000+1)+1000)},"win":1}`
+        headers: chhd,
+        body: `{"gk":6,"score":${Math.floor(Math.random()*(2500-1000+1)+1000)},"win":1}`
       }
    $.post(gamepass_url,async(error, response, data) =>{
     try{
@@ -328,19 +286,8 @@ async function gamead(){
  return new Promise((resolve) => {
     let gamead_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
-        body: `{"action_type":3,"ad_company":"2","ad_pos_id":128,"channel_id":188,"channel_sub_id":1,"gk":1}`
+        headers: chhd,
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":128,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(gamead_url,async(error, response, data) =>{
     try{
@@ -370,19 +317,8 @@ async function gameplus(){
  return new Promise((resolve) => {
     let gameplus_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
-        body: `{"action_type":3,"ad_company":"3","ad_pos_id":120,"channel_id":188,"channel_sub_id":1,"gk":2}`
+        headers: chhd,
+        body: `{"action_type":3,"ad_company":"3","ad_pos_id":120,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(gameplus_url,async(error, response, data) =>{
     try{
@@ -410,19 +346,8 @@ async function diamond(){
  return new Promise((resolve) => {
     let diamond_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
-        body: `{"action_type":3,"ad_company":"2","ad_pos_id":31,"channel_id":188,"channel_sub_id":1,"gk":2}`
+        headers: chhd,
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":31,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(diamond_url,async(error, response, data) =>{
     try{
@@ -450,19 +375,8 @@ async function lotteryad(){
  return new Promise((resolve) => {
     let lotteryad_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
-        body: `{"action_type":3,"ad_company":"2","ad_pos_id":36,"channel_id":188,"channel_sub_id":1,"gk":2}`
+        headers: chhd,
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":36,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(lotteryad_url,async(error, response, data) =>{
     try{
@@ -490,18 +404,7 @@ async function lotteryad2(){
  return new Promise((resolve) => {
     let lotteryad2_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/playad-for-lottery`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
+        headers: chhd,
         body: ``
       }
    $.post(lotteryad2_url,async(error, response, data) =>{
@@ -530,18 +433,7 @@ async function lottery(){
  return new Promise((resolve) => {
     let lottery_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/lottery3`,
-        headers: {
-                'Accept' : `*/*`,
-                'uid' : `${chid}`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`,
-                'token' : `${chtoken}`,
-                'Cache-Control' : `no-cache`
-                },
+        headers: chhd,
         body: `{"uid":${chid}}`
       }
    $.post(lottery_url,async(error, response, data) =>{
