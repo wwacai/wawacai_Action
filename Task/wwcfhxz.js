@@ -1,11 +1,11 @@
 
-const $ = Env('fhxz')
+const $ = Env('chxxx')
 const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount
+let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount,chtoken
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-//const CGHDArr = [], CGIDArr = []
-let CGHD = $.getdata('CGHD')
-let CGID = $.getdata('CGID')
+//const chbodyArr = [], chidArr = []
+let chbody = $.getdata('chbody')
+let chid = $.getdata('chid')
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 let cash = ($.getval('rlcash') || '1')//默认不自动提现
 const logs =0;//0为关闭日志，1为开启
@@ -33,106 +33,65 @@ if (isGetCookie) {
 }
 
 
-const CGHDArr = ['{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}','{"Accept-Encoding":"gzip,deflate,br","Connection":"keep-alive","Content-Type":"application/octet-stream","Host":"sunnytown.hyskgame.com","User-Agent":"fuhaoxiaozhen/22CFNetwork/1128.0.1Darwin/19.6.0","Accept-Language":"zh-cn","X-Unity-Version":"2019.2.9f1"}']
-const CGIDArr = ['187941_1619496880_261f8db29348ae0541c66bcf031cbb93','192270_1619530164_554a793159f42544f18d921f18728509','198628_1619617925_07620b1bda45fe4db845beeae23684ae','211126_1619777406_0dac8e5f20e1a8d115579922b73763fa','211465_1619787896_5988be524ef28813fd7023ff5408cb4b']//三，菜，娃1，娃2，小肥肥，
+///const chbodyArr = ['{"access_token":"45_GEmC4s7kIebMmVTv6mTSXI0h6ZLwhzHRqre-NAjBqtgbItu3V_bHecHd4IvJaZ76Dwot88LlN-1UB5MjZoyHyrIZ7z2WYiyAcO-Y3rbIab8","channel_id":188,"channel_sub_id":1,"device_no":"dad650934163052bd0048b254b4aa805","gender":1,"head_url":"https://thirdwx.qlogo.cn/mmopen/vi_32/KUQlIP30FJPB7rTr1ibRDqnVGeDEVDQHnClG7Nt39rsUibt9JqF2HhmwZ5A5Ng5eVcGeZntcoYEEZ7rrjlWib3aMQ/132","nick":"三加一","open_id":"oxwz-wPdmdBdcNHajwWOGEosNGKc","union_id":"oZ5V-5tTWcAg63X3WJnIKtRalPqA","idfa":"BB69F700-679A-40BF-905E-18241BB18689","imei":"","os_type":0,"os_version":1,"version":"1.8.0"}']
+///const chidArr = ['30569']//三，菜，娃1，娃2，小肥肥，
 if ($.isNode()) {
-  /*        for (let i = 2001; i < 2013; i++) {
-        console.log('开始执行领取加速器'+i);
-        await dailyQuest(i)
-        await $.wait(random);
-        }
-  if (process.env.CGHD && process.env.CGHD.indexOf('#') > -1) {
-  CGHD = process.env.CGHD.split('#');
+  if (process.env.chbody && process.env.chbody.indexOf('#') > -1) {
+  chbody = process.env.chbody.split('#');
   console.log(`您选择的是用"#"隔开\n`)
   }
-  else if (process.env.CGHD && process.env.CGHD.indexOf('\n') > -1) {
-   CGHD = process.env.CGHD.split('\n');
+  else if (process.env.chbody && process.env.chbody.indexOf('\n') > -1) {
+   chbody = process.env.chbody.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   CGHD = process.env.CGHD.split()
+   chbody = process.env.chbody.split()
   };
-
-  if (process.env.CGID && process.env.CGID.indexOf('#') > -1) {
-   CGID = process.env.CGID.split('#');
-   console.log(`您选择的是用"#"隔开\n`)
-  }
-  else if (process.env.CGID && process.env.CGID.indexOf('\n') > -1) {
-   CGID = process.env.CGID.split('\n');
-   console.log(`您选择的是用换行隔开\n`)
-  } else {
-   CGID = process.env.CGID.split()
-  };
-  Object.keys(CGHD).forEach((item) => {
-        if (CGHD[item]) {
-          CGHDArr.push(CGHD[item])
+  Object.keys(chbody).forEach((item) => {
+        if (chbody[item]) {
+          chbodyArr.push(chbody[item])
         }
     });
-  Object.keys(CGID).forEach((item) => {
-        if (CGID[item]) {
-          CGIDArr.push(CGID[item])
-        }
-    });
-  */
     console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
     console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
  } else {
-    CGHDArr.push($.getdata('CGHD'))
-    CGIDArr.push($.getdata('CGID'))
+    //chbodyArr.push($.getdata('chbody'))
     let wkcount = ($.getval('wkcount') || '1');
-  for (let i = 2; i <= wkcount; i++) {
-    CGHDArr.push($.getdata(`CGHD${i}`))
-    CGIDArr.push($.getdata(`CGID${i}`))
+  for (let i = 1; i <= wkcount; i++) {
+    chbodyArr.push($.getdata(`chbody${i}`))
   }
 }
 
 !(async () => {
-if (!CGIDArr[0]) {
+if (!chidArr[0]) {
     $.msg($.name, '【提示】请先获取cookie')
     return;
   }
-   console.log(`------------- 共${CGIDArr.length}个账号----------------\n`)
-  for (let i = 0; i < CGIDArr.length; i++) {
-    if (CGIDArr[i]) {
+   console.log(`------------- 共${chidArr.length}个账号----------------\n`)
+  for (let i = 0; i < chidArr.length; i++) {
+    if (chidArr[i]) {
       message = ''
       note =''
-      CGHD = CGHDArr[i];
-      CGID = CGIDArr[i];
+      chbody = chbodyArr[i];
       $.index = i + 1;
       console.log(`\n开始【${$.name} ${$.index}】`)
-      random = Math.floor(Math.random()*(max-min+1)+min)*1000
-      console.log(random);
       await refreshToken()
-      await addstealing()
-      await getCheckIn()
-      if ( 8< hour < 10 || 21< hour < 23 ){
-        await getQuestList()
-        await txmarket_exchange()
+      for (let i = 1; i < 15; i++) {
+         console.log('开始执行多次任务'+i);
+         await userinfo()
+         if ( 8< hour < 10 ||   17< hour  < 19 ){
+           await signin()
+           await lotteryad()
+         }
+         if ( 8< hour  < 22 ){
+           await diamond()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await gamestart()
+           await lottery()
+         }
       }
-      await refreshstealing()
-      await $.wait(random);
-      await addstealing()
-      await $.wait(random);
-      await stealingVege(1)
-      for (let i = 1; i < 10; i++) {
-        console.log('开始执行土地'+i);
-        await harvest(i)
-        await $.wait(random);
-      }
-      await addstealing()
-      await $.wait(random);
-      await Boxglod()
-      await $.wait(random);
-      await carglod()
-      await addstealing()
-      await $.wait(random);
-      await lottery()
-      await $.wait(random);
-      await buyPet()
-      await addstealing()
-      await $.wait(random);
-      await speedUpAll()
-      await $.wait(random);
-      await addstealing()
 
   }
  }
@@ -141,15 +100,11 @@ if (!CGIDArr[0]) {
     .finally(() => $.done())
 
 function GetCookie() {
-if($request&&$request.url.indexOf("get_user_data")>=0) {
-   const CGHD = $request.url.split('&')[7]
-   if(CGHD)     $.setdata(CGHD,`CGHD${status}`)
-   $.log(`[${wawacai}] 获取CGHD请求: 成功,CGHD: ${CGHD}`)
-   $.msg(`CGHD${status}: 成功🎉`, ``)
-   const CGID = $request.url.split('&')[10]
-    if(CGID)    $.setdata(CGID,`CGID${status}`)
-    $.log(`[${wawacai}] 获取CGID请求: 成功,CGID: ${CGID}`)
-    $.msg(`CGID${status}: 成功🎉`, ``)
+if($request&&$request.url.indexOf("login-by-wx")>=0) {
+   const chbody = $request.body
+   if(chbody)     $.setdata(chbody,`chbody${status}`)
+   $.log(`[${wawacai}] 获取chbody请求: 成功,chbody: ${chbody}`)
+   $.msg(`chbody${status}: 成功🎉`, ``)
 }
 }
 
@@ -158,19 +113,32 @@ if($request&&$request.url.indexOf("get_user_data")>=0) {
 async function refreshToken(){
  return new Promise((resolve) => {
     let refreshToken_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=&msgtype=account_signInAccessToken`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"account_signInAccessToken","data":{"accessToken":"${CGID}"}}]`
-    	}
+        url: `https://xxx2.67mob.com/v2/auth/login-by-wx`,
+        headers: {
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Cache-Control' : `no-cache`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`
+                },
+        body: chbody
+            }
    $.post(refreshToken_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
-        //$.log(data)
-        if(result[0].type == "account_signInAccessToken"){
-          CGID = result[0].data.accessToken
-          console.log(`🎈刷新token成功 \n`)//${CGID}
+        $.log(data)
+        //$.log(JSON.stringify(refreshToken_url))
+        if(result.code == 0){
+          chtoken = result.token
+          chid = result.uid
+          console.log(`🎈刷新token成功 \n`)//${chid}
+          console.log(chtoken)//${chid}
+          return chtoken
+          return chid
         }else{
-          console.log('👀刷新token失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀刷新token失败'+result.err_msg+data+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
@@ -181,22 +149,32 @@ async function refreshToken(){
    })
   }
 
-//carglod
-async function carglod(){
+//userinfo
+async function userinfo(){
  return new Promise((resolve) => {
-    let carglod_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=carBox_receiveCarReward`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"carBox_receiveCarReward","data":{}}]`
-    	}
-   $.post(carglod_url,async(error, response, data) =>{
+    let userinfo_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
+        headers: {
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Cache-Control' : `no-cache`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`
+                },
+        body: `{"uid":${chid},"channel_id":188}`
+      }
+   $.post(userinfo_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         $.log(data)
-        if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈小车金币收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
+        //$.log(JSON.stringify(userinfo_url))
+        if(result.uid != 0){
+          console.log(`🎈获取个人信息成功 \n`)
+          console.log(`🎈现有钻石数${result.diamond} 现有金币数${result.gold_coin} 总计观看广告数${result.ad_num} 总计提现数${result.with_drawal_times}  \n`)
         }else{
-          console.log('👀小车金币失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀获取个人信息失败'+result.err_msg+data+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
@@ -207,22 +185,35 @@ async function carglod(){
    })
   }
 
-//Boxglod
-async function Boxglod(){
+//signin
+async function signin(){
  return new Promise((resolve) => {
-    let carglod_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=carBox_receiveBoxReward`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"carBox_receiveBoxReward","data":{}}]`
-    	}
-   $.post(carglod_url,async(error, response, data) =>{
+    let signin_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"channel_id":188,"type":1}`
+      }
+   $.post(signin_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         $.log(data)
-        if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈热气球收获成功 收获${result[1].data.rewardProp.number}金币。 \n`)
+        //$.log(JSON.stringify(userinfo_url))
+        if(result.uid != 0){
+          console.log(`🎈签到成功 \n`)
+          //console.log(`🎈现有钻石数${result.diamond} 现有金币数${result.gold_coin} 总计观看广告数${result.ad_num} 总计提现数${result.with_drawal_times}  \n`)
         }else{
-          console.log('👀热气球失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀签到失败'+result.err_msg+data+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
@@ -233,80 +224,39 @@ async function Boxglod(){
    })
   }
 
-
-//refreshstealing
-async function refreshstealing(){
-return new Promise((resolve) => {
-  let refreshstealing_url = {
-      url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_refreshTargetUsers`,
-      headers: JSON.parse(CGHD),
-      body: `[{"type":"stealingVege_refreshTargetUsers","data":{}}]`
-    }
- $.post(refreshstealing_url,async(error, response, data) =>{
-  try{
-      const result = JSON.parse(data)
-      $.log(data)
-      if(result[0].type == "stealingVege_refreshTargetUsers"){
-        console.log(`🎈刷新偷取列表成功 。\n`)
-      }else{
-        console.log('👀刷新偷取列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-       }
-      }catch(error) {
-        $.logErr(error, response);
-    } finally {
-      resolve();
-    }
-  })
- })
-}
-
-
-//addstealing
-async function addstealing(){
-return new Promise((resolve) => {
-   let addstealing_url = {
-       url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_addTicket`,
-       headers: JSON.parse(CGHD),
-       body: `[{"type":"stealingVege_addTicket","data":{}}]`
-      }
-  $.post(addstealing_url,async(error, response, data) =>{
-   try{
-       const result = JSON.parse(data)
-       $.log(data)
-       if(result[0].type == "stealingVege_addTicket"){
-         console.log(`🎈增加偷取次数成功 剩余增加次数${result[0].data.stealingVege.remainingAddTickets}。 \n`)
-       }else{
-         console.log('👀增加偷取次数失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-        }
-       }catch(error) {
-         $.logErr(error, response);
-     } finally {
-       resolve();
-     }
-   })
-  })
- }
-
-//stealingVege
-async function stealingVege(recordId){
+//gamestart
+async function gamestart(){
  return new Promise((resolve) => {
-    let stealingVege_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=stealingVege_attackTarget`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"stealingVege_attackTarget","data":{"recordId": ${recordId}}}]`
-    	}
-   $.post(stealingVege_url,async(error, response, data) =>{
+    let gamestart_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/start`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"channel_id":188}`
+      }
+   $.post(gamestart_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         $.log(data)
-        if(result[0].type == "stealingVege_attackTarget"){
-          console.log(`🎈偷取成功。 \n`)
-          await stealingVege(2)
-          await stealingVege(3)
-          await stealingVege(4)
-          await stealingVege(5)
+        //$.log(JSON.stringify(gamestart_url))
+        if(result.code == 0){
+          console.log(`🎈开始游戏成功 \n`)
+          random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          console.log(random);
+          await $.wait(random);
+          await gamepass()
+
         }else{
-          console.log('👀偷取失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀开始游戏失败'+result.err_msg+data+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
@@ -316,474 +266,285 @@ async function stealingVege(recordId){
     })
    })
   }
+
+//gamestart
+async function gamepass(){
+ return new Promise((resolve) => {
+    let gamepass_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/pass`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"gk":3,"score":${Math.floor(Math.random()*(2500-1000+1)+1000)},"win":1}`
+      }
+   $.post(gamepass_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(gamepass_url))
+        if(result.code == 0){
+          console.log(`🎈游戏通关成功 \n`)
+          console.log(`🎈获取钻石${result.diamond}个 金币数${result.gold_coin}个 观看广告获得${result.ad_mul}个钻石 \n`)
+          if(result.diamond == 0){
+            await gameplus()
+          }
+          random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          console.log(random);
+          await $.wait(random);
+          await gamead()
+
+        }else{
+          console.log('👀游戏通关失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+//gamead
+async function gamead(){
+ return new Promise((resolve) => {
+    let gamead_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":128,"channel_id":188,"channel_sub_id":1,"gk":1}`
+      }
+   $.post(gamead_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(gamead_url))
+        if(result.code == 0){
+          console.log(`🎈游戏通关翻倍成功 \n`)
+          console.log(`🎈获取钻石${result.prop_num}个 \n`)
+          random = Math.floor(Math.random()*(max-min+1)+min)*1000
+          console.log(random);
+          await $.wait(random);
+        }else{
+          console.log('👀游戏通关翻倍失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+//gameplus
+async function gameplus(){
+ return new Promise((resolve) => {
+    let gameplus_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"action_type":3,"ad_company":"3","ad_pos_id":120,"channel_id":188,"channel_sub_id":1,"gk":2}`
+      }
+   $.post(gameplus_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(gameplus_url))
+        if(result.code == 0){
+          console.log(`🎈补充体力成功 \n`)
+          //console.log(`🎈获取钻石${result.diamond} 金币数${result.gold_coin} 观看广告获得${result.ad_mul} \n`)
+        }else{
+          console.log('👀补充体力失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
+//diamond
+async function diamond(){
+ return new Promise((resolve) => {
+    let diamond_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":31,"channel_id":188,"channel_sub_id":1,"gk":2}`
+      }
+   $.post(diamond_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(diamond_url))
+        if(result.code == 0){
+          console.log(`🎈领取钻石成功 \n`)
+          console.log(`🎈获取钻石${result.prop_num}个 \n`)
+        }else{
+          console.log('👀领取钻石失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+
+//lotteryad
+async function lotteryad(){
+ return new Promise((resolve) => {
+    let lotteryad_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"action_type":3,"ad_company":"2","ad_pos_id":36,"channel_id":188,"channel_sub_id":1,"gk":2}`
+      }
+   $.post(lotteryad_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(diamond_url))
+        if(result.code == 0){
+          console.log(`🎈转盘广告成功 \n`)
+          console.log(`🎈获取钻石${result.prop_num}个 \n`)
+          await lotteryad2()
+        }else{
+          console.log('👀转盘广告失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
+//lotteryad2
+async function lotteryad2(){
+ return new Promise((resolve) => {
+    let lotteryad2_url = {
+        url: `https://xxx2.67mob.com/v2/xxx-game/playad-for-lottery`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: ``
+      }
+   $.post(lotteryad2_url,async(error, response, data) =>{
+    try{
+        const result = JSON.parse(data)
+        $.log(data)
+        //$.log(JSON.stringify(diamond_url))
+        if(result.code == 0){
+          console.log(`🎈转盘广告2成功 \n`)
+          console.log(`🎈获取钻石${result.prop_num}个 \n`)
+        }else{
+          console.log('👀转盘广告2失败'+result.err_msg+data+"\n")
+         }
+        }catch(error) {
+          $.logErr(error, response);
+      } finally {
+        resolve();
+      }
+    })
+   })
+  }
+
 
 //lottery
 async function lottery(){
  return new Promise((resolve) => {
     let lottery_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=lottery_draw`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"lottery_draw","data":{"priceType":3001}}]`
-    	}
+        url: `https://xxx2.67mob.com/v2/xxx-game/lottery3`,
+        headers: {
+                'Accept' : `*/*`,
+                'uid' : `${chid}`,
+                'Connection' : `keep-alive`,
+                'Content-Type' : `application/x-www-form-urlencoded`,
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Host' : `xxx2.67mob.com`,
+                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
+                'Accept-Language' : `zh-cn`,
+                'token' : `${chtoken}`,
+                'Cache-Control' : `no-cache`
+                },
+        body: `{"uid":${chid}}`
+      }
    $.post(lottery_url,async(error, response, data) =>{
     try{
         const result = JSON.parse(data)
         $.log(data)
-        if(result[0].type == "lottery_draw"){
-          console.log(`🎈抽奖成功。\n`)
+        //$.log(JSON.stringify(diamond_url))
+        if(result.code == 0){
+          console.log(`🎈转盘成功 \n`)
+          console.log(`🎈获取${result.des}${result.prop_num}个 \n`)
         }else{
-          console.log('👀抽奖失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//harvest
-async function harvest(farmlandId){
- return new Promise((resolve) => {
-    let harvest_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_harvest`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_harvest","data":{"farmlandDefId":${farmlandId}}}]`
-    	}
-   $.post(harvest_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        //if(result[0].type == "farmland_plant"){
-        if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈收获成功 土地${result[2].data.farmland.farmlandDefId}收获${result[2].data.farmland.plantPriceCoin}金币。 \n`)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await plant1(farmlandId)
-        }else if (result[0].data.rawMessage == "Farmland not done") {
-          console.log(`🎈还没成熟。\n`)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await plant1(farmlandId)
-        }else if (result[0].data.rawMessage == "farmland not idle") {
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await repair(farmlandId)
-        }
-        else{
-          console.log('👀收获失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-//repair
-async function repair(farmlandId){
- return new Promise((resolve) => {
-    let repair_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_repair`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_repair","data":{"farmlandDefId":${farmlandId}}}]`
-    	}
-   $.post(repair_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "farmland_repair"){
-          console.log(`🎈维修成功 土地${result[0].data.farmland.farmlandDefId}维修成功。 \n`)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await plant1(farmlandId)
-        }else{
-          console.log('👀维修失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//plant1
-async function plant1(farmlandId){
- return new Promise((resolve) => {
-    let plant_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_plant`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_plant","data":{"farmlandDefId":${farmlandId},"priceType":2001}}]`
-    	}
-   $.post(plant_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-       $.log(data)
-        if(result[0].type == "farmland_plant"){
-          console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-        }else if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈种植成功 土地${result[1].data.farmland.farmlandDefId}种植成功。 \n`)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-        }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await plant2(farmlandId)
-        }else if (result[0].data.rawMessage == "farmland not idle") {
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await repair(farmlandId)
-        }else{
-          console.log('👀种植失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//plant2
-async function plant2(farmlandId){
- return new Promise((resolve) => {
-    let plant_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_plant`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_plant","data":{"farmlandDefId":${farmlandId},"priceType":2001}}]`
-    	}
-   $.post(plant_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "farmland_plant"){
-          console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
-        }else{
-          console.log('👀种植失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//speedUp
-async function speedUp(farmlandId){
- return new Promise((resolve) => {
-    let speedUp_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_speedUp`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_speedUp","data":{"farmlandDefId":${farmlandId},"priceType":2002}}]`
-    	}
-   $.post(speedUp_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈加速成功\n`)
-          //await harvest(farmlandId)
-        }else{
-          console.log('👀加速失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-//speedUpAll
-async function speedUpAll(farmlandId){
- return new Promise((resolve) => {
-    let speedUpAll_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmland_speedUpAll`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmland_speedUpAll","data":{"farmlandDefId":0}}]`
-    	}
-   $.post(speedUpAll_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "farmland_getSpeedUp"){
-          console.log(`🎈加速成功\n`)
-        }else{
-          console.log('👀加速失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-
-//getQuestList
-async function getQuestList(){
- return new Promise((resolve) => {
-    let getQuestList_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_getQuestList`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_getQuestList","data":{"questType":2}}]`
-    	}
-   $.post(getQuestList_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "dailyQuest_getQuestList"){
-          console.log(`🎈获得加速卡列表成功\n`)
-          for (let i = 0; i < 12; i++) {
-             console.log('开始执行领取加速器'+i);
-             farmlandId = result[0].data.questList[i].questDefId
-             console.log(`🎈获得加速卡列表成功++` + farmlandId)
-             await dailyQuest(farmlandId)
-             await $.wait(random);
-           }
-        }else{
-          console.log('👀获得加速卡列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-//dailyQuest
-async function dailyQuest(farmlandId){
- return new Promise((resolve) => {
-    let dailyQuest_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_addProgress`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_addProgress","data":{"questDefId":${farmlandId},"questType":2}}]`
-    	}
-   $.post(dailyQuest_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "dailyQuest_addProgress"){
-          console.log(`🎈获得加速卡成功\n`)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
-          await dailyQuestReward(farmlandId)
-        }else{
-          console.log('👀获得加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//dailyQuestReward
-async function dailyQuestReward(farmlandId){
- return new Promise((resolve) => {
-    let dailyQuestReward_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=dailyQuest_receiveReward`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"dailyQuest_receiveReward","data":{"questDefId":${farmlandId},"questType":2}}]`
-    	}
-   $.post(dailyQuestReward_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "user_notifyPropertyUpdated"){
-          console.log(`🎈领取加速卡成功 获得${result[0].data.questInfo.rewardProp.number}张。\n`)
-        }else if(result[1].type == "dailyQuest_receiveReward"){
-          console.log(`🎈领取加速卡成功 获得${result[1].data.questInfo.rewardProp.number}张。\n`)
-        }else{
-          console.log('👀领取加速卡失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//buyPet
-async function buyPet(farmlandId){
- return new Promise((resolve) => {
-    let buyPet_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=pet_buyPet`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"pet_buyPet","data":{}}]`
-    	}
-   $.post(buyPet_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-       //$.log(data)
-        if(result[0].type == "farmland_getSpeedUp"){
-          console.log(`🎈购买宠物成功\n`)
-        }else{
-          console.log('👀购买宠物失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-//getCheckIn
-async function getCheckIn(){
- return new Promise((resolve) => {
-    let getCheckIn_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmCheckIn_getCheckInInfo`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmCheckIn_getCheckInInfo","data":{}}]`
-    	}
-   $.post(getCheckIn_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "farmCheckIn_getCheckInInfo"){
-          console.log(`🎈获取签到信息成功，累计签到${result[0].data.checkInInfo.maxDayNumber}天\n`)
-          for (let i = 0; i < 6; i++) {
-            //console.log(result[0].data.marketItemList[i].funcType)
-            if(result[0].data.checkInInfo.entries[i].stateCode == 2){
-              dayNumber = result[0].data.checkInInfo.entries[i].dayNumber
-              console.log(`🎈累计签到${dayNumber}天，可以提现${result[0].data.checkInInfo.entries[i].displayCashAmount} \n`)
-              await checkInReward(dayNumber)
-            }
-            }
-        }else{
-          console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-
-//checkInReward
-async function checkInReward(dayNumber){
- return new Promise((resolve) => {
-    let checkInReward_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=farmCheckIn_receiveReward`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"farmCheckIn_receiveReward","data":{"dayNumber":${dayNumber}}}]`
-    	}
-   $.post(checkInReward_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "farmCheckIn_receiveReward"){
-          console.log(`🎈🎈签到 ${dayNumber}天提现成功🎈🎈 \n`)
-        }else{
-          console.log('👀签到提现失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//txmarket
-async function txmarket_exchange(){
- return new Promise((resolve) => {
-    let txmarket_exchange_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=market_getItemList`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"market_getItemList","data":{}}]`
-    	}
-   $.post(txmarket_exchange_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "market_getItemList"){
-          console.log(`🎈获取订单列表成功\n`)
-          for (let i = 0; i < 9; i++) {
-            //console.log(result[0].data.marketItemList[i].funcType)
-            if(result[0].data.marketItemList[i].stateCode == 1){
-              itemId = result[0].data.marketItemList[i].itemDefId
-              title = result[0].data.marketItemList[i].title
-              cashAmount = result[0].data.marketItemList[i].cashAmount
-              console.log(`🎈订单列表${itemId} ${title}可以提现${cashAmount} \n`)
-              await txmarket(itemId)
-            }
-            }
-        }else{
-          console.log('👀获取订单列表失败'+result[0].data.message+result[0].data.rawMessage+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//txmarket
-async function txmarket(itemId){
- return new Promise((resolve) => {
-    let txmarket_url = {
-        url: `https://sunnytown.hyskgame.com/api/messages?accessToken=${CGID}&msgtype=market_exchange`,
-        headers: JSON.parse(CGHD),
-        body: `[{"type":"market_exchange","data":{"itemDefId":${itemId}}}]`
-    	}
-   $.post(txmarket_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        if(result[0].type == "market_exchange"){
-          console.log(`🎈🎈订单 ${result[1].data.marketItem.title}提现${result[1].data.marketItem.cashAmount}\成功🎈🎈 \n`)
-        }else if(result[0].type == "backpack_notifyItemUpdated"){
-          console.log(`🎈🎈订单 ${result[1].data.marketItem.title}提现${result[1].data.marketItem.cashAmount}\成功🎈🎈 \n`)
-        }else{
-          console.log('👀订单提现失败'+result[0].data.message+result[0].data.rawMessage+"\n")
+          console.log('👀转盘失败'+result.err_msg+data+"\n")
          }
         }catch(error) {
           $.logErr(error, response);
