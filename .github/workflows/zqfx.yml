@@ -20,12 +20,13 @@ jobs:
             - name: "Set up Python"
               uses: actions/setup-python@v1
               with:
-                  python-version: 3.7
+                  python-version: 3.8
             - name: 'Install requests'
               run: |
-                pip3 install requests
-                pip3 install json
-                pip3 install random,string
+                pip install requests
+                pip install json
+                pip install random
+                pip install string
                 npm install util
             - name: "安装依赖包"
               run: pip install -r ./requirements.txt
