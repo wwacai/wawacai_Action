@@ -162,7 +162,7 @@ async function userinfo(){
  return new Promise((resolve) => {
     let userinfo_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"uid":${chid},"channel_id":188}`
       }
    $.post(userinfo_url,async(error, response, data) =>{
@@ -190,7 +190,7 @@ async function signin(){
  return new Promise((resolve) => {
     let signin_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"channel_id":188,"type":1}`
       }
    $.post(signin_url,async(error, response, data) =>{
@@ -218,7 +218,7 @@ async function gamestart(){
  return new Promise((resolve) => {
     let gamestart_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/start`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"channel_id":188}`
       }
    $.post(gamestart_url,async(error, response, data) =>{
@@ -250,8 +250,8 @@ async function gamepass(){
  return new Promise((resolve) => {
     let gamepass_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/pass`,
-        headers: chhd,
-        body: `{"gk":6,"score":${Math.floor(Math.random()*(2500-1000+1)+1000)},"win":1}`
+        headers: JSON.parse(chhd),
+        body: `{"gk":6,"score":${Math.floor(Math.random()*(9999-4000+1)+4000)},"win":1}`
       }
    $.post(gamepass_url,async(error, response, data) =>{
     try{
@@ -286,7 +286,7 @@ async function gamead(){
  return new Promise((resolve) => {
     let gamead_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"action_type":3,"ad_company":"2","ad_pos_id":128,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(gamead_url,async(error, response, data) =>{
@@ -317,7 +317,7 @@ async function gameplus(){
  return new Promise((resolve) => {
     let gameplus_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"action_type":3,"ad_company":"3","ad_pos_id":120,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(gameplus_url,async(error, response, data) =>{
@@ -346,7 +346,7 @@ async function diamond(){
  return new Promise((resolve) => {
     let diamond_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"action_type":3,"ad_company":"2","ad_pos_id":31,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(diamond_url,async(error, response, data) =>{
@@ -375,7 +375,7 @@ async function lotteryad(){
  return new Promise((resolve) => {
     let lotteryad_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/play-ad`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"action_type":3,"ad_company":"2","ad_pos_id":36,"channel_id":188,"channel_sub_id":1,"gk":6}`
       }
    $.post(lotteryad_url,async(error, response, data) =>{
@@ -404,7 +404,7 @@ async function lotteryad2(){
  return new Promise((resolve) => {
     let lotteryad2_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/playad-for-lottery`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: ``
       }
    $.post(lotteryad2_url,async(error, response, data) =>{
@@ -433,7 +433,7 @@ async function lottery(){
  return new Promise((resolve) => {
     let lottery_url = {
         url: `https://xxx2.67mob.com/v2/xxx-game/lottery3`,
-        headers: chhd,
+        headers: JSON.parse(chhd),
         body: `{"uid":${chid}}`
       }
    $.post(lottery_url,async(error, response, data) =>{
