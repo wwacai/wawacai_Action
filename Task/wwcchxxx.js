@@ -92,10 +92,10 @@ if (!chhdArr[0]) {
       await userinfo()
       if ( 8< hour < 10 ||   17< hour  < 19 ){
         await signin()
-        await diamond()
-        await lotteryad()
+        //await diamond()
+        //await lotteryad()
       }
-      await diamond()
+      //await diamond()
       for (let i = 1; i < 5; i++) {
          await gamestart()
       }
