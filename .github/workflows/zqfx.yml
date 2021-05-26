@@ -21,13 +21,6 @@ jobs:
               uses: actions/setup-python@v1
               with:
                   python-version: 3.8
-            - name: 'Install requests'
-              run: |
-                pip install requests
-                pip install json
-                pip install random
-                pip install string
-                npm install util
             - name: "安装依赖包"
               run: pip install -r ./requirements.txt
 
