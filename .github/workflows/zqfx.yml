@@ -24,5 +24,5 @@ jobs:
             - name: "安装依赖包"
               run: pip install -r ./requirements.txt
 
-            - name: "运行 喜马拉雅极速版"
+            - name: "运行 zqfx"
               run: python3 Task/zqfx.py
