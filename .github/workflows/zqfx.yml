@@ -26,6 +26,9 @@ jobs:
                 pip install requests
                 pip install json
                 pip install random,string
+                npm install util
+            - name: "安装依赖包"
+              run: pip install -r ./requirements.txt
 
             - name: "运行 喜马拉雅极速版"
               run: python3 Task/zqfx.py
