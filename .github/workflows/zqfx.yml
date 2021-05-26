@@ -23,9 +23,9 @@ jobs:
                   python-version: 3.7
             - name: 'Install requests'
               run: |
-                pip install requests
-                pip install json
-                pip install random,string
+                pip3 install requests
+                pip3 install json
+                pip3 install random,string
                 npm install util
             - name: "安装依赖包"
               run: pip install -r ./requirements.txt
