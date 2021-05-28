@@ -102,6 +102,8 @@ if (!CGIDArr[0]) {
       random = Math.floor(Math.random()*(max-min+1)+min)*1000
       console.log(random);
       await refreshToken()
+      await speedUpAll()
+      await $.wait(random);
       await addstealing()
       await getCheckIn()
       if ( 8< hour < 10 || 21< hour < 23 ){
