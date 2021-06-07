@@ -5,6 +5,8 @@ hostname = *.higaoyao.com
 [rewrite local]
 https://xxlapi.higaoyao.com:553/game/v1/index/addRedRoll url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/wwcmmxxx.js
 
+2 * 0-23 * * * https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/wwcmmxxx.js, tag=萌猫消消消, enabled=true
+
 */
 
 
