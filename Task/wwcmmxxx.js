@@ -17,73 +17,7 @@ status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // �
 //const mmhdArr = [], mmbodyArr = []
 let mmhd = $.getdata('mmhd')
 let mmbody = $.getdata('mmbody')
-let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
-let cash = ($.getval('rlcash') || '1')//默认不自动提现
-const logs =0;//0为关闭日志，1为开启
 
-let min = 20;
-let max = 40;
-
-var hour=''
-var minute=''
-if ($.isNode()) {
-   hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
-   minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes
-   console.log(`现在时间为${hour}：${minute}\n`)
-}else{
-   hour = (new Date()).getHours();
-   minute = (new Date()).getMinutes();
-   console.log(`现在时间为${hour}：${minute}\n`)
-}
-
-
-
-async function Getdata() {
-  if ($.isNode()) {
-    if (process.env.mmhd && process.env.mmhd.indexOf('#') > -1) {
-    mmhd = process.env.mmhd.split('#');
-    console.log(`您选择的是用"#"隔开\n`)
-    }
-    else if (process.env.mmhd && process.env.mmhd.indexOf('\n') > -1) {
-     mmhd = process.env.mmhd.split('\n');
-     console.log(`您选择的是用换行隔开\n`)
-    } else {
-     mmhd = process.env.mmhd.split()
-    };
-
-    if (process.env.mmbody && process.env.mmbody.indexOf('#') > -1) {
-     mmbody = process.env.mmbody.split('#');
-     console.log(`您选择的是用"#"隔开\n`)
-    }
-    else if (process.env.mmbody && process.env.mmbody.indexOf('\n') > -1) {
-     mmbody = process.env.mmbody.split('\n');
-     console.log(`您选择的是用换行隔开\n`)
-    } else {
-     mmbody = process.env.mmbody.split()
-    };
-    Object.keys(mmhd).forEach((item) => {
-          if (mmhd[item]) {
-            mmhdArr.push(mmhd[item])
-          }
-      });
-    Object.keys(mmbody).forEach((item) => {
-          if (mmbody[item]) {
-            mmbodyArr.push(mmbody[item])
-          }
-      });
-      console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
-      console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
-   } else {
-      mmhdArr.push($.getdata('mmhd'))
-      mmbodyArr.push($.getdata('mmbody'))
-      let wkcount = ($.getval('wkcount') || '1');
-    for (let i = 2; i <= wkcount; i++) {
-      mmhdArr.push($.getdata(`mmhd${i}`))
-      mmbodyArr.push($.getdata(`mmbody${i}`))
-    }
-  }
-
-}
 
 //CK运行
 let isGetCookie = typeof $request !== 'undefined'
@@ -91,26 +25,20 @@ let isGetCookie = typeof $request !== 'undefined'
 !(async () => {
   if (isGetCookie) {
       GetCookie()
-  }else {
+  }else{
     console.log('本地运行，跳过获取cookies');
   }
-  await Getdata()
-   console.log(`------------- 共${mmbodyArr.length}个账号----------------\n`)
-  for (let i = 0; i < mmbodyArr.length; i++) {
-    if (mmbodyArr[i]) {
-      mmhd = mmhdArr[i];
-      mmbody = mmbodyArr[i];
-      $.index = i + 1;
-      console.log(`\n开始【${$.name} ${$.index}】`)
-      for (let i = 1; i < 50; i++) {
-        console.log('开始刷次数为'+i);
-        await gameadd()
-        await $.wait(0.5*1000);
-        await gameadd()
-        }
-
-  }
- }
+   console.log(`------------- 开始运行 ----------------\n`)
+  if ($.getdata('mmhd')) {
+    $.index = i + 1;
+    console.log(`\n开始【${$.name} ${$.index}】`)
+    for (let i = 1; i < 50; i++) {
+      console.log('开始刷次数为'+i);
+      await gameadd()
+      await $.wait(0.5*1000);
+      await gameadd()
+      }
+   }
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
@@ -135,8 +63,8 @@ async function gameadd(){
  return new Promise((resolve) => {
     let gameadd_url = {
         url: `https://xxlapi.higaoyao.com:553/game/v1/index/addRedRoll`,
-        headers: JSON.parse(mmhd),
-        body: mmbody,
+        headers: JSON.parse($.getdata('mmhd')),
+        body: $.getdata('mmbody'),
     	}
    $.post(gameadd_url,async(error, response, data) =>{
     try{
