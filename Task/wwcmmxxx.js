@@ -45,12 +45,12 @@ let isGetCookie = typeof $request !== 'undefined'
 
 async function GetCookie() {
   if($request.url.indexOf("addRedRoll")>=0) {
-      if($request.body == ""){
-        const mmhd = $request.headers
+      if($request.body != ""){
+        const mmhd = $request.headers;
         if(mmhd)     $.setdata(mmhd,`mmhd${status}`)
         $.log(`获取mmhd请求: 成功,mmhd: ${JSON.stringify(mmhd)}`)
         $.msg(`mmhd${status}: 成功🎉`, ``)
-        const mmbody = $request.body
+        const mmbody = $request.body;
         if(mmbody)    $.setdata(mmbody,`mmbody${status}`)
         $.log(`获取mmbody请求: 成功,mmbody: ${mmbody}`)
         $.msg(`mmbody${status}: 成功🎉`, ``)
