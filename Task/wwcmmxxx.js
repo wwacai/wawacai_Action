@@ -8,19 +8,12 @@ https://xxlapi.higaoyao.com:553/game/v1/index/addRedRoll url script-request-head
 2 * 0-23 * * * https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/wwcmmxxx.js, tag=萌猫消消消, enabled=true
 
 */
-var bodyParser = require('body-parser');
- 
-var app = express();
- 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
 
 const $ = Env('萌猫消消消')
 const notify = $.isNode() ?require('./sendNotify') : '';
 let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower
 status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-//const mmhdArr = [], mmbodyArr = []
+const mmhdArr = [], mmbodyArr = []
 let mmhd = $.getdata('mmhd')
 let mmbody = $.getdata('mmbody')
 
