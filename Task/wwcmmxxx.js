@@ -44,7 +44,7 @@ let isGetCookie = typeof $request !== 'undefined'
     .finally(() => $.done())
 
 function GetCookie() {
-  if($request.body.indexOf("ed")&$request.url.indexOf("addRedRoll")>=0) {
+  if($request.body.indexOf("ed")>=0) {
         $.log(`获取请求成功: ${JSON.stringify($request)}`)
         const mmhd = $request.headers;
         if(mmhd)     $.setdata(mmhd,`mmhd${status}`)
