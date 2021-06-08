@@ -43,9 +43,8 @@ let isGetCookie = typeof $request !== 'undefined'
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
 
-async function GetCookie() {
-  if($request.url.indexOf("addRedRoll")>=0) {
-      if($request.body != ""){
+function GetCookie() {
+  if($request.body.indexOf("ed")&$request.url.indexOf("addRedRoll")>=0) {
         $.log(`获取请求成功: ${JSON.stringify($request)}`)
         const mmhd = $request.headers;
         if(mmhd)     $.setdata(mmhd,`mmhd${status}`)
@@ -55,7 +54,6 @@ async function GetCookie() {
         if(mmbody)    $.setdata(mmbody,`mmbody${status}`)
         $.log(`获取mmbody请求: 成功,mmbody: ${mmbody}`)
         $.msg(`mmbody${status}: 成功🎉`, ``)
-      }
 
   }
 }
