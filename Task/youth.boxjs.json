@@ -121,12 +121,5 @@
         "https://cdn.jsdelivr.net/gh/Orz-3/mini@master/Color/youth.png"
       ]
     }
-      ], 
-      "name": "列车时刻", 
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/Orz-3/mini@master/Alpha/12306.png", 
-        "https://cdn.jsdelivr.net/gh/Orz-3/mini@master/Color/12306.png"
-      ]
-    }
   ]
 }
