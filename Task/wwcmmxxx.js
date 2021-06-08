@@ -8,6 +8,12 @@ https://xxlapi.higaoyao.com:553/game/v1/index/addRedRoll url script-request-head
 2 * 0-23 * * * https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/wwcmmxxx.js, tag=萌猫消消消, enabled=true
 
 */
+var bodyParser = require('body-parser');
+ 
+var app = express();
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 const $ = Env('萌猫消消消')
@@ -44,16 +50,20 @@ let isGetCookie = typeof $request !== 'undefined'
     .finally(() => $.done())
 
 function GetCookie() {
-  if($request.body.indexOf("ed")>=0) {
+  if($request.url.indexOf("addRedRoll")>=0) {
         $.log(`获取请求成功: ${JSON.stringify($request)}`)
         const mmhd = $request.headers;
-        if(mmhd)     $.setdata(mmhd,`mmhd${status}`)
-        $.log(`获取mmhd请求: 成功,mmhd: ${JSON.stringify(mmhd)}`)
-        $.msg(`mmhd${status}: 成功🎉`, ``)
         const mmbody = $request.body;
-        if(mmbody)    $.setdata(mmbody,`mmbody${status}`)
-        $.log(`获取mmbody请求: 成功,mmbody: ${mmbody}`)
-        $.msg(`mmbody${status}: 成功🎉`, ``)
+        if(mmhd){
+		$.setdata(mmhd,`mmhd${status}`)
+		$.log(`获取mmhd请求: 成功,mmhd: ${JSON.stringify(mmhd)}`)
+		$.msg(`mmhd${status}: 成功🎉`, ``)
+	}     
+        if(mmbody){
+		$.setdata(mmbody,`mmbody${status}`)
+		$.log(`获取mmbody请求: 成功,mmbody: ${mmbody}`)
+		$.msg(`mmbody${status}: 成功🎉`, ``)
+	}    
 
   }
 }
