@@ -9,6 +9,7 @@ on:
 jobs:
   build1:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout`
