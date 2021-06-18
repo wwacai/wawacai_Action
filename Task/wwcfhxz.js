@@ -104,37 +104,22 @@ if (!CGIDArr[0]) {
       await refreshToken()
       await speedUpAll()
       await $.wait(random);
-      await addstealing()
       await getCheckIn()
       if ( 8< hour < 10 || 21< hour < 23 ){
         await getQuestList()
         await txmarket_exchange()
       }
-      await refreshstealing()
-      await $.wait(random);
-      await addstealing()
-      await $.wait(random);
-      await stealingVege(1)
       for (let i = 1; i < 10; i++) {
         console.log('开始执行土地'+i);
         await harvest(i)
         await $.wait(random);
       }
-      await addstealing()
-      await $.wait(random);
-      await Boxglod()
-      await $.wait(random);
-      await carglod()
-      await addstealing()
       await $.wait(random);
       await lottery()
       await $.wait(random);
       await buyPet()
-      await addstealing()
       await $.wait(random);
       await speedUpAll()
-      await $.wait(random);
-      await addstealing()
 
   }
  }
