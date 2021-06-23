@@ -1,13 +1,11 @@
 /*
 [rewrite_local]
 https:\/\/bp-api.coohua.com\/shua-lovegn\/* url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/asgy.js
-
 [MITM]
 hostname = bp-api.coohua.com
-
 */
 
-const $ = new Env('脚本')
+const $ = Env("脚本")
 let status;
 status = (status = ($.getval("asgystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 //const qlphdArr = [],kzyhdArr = [],qlpcount = ''
