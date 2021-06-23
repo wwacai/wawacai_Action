@@ -1,161 +1,37 @@
 /*
 [rewrite_local]
-https:\/\/bp-api.coohua.com\/shua-lovegn\/* url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/asgy.js
+https://bp-api.coohua.com/shua-lovegn url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/asgy.js
+
 [MITM]
 hostname = bp-api.coohua.com
+
 */
 
+const $ = new Env('asgy');
+let status;
+status = (status = ($.getval("asgystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 
-const $ = Env('果园')
-const notify = $.isNode() ?require('./sendNotify') : '';
-let status, videoid,myid,supportvideoid,supportrank,show,message,note,random,wkpower,CGanswer,CGbdid,gameindex ,subtype,subType,farmlandId,itemId,title,cashAmount,chtoken
-let chidArr
-status = (status = ($.getval("wkstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-//const chbodyArr = [], chidArr = []
-let chbody = $.getdata('chbody')
-let chid = $.getdata('chid')
-let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
-let cash = ($.getval('rlcash') || '1')//默认不自动提现
-const logs =0;//0为关闭日志，1为开启
-
-let min = 35;
-let max = 45;
-
-var hour=''
-var minute=''
-if ($.isNode()) {
-   hour = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getHours();
-   minute = new Date( new Date().getTime() + 8 * 60 * 60 * 1000 ).getMinutes();
-   console.log(`现在时间为${hour}：${minute}\n`)
-}else{
-   hour = (new Date()).getHours();
-   minute = (new Date()).getMinutes();
-   console.log(`现在时间为${hour}：${minute}\n`)
-}
-
-//CK运行
-let isGetCookie = typeof $request !== 'undefined'
-if (isGetCookie) {
-   GetCookie();
-   $.done()
-}
-
-
-
+if (typeof $request !== 'undefined') {
+  if ($request && $request.url.indexOf("free/water") > -1) {
+     const asgyhd1 = JSON.stringify($request.headers)
+     if(asgyhd1)    $.setdata(asgyhd1,`asgyhd1${status}`)
+     $.log(asgyhd1)
+     $.msg($.name,"",'asgyhd1'+`${status}` +'数据获取成功！')
+   }
+  if ($request && $request.url.indexOf("task/receive/common") > -1) {
+     const asgyhd2 = JSON.stringify($request.headers)
+     if(asgyhd2)    $.setdata(asgyhd2,`asgyhd2${status}`)
+     $.log(asgyhd2)
+     $.msg($.name,"",'asgyhd2'+`${status}` +'数据获取成功！')
+   }
+}else {
 !(async () => {
-if (!chidArr[0]) {
-    $.msg($.name, '【提示】请先获取cookie')
-    return;
-  }
-   console.log(`------------- 共${chidArr.length}个账号----------------\n`)
-  for (let i = 0; i < chidArr.length; i++) {
-    if (chidArr[i]) {
-      message = ''
-      note =''
-      chbody = chbodyArr[i];
-      $.index = i + 1;
-      console.log(`\n开始【${$.name} ${$.index}】`)
-      await refreshToken()
-      await userinfo()
-  }
- }
+
+$.msg($.name,"开始🎉🎉🎉")
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
-
-function GetCookie() {
-  if ($request && $request.url.indexOf("/free/water") >= 0) {
-      //const xiaoleurlVal = $request.url;
-      const asgyhd1 = JSON.stringify($request.headers);
-      if(asgyhd1)     $.setdata(asgyhd1,`asgyhd1${status}`)
-        $.log(asgyhd1)
-        $.msg($.name,"",'asgyhd1'+`${status}` +'数据获取成功！')
-  }
-  if ($request && $request.url.indexOf("/task/receive/common") >= 0) {
-      //const xiaoleurlVal = $request.url;
-      const asgyhd2 = JSON.stringify($request.headers);
-      if(asgyhd2)     $.setdata(asgyhd2,`asgyhd2${status}`)
-        $.log(asgyhd2)
-        $.msg($.name,"",'asgyhd2'+`${status}` +'数据获取成功！')
-  }
 }
-
-
-//refreshToken
-async function refreshToken(){
- return new Promise((resolve) => {
-    let refreshToken_url = {
-        url: `https://xxx2.67mob.com/v2/auth/login-by-wx`,
-        headers: {
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Cache-Control' : `no-cache`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`
-                },
-        body: chbody
-            }
-   $.post(refreshToken_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        //$.log(JSON.stringify(refreshToken_url))
-        if(result.code == 0){
-          chtoken = result.token
-          chid = result.uid
-          console.log(`🎈刷新token成功 \n`)//${chid}
-          console.log(chtoken)//${chid}
-          return chtoken
-          return chid
-        }else{
-          console.log('👀刷新token失败'+result.err_msg+data+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
-
-//userinfo
-async function userinfo(){
- return new Promise((resolve) => {
-    let userinfo_url = {
-        url: `https://xxx2.67mob.com/v2/xxx-game/get-userinfo`,
-        headers: {
-                'Accept-Encoding' : `gzip, deflate, br`,
-                'Connection' : `keep-alive`,
-                'Content-Type' : `application/x-www-form-urlencoded`,
-                'Cache-Control' : `no-cache`,
-                'Host' : `xxx2.67mob.com`,
-                'User-Agent' : `PopStar-master-mobile/3.0 CFNetwork/1128.0.1 Darwin/19.6.0`,
-                'Accept-Language' : `zh-cn`
-                },
-        body: `{"uid":${chid},"channel_id":188}`
-      }
-   $.post(userinfo_url,async(error, response, data) =>{
-    try{
-        const result = JSON.parse(data)
-        $.log(data)
-        //$.log(JSON.stringify(userinfo_url))
-        if(result.uid != 0){
-          console.log(`🎈获取个人信息成功 \n`)
-          console.log(`🎈现有钻石数${result.diamond} 现有金币数${result.gold_coin} 总计观看广告数${result.ad_num} 总计提现数${result.with_drawal_times}  \n`)
-        }else{
-          console.log('👀获取个人信息失败'+result.err_msg+data+"\n")
-         }
-        }catch(error) {
-          $.logErr(error, response);
-      } finally {
-        resolve();
-      }
-    })
-   })
-  }
 
 
 
