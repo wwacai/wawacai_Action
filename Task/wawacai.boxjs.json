@@ -8,7 +8,7 @@
         {
             "id": "asgy",
             "name": "asgy",
-            "keys": ["asgyurl1", "asgyhd1", "asgyurl2", "asgyhd2", "asgyurl3", "asgyhd3", "asgyurl4", "asgyhd4", "asgyurl5", "asgyhd5"],
+            "keys": ["asgyurl1", "asgyhd1", "asgyurl2", "asgyhd2", "asgyurl3", "asgyhd3", "asgyhd4", "asgyhd5"],
             "author": "@wawacai",
             "settings": [{
                     "id": "asgySuffix",
