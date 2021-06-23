@@ -7,7 +7,7 @@ hostname = bp-api.coohua.com
 
 */
 
-const $ = new Env('asgy');
+const $ = new Env('脚本')
 let status;
 status = (status = ($.getval("asgystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 //const qlphdArr = [],kzyhdArr = [],qlpcount = ''
