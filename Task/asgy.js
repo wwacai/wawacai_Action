@@ -40,7 +40,7 @@ function GetCookie() {
   if ($request && $request.url.indexOf("turn/get/reward") > -1) {
      const asgyurl1 = JSON.stringify($request.url)
      const asgyhd3 = JSON.stringify($request.headers)
-     if(asgyurl1)    $.setdata(asgyurl1,`ckurl1`)
+     if(asgyurl1)    $.setdata(asgyurl1,`asgyurl1`)
      $.log(asgyurl1)
      $.msg($.name,"",'asgyurl1' +'数据获取成功！')
      if(asgyhd3)    $.setdata(asgyhd3,`asgyhd3`)
