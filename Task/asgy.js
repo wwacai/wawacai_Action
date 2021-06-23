@@ -27,7 +27,7 @@ if (isGetCookie) {
 
 
 function GetCookie() {
-  if ($request && $request.url.indexOf("free/water") > -1) {
+  if ($request && $request.url.indexOf("common/info") > -1) {
      const asgyhd1 = JSON.stringify($request.headers)
      if(asgyhd1)    $.setdata(asgyhd1,`asgyhd1${status}`)
      $.log(asgyhd1)
@@ -38,6 +38,38 @@ function GetCookie() {
      if(asgyhd2)    $.setdata(asgyhd2,`asgyhd2${status}`)
      $.log(asgyhd2)
      $.msg($.name,"",'asgyhd2'+`${status}` +'数据获取成功！')
+   }
+  if ($request && $request.url.indexOf("turn/get/reward") > -1) {
+     const ckurl1 = JSON.stringify($request.url)
+     const asgyhd3 = JSON.stringify($request.headers)
+     if(ckurl1)    $.setdata(ckurl1,`ckurl1{status}`)
+     $.log(ckurl1)
+     $.msg($.name,"",'ckurl1'+`${status}` +'数据获取成功！')
+     if(asgyhd3)    $.setdata(asgyhd3,`asgyhd3${status}`)
+     $.log(asgyhd3)
+     $.msg($.name,"",'asgyhd3'+`${status}` +'数据获取成功！')
+   }
+  if ($request && $request.url.indexOf("task/business/list") > -1) {
+     const asgyhd4 = JSON.stringify($request.headers)
+     if(asgyhd4)    $.setdata(asgyhd4,`asgyhd4${status}`)
+     $.log(asgyhd4)
+     $.msg($.name,"",'asgyhd4'+`${status}` +'数据获取成功！')
+   }
+  if ($request && $request.url.indexOf("task/business/finish") > -1) {
+     const ckurl3 = JSON.stringify($request.url)
+     const asgyhd5 = JSON.stringify($request.headers)
+     if(ckurl3)    $.setdata(ckurl3,`ckurl3{status}`)
+     $.log(ckurl3)
+     $.msg($.name,"",'ckurl3'+`${status}` +'数据获取成功！')
+     if(asgyhd5)    $.setdata(asgyhd5,`asgyhd5${status}`)
+     $.log(asgyhd5)
+     $.msg($.name,"",'asgyhd5'+`${status}` +'数据获取成功！')
+   }
+  if ($request && $request.url.indexOf("look/ad/video") > -1) {
+     const ckurl2 = JSON.stringify($request.url)
+     if(ckurl2)    $.setdata(ckurl2,`ckurl2{status}`)
+     $.log(ckurl2)
+     $.msg($.name,"",'ckurl2'+`${status}` +'数据获取成功！')
    }
 }
 
