@@ -39,10 +39,9 @@ function GetCookie() {
 }
 
 
-let isGetCookie = typeof $request !== 'undefined'
-if (isGetCookie) {
+if (typeof $request !== 'undefined') {
     GetCookie()
-    $.done()
+    $.done();
 
 } else {
     !(async () => {
