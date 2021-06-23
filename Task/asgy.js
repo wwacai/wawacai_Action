@@ -1,6 +1,6 @@
 /*
 [rewrite_local]
-https://bp-api.coohua.com/shua-lovegn url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/asgy.js
+https:\/\/bp-api.coohua.com\/shua-lovegn\/* url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/asgy.js
 
 [MITM]
 hostname = bp-api.coohua.com
@@ -42,7 +42,7 @@ function GetCookie() {
 let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
     GetCookie()
-    $.done();
+    $.done()
 
 } else {
     !(async () => {
