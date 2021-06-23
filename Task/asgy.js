@@ -5,7 +5,7 @@ https:\/\/bp-api.coohua.com\/shua-lovegn\/* url script-request-header https://ra
 hostname = bp-api.coohua.com
 */
 
-const $ = Env("脚本")
+const $ = Env('果园')
 let status;
 status = (status = ($.getval("asgystatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 //const qlphdArr = [],kzyhdArr = [],qlpcount = ''
@@ -35,13 +35,22 @@ function GetCookie() {
     }
 }
 
-if(typeof $request !== 'undefined'){
-    GetCookie()
-    $.done()
-} else {
-    !(async () => {
-        $.msg($.name,"开始🎉🎉🎉")
-      })()
-          .catch((e) => $.logErr(e))
-          .finally(() => $.done())
-}
+
+//CK运行
+let isGetCookie = typeof $request !== 'undefined'
+
+!(async () => {
+  if (isGetCookie) {
+      GetCookie()
+  }else{
+    console.log('本地运行，跳过获取cookies');
+  }
+   console.log(`------------- 开始运行 ----------------\n`)
+  if ($.getdata('mmhd')) {
+    $.index = i + 1;
+    console.log(`\n开始【${$.name} ${$.index}】`)
+   }
+})()
+    .catch((e) => $.logErr(e))
+    .finally(() => $.done())
+    
