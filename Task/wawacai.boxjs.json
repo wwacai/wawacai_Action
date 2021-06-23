@@ -1,0 +1,39 @@
+{
+    "id": "wwc.app.sub",
+    "name": "wawacai脚本订阅",
+    "author": "@wawacai",
+    "icon": "",
+    "repo": "https://github.com/wwacai",
+    "apps": [
+        {
+            "id": "asgy",
+            "name": "asgy",
+            "keys": ["asgyurl", "asgyhd", "asgyurl2", "asgyhd2", "asgyurl3", "asgyhd3", "asgyurl4", "asgyhd4", "asgyurl5", "asgyhd5", "asgyurl6", "asgyhd6", "asgyurl7", "asgyhd7", "asgyurl8", "asgyhd8", "asgyurl9", "asgyhd9", "asgyurl10", "asgyhd10"],
+            "author": "@wawacai",
+            "settings": [{
+                    "id": "asgySuffix",
+                    "name": "当前账号",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "当前抓取ck记录的账号序号，如：1、2、4、"
+                },
+                {
+                    "id": "asgyCount",
+                    "name": "账号个数",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "指定任务最多跑几个账号，根据抓取的账号数据个数来设值"
+                }
+            ],
+            "repo": "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/asgy.js",
+            "icons": ["https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/asgy.png", "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/asgy.png"],
+            "script": "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/asgy.js"
+        }
+
+            ],
+            "repo": "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/shzx.js",
+            "icons": ["https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/shzx.png", "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/shzx.png"],
+            "script": "https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/shzx.js"
+        }
+    ]
+}
