@@ -29,47 +29,47 @@ if (isGetCookie) {
 function GetCookie() {
   if ($request && $request.url.indexOf("common/info") > -1) {
      const asgyhd1 = JSON.stringify($request.headers)
-     if(asgyhd1)    $.setdata(asgyhd1,`asgyhd1${status}`)
+     if(asgyhd1)    $.setdata(asgyhd1,`asgyhd1`)
      $.log(asgyhd1)
-     $.msg($.name,"",'asgyhd1'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'asgyhd1'+'数据获取成功！')
    }
   if ($request && $request.url.indexOf("task/receive/common") > -1) {
      const asgyhd2 = JSON.stringify($request.headers)
-     if(asgyhd2)    $.setdata(asgyhd2,`asgyhd2${status}`)
+     if(asgyhd2)    $.setdata(asgyhd2,`asgyhd2`)
      $.log(asgyhd2)
-     $.msg($.name,"",'asgyhd2'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'asgyhd2' +'数据获取成功！')
    }
   if ($request && $request.url.indexOf("turn/get/reward") > -1) {
      const ckurl1 = JSON.stringify($request.url)
      const asgyhd3 = JSON.stringify($request.headers)
-     if(ckurl1)    $.setdata(ckurl1,`ckurl1{status}`)
+     if(ckurl1)    $.setdata(ckurl1,`ckurl1`)
      $.log(ckurl1)
-     $.msg($.name,"",'ckurl1'+`${status}` +'数据获取成功！')
-     if(asgyhd3)    $.setdata(asgyhd3,`asgyhd3${status}`)
+     $.msg($.name,"",'ckurl1' +'数据获取成功！')
+     if(asgyhd3)    $.setdata(asgyhd3,`asgyhd3`)
      $.log(asgyhd3)
-     $.msg($.name,"",'asgyhd3'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'asgyhd3' +'数据获取成功！')
    }
   if ($request && $request.url.indexOf("task/business/list") > -1) {
      const asgyhd4 = JSON.stringify($request.headers)
-     if(asgyhd4)    $.setdata(asgyhd4,`asgyhd4${status}`)
+     if(asgyhd4)    $.setdata(asgyhd4,`asgyhd4`)
      $.log(asgyhd4)
-     $.msg($.name,"",'asgyhd4'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'asgyhd4' +'数据获取成功！')
    }
   if ($request && $request.url.indexOf("task/business/finish") > -1) {
      const ckurl3 = JSON.stringify($request.url)
      const asgyhd5 = JSON.stringify($request.headers)
-     if(ckurl3)    $.setdata(ckurl3,`ckurl3{status}`)
+     if(ckurl3)    $.setdata(ckurl3,`ckurl3`)
      $.log(ckurl3)
-     $.msg($.name,"",'ckurl3'+`${status}` +'数据获取成功！')
-     if(asgyhd5)    $.setdata(asgyhd5,`asgyhd5${status}`)
+     $.msg($.name,"",'ckurl3' +'数据获取成功！')
+     if(asgyhd5)    $.setdata(asgyhd5,`asgyhd5`)
      $.log(asgyhd5)
-     $.msg($.name,"",'asgyhd5'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'asgyhd5' +'数据获取成功！')
    }
   if ($request && $request.url.indexOf("look/ad/video") > -1) {
      const ckurl2 = JSON.stringify($request.url)
-     if(ckurl2)    $.setdata(ckurl2,`ckurl2{status}`)
+     if(ckurl2)    $.setdata(ckurl2,`ckurl2`)
      $.log(ckurl2)
-     $.msg($.name,"",'ckurl2'+`${status}` +'数据获取成功！')
+     $.msg($.name,"",'ckurl2' +'数据获取成功！')
    }
 }
 
