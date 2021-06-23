@@ -35,22 +35,15 @@ function GetCookie() {
           $.msg($.name,"",'asgyhd2'+`${status}` +'数据获取成功！')
         }
     }
-  }
 }
 
-
-if (typeof $request !== 'undefined') {
+if(typeof $request !== 'undefined'){
     GetCookie()
-    $.done();
-
+    $.done()
 } else {
     !(async () => {
         $.msg($.name,"开始🎉🎉🎉")
-    })()
-    .catch((e) => {
-            $.log('', `❌ ${O}, 失败! 原因: ${e}!`, '')
-        })
-        .finally(() => {
-            $.done();
-        })
+      })()
+          .catch((e) => $.logErr(e))
+          .finally(() => $.done())
 }
