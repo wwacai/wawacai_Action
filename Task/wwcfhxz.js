@@ -117,8 +117,6 @@ if (!CGIDArr[0]) {
       await $.wait(random);
       await lottery()
       await $.wait(random);
-      await buyPet()
-      await $.wait(random);
       await speedUpAll()
 
   }
@@ -345,23 +343,11 @@ async function harvest(farmlandId){
         //if(result[0].type == "farmland_plant"){
         if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈收获成功 土地${result[2].data.farmland.farmlandDefId}收获${result[2].data.farmland.plantPriceCoin}金币。 \n`)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
           await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "Farmland not done") {
           console.log(`🎈还没成熟。\n`)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
           await plant1(farmlandId)
         }else if (result[0].data.rawMessage == "farmland not idle") {
-          random = Math.floor(Math.random()*(max-min+1)+min)*1000
-          console.log(random);
-          await $.wait(random);
           await repair(farmlandId)
         }
         else{
@@ -422,16 +408,8 @@ async function plant1(farmlandId){
         if(result[0].type == "farmland_plant"){
           console.log(`🎈种植成功 土地${result[0].data.farmland.farmlandDefId}种植成功。 \n`)
           await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
         }else if(result[0].type == "user_notifyPropertyUpdated"){
           console.log(`🎈种植成功 土地${result[1].data.farmland.farmlandDefId}种植成功。 \n`)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
-          await speedUp(farmlandId)
           await speedUp(farmlandId)
         }else if (result[0].data.rawMessage == "SYSTEM_ADS_SHOW_SO_FAST") {
           random = Math.floor(Math.random()*(max-min+1)+min)*1000
