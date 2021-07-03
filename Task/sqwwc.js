@@ -1,122 +1,21 @@
-/* ziye
-github地址 https://github.com/6Svip120apk69
-TG频道地址  https://t.me/ziyescript
-TG交流群   https://t.me/joinchat/AAAAAE7XHm-q1-7Np-tF3g
-boxjs链接  https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/ziye.boxjs.json
-转载请备注个名字，谢谢
+/* 
 
-⚠️书旗小说     手机号账号数据共通， 部分任务可叠加，此脚本包含2个app的所有任务（无阅读挑战赛）共0.8-1元
-书旗普通版 支持多平台账号以及手机号登录
-点击  https://apps.apple.com/cn/app/id733689509 下载APP 或者Appstore 搜索书旗小说
-
-书旗极速版 支持手机号登录
-点击  https://apps.apple.com/cn/app/id1540723488 下载APP 或者Appstore 搜索书旗小说极速版
-
-3.8  制作
-3.12 完成
-3.12-2 增加循环获取ck开关，默认关闭，调整阅读次数为20次
-3.12-3 修复ck获取问题，修复ck方式一，可boxjs复制数据黏贴
-3.12 - 4 修复ck获取问题
-3.12-5 去除无用任务，精简ck至26条
-3.14 修复极速版书城报错
-
-⚠️ 时间设置    7 0-23 * * *    每小时 1次就行
-⚠️一共2个软件  普通版15条 极速版11条  共      26个ck  👉 26条 Secrets
-有多少ck就运行多少任务   shuqiuserurlVal 用户名url 👉 这个ck必须获取
-多账号换行
-
-第一步 添加 hostname =render.shuqireader.com,ocean.shuqireader.com,jcollection.shuqireader.com,activity-center-web.shuqireader.com,
-
-第二步 ⚠️添加header重写 获取header  再注释header重写   添加body重写  获取body
-
-    shuqiuserurlVal👉 用户名url    点击福利
-    shuqisyurlVal👉  收益url       点击我的
-    shuqisybodyVal👉 收益body      点击我的
-    shuqispbodyVal👉 视频body      点击福利 看视频
-    shuqiscbodyVal👉 时长body      点进一本书， 看个30秒，时长有效期一天，提现再获取
-    shuqiydbodyVal👉 阅读body      点进一本书，右上角转一圈，如没有圈圈，建议放弃，或者用4.32版本
-    shuqiqdbodyVal👉 签到body      点击福利 每日签到并成功签到
-    shuqirwbodyVal👉 任务body      点击福利
-    shuqifxbodyVal👉  分享body     点击福利 邀请书友，分享或者假分享
-    shuqisprwurlVal👉  视频任务url  点击福利
-    shuqijlbodyVal👉  获取奖励body   点击福利
-    shuqisqjlbodyVal👉 收取奖励body  点击福利 收取奖励
-    shuqicjyurlVal👉  获取抽奖页url  点击福利转转转
-    shuqicjcsbodyVal👉抽奖次数body   点击福利转转转 点击看视频抽奖
-    shuqicjbodyVal👉  获取抽奖body   点击福利转转转 点击看视频抽奖
-    shuqitaskSendhd
-    shuqitaskSendbody
-    shuqiwithdrawurl
-    shuqiwithdrawbody
-
-
-    shuqijsspbodyVal👉 极速版视频body   极速版点击福利 赚金币 看视频
-    shuqijsydurlVal👉  极速版阅读url    极速版点进一本书 右上角转一圈，如没有圈圈，建议放弃，
-    shuqijsydbodyVal👉 极速版阅读body   极速版点进一本书 右上角转一圈，如没有圈圈，建议放弃，
-    shuqijsqdbodyVal👉 极速版签到body    极速版点击福利 赚金币 每日签到  成功签到
-    shuqijsqdspyurlVal👉极速版签到视频页url  极速版点击福利 赚金币 每日签到
-    shuqijsqdspbodyVal👉极速版签到视频url    极速版点击福利 赚金币 每日签到 成功第二次签到
-    shuqijsrwbodyVal👉 极速版任务body        极速版点击福利 赚金币
-    shuqijsfxbodyVal👉  极速版分享body       极速版点击福利 赚金币 邀请书友，分享或者假分享
-    shuqijsbookurlVal👉 极速版书城url        极速版点击福利 赚金币 浏览书城
-    shuqijsbookbodyVal👉 极速版书城bodyy     极速版点击福利 赚金币 浏览书城
-    shuqijssprwurlVal👉  极速版视频任务url   极速版点击福利 赚金币
-
-⚠️主机名以及header重写👇     header重写 和 body重写不可同时启用
 hostname =render.shuqireader.com,ocean.shuqireader.com,jcollection.shuqireader.com,activity-center-web.shuqireader.com,
 
-############## 圈x
-
-#书旗小说获取header
+#获取header
 
 #用户名  视频任务 抽奖页面 极速版签到视频页   极速版视频任务
-https:\/\/ocean\.shuqireader\.com\/* url script-request-header https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
+https:\/\/ocean\.shuqireader\.com\/* url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 #极速版书城
-http:\/\/activity-center-web\.shuqireader\.com\/* url script-request-header https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
+http:\/\/activity-center-web\.shuqireader\.com\/* url script-request-header https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 
-#书旗小说获取body
+#获取body
 #阅读 签到  分享 奖励 收取奖励  抽奖次数 抽奖 极速版视频 极速版签到视频 极速版阅读 极速版签到 极速版分享 极速版书城
-https:\/\/ocean\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
+https:\/\/ocean\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 #收益 任务 极速版任务
-https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
+https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 #时长
-https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
-
-############## loon
-
-#书旗小说获取header
-
-#用户名  视频任务 抽奖页面 极速版签到视频页   极速版视频任务
-http-request https:\/\/ocean\.shuqireader\.com\/* url script-request-header script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js, requires-header=true, tag=书旗小说获取header
-#极速版书城
-http-request http:\/\/activity-center-web\.shuqireader\.com\/* url script-request-header script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js, requires-header=true, tag=书旗小说获取header
-
-#书旗小说获取body
-
-#阅读 签到  分享 奖励 收取奖励  抽奖次数 抽奖 极速版视频 极速版签到视频 极速版阅读 极速版签到 极速版分享 极速版书城
-http-request https:\/\/ocean\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js,requires-body=1,max-size=0, tag=书旗小说获取body
-#收益 任务 极速版任务
-http-request https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js,requires-body=1,max-size=0, tag=书旗小说获取body
-#时长
-http-request https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js,requires-body=1,max-size=0, tag=书旗小说获取body
-
-############## surge
-
-#书旗小说获取header
-
-#用户名  视频任务 抽奖页面 极速版签到视频页   极速版视频任务
-书旗小说获取header = type=https:\/\/ocean\.shuqireader\.com\/*,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
-#极速版书城
-书旗小说获取header = type=http:\/\/activity-center-web\.shuqireader\.com\/*,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
-
-#书旗小说获取body
-
-#阅读 签到  分享 奖励 收取奖励  抽奖次数 抽奖 极速版视频 极速版签到视频 极速版阅读 极速版签到  极速版分享 极速版书城
-书旗小说获取header = type=https:\/\/ocean\.shuqireader\.com\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
-#收益 任务 极速版任务
-书旗小说获取header = type=https:\/\/render\.shuqireader\.com\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
-#时长
-书旗小说获取header = type=https:\/\/jcollection\.shuqireader\.com\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
+https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 
 
 */
@@ -1307,55 +1206,8 @@ function GetCookie() {
             };
         }
     }
-    //获取提现分享
-    if ($request && $request.url.indexOf("activity") >= 0 && $request.url.indexOf("task") >= 0) {
-        const shuqitaskSendhd = $request.headers;
-        const shuqitaskSendbody = $request.body;
-        if (shuqitaskSendbody) {
-            if (XH == 1) {
-                cookie()
-
-                function cookie() {
-                    bodys = $.getdata('shuqitaskSendbody' + $.idx);
-                    if (bodys) {
-                        if ($.idx == '') {
-                            $.idx = 2
-                            cookie()
-                        } else {
-                            $.idx = $.idx + 1
-                            cookie()
-                        }
-                    } else {
-                        $.setdata(shuqitaskSendhd, "shuqitaskSendhd" + $.idx);
-                        $.log(
-                            `[${$.name + $.idx}] 获取提现分享shuqitaskSendhd✅: 成功,shuqitaskSendhd: ${shuqitaskSendhd}`
-                        );
-                        $.msg($.name + $.idx, `获取提现分享shuqitaskSendhd: 成功🎉`, ``);
-                        $.setdata(shuqitaskSendbody, "shuqitaskSendbody" + $.idx);
-                        $.log(
-                            `[${$.name + $.idx}] 获取提现分享shuqitaskSendbody✅: 成功,shuqitaskSendbody: ${shuqitaskSendbody}`
-                        );
-                        $.msg($.name + $.idx, `获取提现分享shuqitaskSendbody: 成功🎉`, ``);
-                        $.done();
-                    };
-                }
-            } else {
-                $.setdata(shuqitaskSendhd, "shuqitaskSendhd" + $.idx);
-                $.log(
-                    `[${$.name + $.idx}] 获取提现分享shuqitaskSendhd✅: 成功,shuqitaskSendhd: ${shuqitaskSendhd}`
-                );
-                $.msg($.name + $.idx, `获取提现分享shuqitaskSendhd: 成功🎉`, ``);
-                $.setdata(shuqitaskSendbody, "shuqitaskSendbody" + $.idx);
-                $.log(
-                    `[${$.name + $.idx}] 获取提现分享shuqitaskSendbody✅: 成功,shuqitaskSendbody: ${shuqitaskSendbody}`
-                );
-                $.msg($.name + $.idx, `获取提现分享shuqitaskSendbody: 成功🎉`, ``);
-                $.done();
-            };
-        }
-    }
     //获取提现数据
-    if ($request && $request.url.indexOf("/activity/xapi/gold/") >= 0 && $request.url.indexOf("withdraw?asac=") >= 0 ) {
+    if ($request && $request.url.indexOf("/activity/xapi/gold/withdraw") >= 0 && $request.url.indexOf("asac=") >= 0 ) {
         const shuqiwithdrawurl = $request.url;
         const shuqiwithdrawbody = $request.body;
         if (shuqiwithdrawurl) {
