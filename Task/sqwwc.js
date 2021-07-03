@@ -1,5 +1,4 @@
 /* 
-
 hostname =render.shuqireader.com,ocean.shuqireader.com,jcollection.shuqireader.com,activity-center-web.shuqireader.com,
 
 #获取header
@@ -17,13 +16,12 @@ https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.github
 #时长
 https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 
-
 */
-GXRZ = '3.14 修复极速版书城报错'
+let GXRZ = '3.14 修复极速版书城报错'
 const $ = Env("书旗小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ? require("./sendNotify") : ``;
-const COOKIE = $.isNode() ? require("./shuqiCK1") : ``;
+const COOKIE = $.isNode() ? require("./shuqiwwcCK") : ``;
 
 
 const logs = 0; // 0为关闭日志，1为开启
@@ -60,7 +58,7 @@ const shuqijsbookurlArr = [];
 const shuqijsbookbodyArr = [];
 const shuqijssprwurlArr = [];
 const shuqiwithdrawurlArr = [];
-const shuqiwithdrawurlArr = [];
+const shuqiwithdrawbodyArr = [];
 const middleshuqiuserURL = [];
 const middleshuqisyURL = [];
 const middleshuqisyBODY = [];
@@ -1207,7 +1205,7 @@ function GetCookie() {
         }
     }
     //获取提现数据
-    if ($request && $request.url.indexOf("/activity/xapi/gold/withdraw") >= 0 && $request.url.indexOf("asac=") >= 0 ) {
+    if ($request && $request.url.indexOf("/activity/xapi/gold/") >= 0 && $request.url.indexOf("withdraw?asac=") >= 0 ) {
         const shuqiwithdrawurl = $request.url;
         const shuqiwithdrawbody = $request.body;
         if (shuqiwithdrawurl) {
@@ -1646,6 +1644,8 @@ async function all() {
             shuqijsbookurlVal = COOKIE[Object.keys(COOKIE)[iv + 24]];
             shuqijsbookbodyVal = COOKIE[Object.keys(COOKIE)[iv + 25]];
             shuqijssprwurlVal = COOKIE[Object.keys(COOKIE)[iv + 26]];
+            shuqiwithdrawurlVal = COOKIE[Object.keys(COOKIE)[iv + 27]];
+            shuqiwithdrawbodyVal = COOKIE[Object.keys(COOKIE)[iv + 28]];
         }
         if (!COOKIE) {
             shuqiuserurlVal = shuqiuserurlArr[i];
@@ -1832,14 +1832,14 @@ function coin(timeout = 0) {
                         console.log(`用户收益：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`);
                         $.message += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
-                        if( (tixianmoney > 20)  && (nowTimes.getHours() === 12 || nowTimes.getHours() === 23)){
-                          console.log(`🚩你可以提现啦~`)
-                          $.message += `🚩你可以提现啦~`
+                        if( (tixianmoney > 20)  && (nowTimes.getHours() === 12 || nowTimes.getHours() === 20)){
+                          console.log(`====== 你可以提现啦~ ====== \n`)
+                          $.message += `====== 你可以提现啦~ ====== \n`
                           if (shuqiwithdrawurlVal && shuqiwithdrawbodyVal && shuqiwithdrawurlVal != '' && shuqiwithdrawbodyVal != '') {
                               await tixian() //用户提现
                           }else {
-                            console.log(`但是你还没有配置提现数据~`)
-                            $.message += `但是你还没有配置提现数据~`
+                            console.log(`====== 但是你还没有配置提现数据~ ====== \n`)
+                            $.message += `====== 但是你还没有配置提现数据~ ====== \n`
                           }
                         }
                     }
