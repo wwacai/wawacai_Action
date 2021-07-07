@@ -1,0 +1,25 @@
+name: 中青看看赚
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '30 */3 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 90
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行 【中青看看赚】'
+        run: | 
+          node Task/youth_gain.js
