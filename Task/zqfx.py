@@ -44,6 +44,8 @@ url3 = 'https://script.baertt.com/count2/callback?si='+si()+'&referer=https%253A
 
 url4 = 'https://script.baertt.com/count2/callback?si='+si()+'&referer=https%253A%252F%252Ffocus.youth.cn%252Farticle%252Fs%253Fsignature%253D3YDwkj8dqQbPnoB4jAEyD0hM5oo9c3DvYdN1lgxXL9AJ2zORKM%2526uid%253D55458751%2526phone_code%253De55a2ce90c05c30d05d4df7fd4fce4c1%2526scid%253D38468411%2526time%253D1621850092%2526app_version%253D2.0.2%2526sign%253Db24e76e56701b37c0c726b0a79dc809b&_=1621915244011&jsonpcallback=jsonp3'
 
+url5 = 'https://script.baertt.com/count2/callback?si='+si()+'&referer=https%253A%252F%252Ffocus.youth.cn%252Farticle%252Fs%253Fsignature%253Dj6LwoklONRyQvgd4k05jw5SpZYyPCjvBldx78M9zV2YP3KBGAe%2526uid%253D57028425%2526phone_code%253De55a2ce90c05c30d05d4df7fd4fce4c1%2526scid%253D39267336%2526time%253D1625636240%2526app_version%253D2.0.0%2526sign%253D248fb58084d26265ff6d62a2236c46ec&_=1625636254586&jsonpcallback=jsonp5'
+
 
 resp1 = requests.get(url=url1,headers=headers,timeout=60).text
 print(resp1)
@@ -57,5 +59,9 @@ print(resp3)
 
 resp4 = requests.get(url=url4,headers=headers,timeout=60).text
 print(resp4)
+
+
+resp5 = requests.get(url=url5,headers=headers,timeout=60).text
+print(resp5)
 
 
