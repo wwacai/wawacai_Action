@@ -46,7 +46,7 @@ if (!$.isNode() && !startbodys.indexOf("&") == -1) {
     if (!$.isNode() && !lookbodys.indexOf("&") > -1) {
         LookBody = lookbodys.split('&');
     }
-    if ($.isNode()) {
+    if ($.isNode() && process.env.YOUTH_START ) {
         if (process.env.YOUTH_START && process.env.YOUTH_START.indexOf('&') > -1) {
             StartBody = process.env.YOUTH_START.split('&');
         } else {
@@ -56,6 +56,18 @@ if (!$.isNode() && !startbodys.indexOf("&") == -1) {
             LookBody = process.env.YOUTH_LOOK.split('&');
         } else {
             LookBody = [process.env.YOUTH_LOOK]
+        }
+    }
+    if ($.isNode() && startbodys ) {
+        if (startbodys && startbodys.indexOf('&') > -1) {
+            StartBody = startbodys.split('&');
+        } else {
+            StartBody = startbodys
+        };
+        if (lookbodys && lookbodys.indexOf('&') > -1) {
+            LookBody = lookbodys.split('&');
+        } else {
+            LookBody = lookbodys
         }
     }
     Object.keys(StartBody).forEach((item) => {
