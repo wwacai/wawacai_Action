@@ -845,7 +845,7 @@ function GetCookie() {
         }
     }
     //获取视频
-    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=525") >= 0) {
+    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId") >= 0) {
         const shuqispbodyVal = $request.body;
         if (shuqispbodyVal) {
             if (XH == 1) {
