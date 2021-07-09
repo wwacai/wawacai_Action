@@ -3,7 +3,7 @@ name: zqfx
 on:
     workflow_dispatch:
     schedule:
-        - cron: "2,32,46 0-15 * * *"
+        - cron: "2 0-15/2 * * *"
     watch:
         types: [started]
     repository_dispatch:
