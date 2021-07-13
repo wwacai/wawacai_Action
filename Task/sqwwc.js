@@ -1651,6 +1651,7 @@ async function all() {
             shuqionloadbodyVal = shuqionloadbodyArr[i];
         }
         O = (`${$.name + (i + 1)}🔔`);
+        let num = i + 1
         $.message2 = ''
         if (shuqiuserurlVal && shuqiuserurlVal != '') {
             await console.log(`-------------------------\n\n🔔开始运行【${$.name+(i+1)}】`)
@@ -1829,10 +1830,10 @@ function coin(timeout = 0) {
                         $.message += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
-                        if( (tixianmoney > 11)  && (nowTimes.getHours() === 12 || nowTimes.getHours() === 20)){
-                          console.log(`====== 你可以提现啦~ ====== \n`)
-                          $.message += `====== 你可以提现啦~ ====== \n`
-                          $.message2 += `====== 你可以提现啦~ ====== \n`
+                        if( tixianmoney > 11  &&  num > 6 ){
+                          console.log(`====== 快来提现啦! ====== \n`)
+                          $.message += `====== 快来提现啦! ====== \n`
+                          $.message2 += `====== 快来提现啦! ====== \n`
                         }
                     }
                 } catch (e) {
@@ -1916,7 +1917,7 @@ function onload(timeout = 0) {
                         console.log(` 登录数据：登录成功${decodeUnicode(data)} \n`);
                         $.message += ` 【登录数据】：登录成功${decodeUnicode(data)} \n`;
                     }
-                    */
+                    *
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
