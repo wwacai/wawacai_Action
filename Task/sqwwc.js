@@ -1651,7 +1651,7 @@ async function all() {
             shuqionloadbodyVal = shuqionloadbodyArr[i];
         }
         O = (`${$.name + (i + 1)}🔔`);
-        let num = i + 1
+        var num = i + 1
         $.message2 = ''
         if (shuqiuserurlVal && shuqiuserurlVal != '') {
             await console.log(`-------------------------\n\n🔔开始运行【${$.name+(i+1)}】`)
