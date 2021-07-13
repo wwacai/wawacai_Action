@@ -25,6 +25,7 @@ const logs = 0; // 0为关闭日志，1为开启
 const notifyttt = 1 // 0为关闭外部推送，1为12 23 点外部推送
 const notifyInterval = 2; // 0为关闭通知，1为所有通知，2为12 23 点通知  ， 3为 6 12 18 23 点通知
 $.message = '',$.message2 = '', COOKIES_SPLIT = '', CASH = '', XH = 0, ddtime = '';
+const num = 0
 CZ = 10
 Length = 0
 
@@ -1651,7 +1652,7 @@ async function all() {
             shuqionloadbodyVal = shuqionloadbodyArr[i];
         }
         O = (`${$.name + (i + 1)}🔔`);
-        var num = i + 1
+        num = i + 1
         $.message2 = ''
         if (shuqiuserurlVal && shuqiuserurlVal != '') {
             await console.log(`-------------------------\n\n🔔开始运行【${$.name+(i+1)}】`)
