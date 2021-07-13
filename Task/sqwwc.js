@@ -768,43 +768,6 @@ function GetCookie() {
             };
         }
     }
-
-	    //获取极速版书城
-    if ($request && $request.url.indexOf("convert") >= 0 && $request.body.indexOf("actTaskId=344") >= 0 && $request.body.indexOf("appVer=1") >= 0) {
-        const shuqijsbookbodyVal = $request.body;
-        if (shuqijsbookbodyVal) {
-            if (XH == 1) {
-                cookie()
-
-                function cookie() {
-                    bodys = $.getdata('shuqijsbookbody' + $.idx);
-                    if (bodys) {
-                        if ($.idx == '') {
-                            $.idx = 2
-                            cookie()
-                        } else {
-                            $.idx = $.idx + 1
-                            cookie()
-                        }
-                    } else {
-                        $.setdata(shuqijsbookbodyVal, "shuqijsbookbody" + $.idx);
-                        $.log(
-                            `[${$.name + $.idx}] 获取极速版书城shuqijsbookbodyVal✅: 成功,shuqijsbookbodyVal: ${shuqijsbookbodyVal}`
-                        );
-                        $.msg($.name + $.idx, `获取极速版书城shuqijsbookbodyVal: 成功🎉`, ``);
-                        $.done();
-                    };
-                }
-            } else {
-                $.setdata(shuqijsbookbodyVal, "shuqijsbookbody" + $.idx);
-                $.log(
-                    `[${$.name + $.idx}] 获取极速版书城shuqijsbookbodyVal✅: 成功,shuqijsbookbodyVal: ${shuqijsbookbodyVal}`
-                );
-                $.msg($.name + $.idx, `获取极速版书城shuqijsbookbodyVal: 成功🎉`, ``);
-                $.done();
-            };
-        }
-    }
     //获取视频
     if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=525") >= 0) {
         const shuqispbodyVal = $request.body;
@@ -1167,7 +1130,7 @@ function GetCookie() {
     }
     //获取提现分享数据
     if ($request && $request.url.indexOf("/activity/task/taskSend") >= 0 && $request.body.indexOf("taskType") >= 0 ) {
-        const shuqitxfxhd = $request.headers;
+        const shuqitxfxhd = JSON.stringify($request.headers);
         const shuqitxfxbody = $request.body;
         if (shuqitxfxhd) {
             if (XH == 1) {
@@ -1216,7 +1179,7 @@ function GetCookie() {
     }
     //获取登录数据
     if ($request && $request.url.indexOf("imeisn2userid") >= 0 && $request.body.indexOf("user_id") >= 0 ) {
-        const shuqionloadhd = $request.headers;
+        const shuqionloadhd = JSON.stringify($request.headers);
         const shuqionloadbody = $request.body;
         if (shuqionloadhd) {
             if (XH == 1) {
@@ -1746,7 +1709,7 @@ async function all() {
             await bubble(); //奖励页面
         }
         await $.wait(10*1000);
-        if (shuqitxfxhdVal && shuqitxfxhdbodyVal != '') {
+        if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
             await tixiantask1(); //提现分享
             await $.wait(10*1000);
             await tixiantask2(); //提现阅读
@@ -2614,22 +2577,6 @@ function jsresource(timeout = 0) {
                             $.message2 += `【${jssharess.taskTitle}】：${jssharess.rewards[0].desc},已完成\n`;
                         }
                     }
-                    if (shuqijsbookurlVal && shuqijsbookurlVal != '') {
-                        if (jsbookss.status == 0) {
-                            taskbook = `reward`
-                            await jsbooklist(); //每日书城
-                        }
-                    }
-                    if (shuqijsbookbodyVal && shuqijsbookbodyVal != '') {
-                        if (jsbookss.status == 2 && jsbookss.prizeStatus == 4) {
-                            taskbook = `convert`
-                            await jsbooklj; //书城领奖
-                        } else if (jsbookss.status == 2 && jsbookss.prizeStatus == 2) {
-                            console.log(`${jsbookss.taskTitle}：${jsbookss.rewards[0].desc},已完成\n`);
-                            $.message += `【${jsbookss.taskTitle}】：${jsbookss.rewards[0].desc},已完成\n`;
-                            $.message2 += `【${jsbookss.taskTitle}】：${jsbookss.rewards[0].desc},已完成\n`;
-                        }
-                    }
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -2663,74 +2610,6 @@ function jsshare(timeout = 0) {
                         console.log(`极速版每日分享：${$.jsshare.message}\n`);
                         $.message += `【极速版每日分享】：${$.jsshare.message}\n`;
                         $.message2 += `【极速版每日分享】：${$.jsshare.message}\n`;
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//极速版每日书城
-function jsbooklist(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: shuqijsbookurlVal,
-                headers: {
-                    'Content-Type': `application/x-www-form-urlencoded`,
-                    'Host': `ocean.shuqireader.com`,
-                },
-                body: `actTaskId=344&platform=116&reqEncryptParam=%3A&reqEncryptType=-1&resEncryptType=-1&userId=${userid}`,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 极速版每日书城🚩: ${decodeUnicode(data)}`);
-                    $.jsbooklist = JSON.parse(data);
-                    if ($.jsbooklist.status == 200) {
-                        console.log(`极速版每日书城：执行成功\n`);
-                        $.message += `【极速版每日书城】：执行成功\n`;
-                        $.message2 += `【极速版每日书城】：执行成功\n`;
-                    } else {
-                        console.log(`极速版每日书城：${$.jsbooklist.message}\n`);
-                        $.message += `【极速版每日书城】：${$.jsbooklist.message}\n`;
-                        $.message2 += `【极速版每日书城】：${$.jsbooklist.message}\n`;
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//极速版每日书城领奖
-function jsbooklj(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://ocean.shuqireader.com/api/activity/v1/task/convert`,
-                headers: {
-                    'Content-Type': `application/x-www-form-urlencoded`,
-                    'Host': `ocean.shuqireader.com`,
-                },
-                body: shuqiuserurlVal,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 极速版每日书城领奖🚩: ${decodeUnicode(data)}`);
-                    $.jsbooklj = JSON.parse(data);
-                    if ($.jsbooklj.status == 200) {
-                        console.log(`极速版每日书城领奖：成功获得${$.jsbooklj.data.rewards[0].desc}\n`);
-                        $.message += `【极速版每日书城领奖】：成功获得${$.jsbooklj.data.rewards[0].desc}\n`;
-                        $.message2 += `【极速版每日书城领奖】：成功获得${$.jsbooklj.data.rewards[0].desc}\n`;
-                    } else {
-                        console.log(`极速版每日书城领奖：${$.jsbooklj.message}\n`);
-                        $.message += `【极速版每日书城领奖】：${$.jsbooklj.message}\n`;
-                        $.message2 += `【极速版每日书城领奖】：${$.jsbooklj.message}\n`;
                     }
                 } catch (e) {
                     $.logErr(e, resp);
