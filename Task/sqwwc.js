@@ -1908,11 +1908,15 @@ function onload(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 登录数据🚩: ${decodeUnicode(data)}`);
+                    console.log(` 登录数据：登录成功} \n`);
+                    console.log(data);
+                    /*
                     $.upload = JSON.parse(data);
                     if ($.upload.state == 200) {
                         console.log(` 登录数据：登录成功${decodeUnicode(data)} \n`);
                         $.message += ` 【登录数据】：登录成功${decodeUnicode(data)} \n`;
                     }
+                    */
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
