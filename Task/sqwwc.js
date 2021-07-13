@@ -1917,7 +1917,7 @@ function onload(timeout = 0) {
                         console.log(` 登录数据：登录成功${decodeUnicode(data)} \n`);
                         $.message += ` 【登录数据】：登录成功${decodeUnicode(data)} \n`;
                     }
-                    *
+                    */
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
