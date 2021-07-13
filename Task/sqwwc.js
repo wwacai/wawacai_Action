@@ -1831,9 +1831,9 @@ function coin(timeout = 0) {
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
                         if( tixianmoney > 11  &&  num > 6 ){
-                          console.log(`====== 快来提现啦! ====== \n`)
-                          $.message += `====== 快来提现啦! ====== \n`
-                          $.message2 += `====== 快来提现啦! ====== \n`
+                          console.log(`|    快来提现啦!    |\n`)
+                          $.message += `|    快来提现啦!    |\n`
+                          $.message2 += `|    快来提现啦!    |\n`
                         }
                     }
                 } catch (e) {
