@@ -1835,9 +1835,9 @@ function coin(timeout = 0) {
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
                         if( tixianmoney > 11  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
-                          console.log(`🚩快来提现啦!\n`)
-                          $.message += `🚩快来提现啦!\n`
-                          $.message2 += `🚩快来提现啦!\n`
+                          console.log(` 🚩快来提现啦!\n`)
+                          $.message += ` 🚩快来提现啦!\n`
+                          $.message2 += ` 🚩快来提现啦!\n`
                         }
                     }
                 } catch (e) {
@@ -1863,10 +1863,11 @@ function tixiantask1(timeout = 0) {
                     if (logs) $.log(`${O}, 提现任务1数据🚩: ${decodeUnicode(data)}`);
                     console.log(` 🚩提现任务1数据成功} \n`);
                     console.log(data);
+                    console.log(JSON.stringify(url));
                     $.upload = JSON.parse(data);
-                    if ($.upload.state == 200) {
-                        console.log(` 提现任务1数据：提现任务1成功${decodeUnicode(data)} \n`);
-                        $.message += ` 【提现任务1数据】：提现任务1成功${decodeUnicode(data)} \n`;
+                    if ($.upload.status == 200) {
+                        console.log(`提现任务1：提现任务1成功\n`);
+                        $.message += `【提现任务1】：提现任务1成功\n`;
                     }
                 } catch (e) {
                     $.logErr(e, resp);
@@ -1891,10 +1892,11 @@ function tixiantask2(timeout = 0) {
                     if (logs) $.log(`${O}, 提现任务2数据🚩: ${decodeUnicode(data)}`);
                     console.log(` 🚩提现任务2数据成功} \n`);
                     console.log(data);
+                    console.log(JSON.stringify(url));
                     $.upload = JSON.parse(data);
-                    if ($.upload.state == 200) {
-                        console.log(` 提现任务2数据：提现任务2成功${decodeUnicode(data)} \n`);
-                        $.message += ` 【提现任务2数据】：提现任务2成功${decodeUnicode(data)} \n`;
+                    if ($.upload.status == 200) {
+                        console.log(`提现任务2：提现任务2成功\n`);
+                        $.message += `【提现任务2】：提现任务2成功\n`;
                     }
                 } catch (e) {
                     $.logErr(e, resp);
