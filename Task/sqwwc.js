@@ -1665,55 +1665,58 @@ async function all() {
         if (shuqionloadhdVal && shuqionloadbodyVal != '') {
             await onload(); //登录
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqisyurlVal && shuqisybodyVal && shuqisyurlVal != '' && shuqisybodyVal != '') {
             await coin() //用户收益
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         await readlist(); //阅读时长
         if (shuqirwbodyVal && shuqirwbodyVal != '') {
             await resource() //任务列表
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqisprwurlVal && shuqisprwurlVal != '') {
             await videolist(); //视频任务
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqicjyurlVal && shuqicjyurlVal != '') {
             await lotteryinfo(); //抽奖页面
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqisprwurlVal && shuqisprwurlVal != '') {
             await videolist(); //视频任务
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqicjyurlVal && shuqicjyurlVal != '') {
             await lotteryinfo(); //抽奖页面
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqijsrwbodyVal && shuqijsrwbodyVal != '') {
             await jsresource() //极速版任务列表
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqijssprwurlVal && shuqijssprwurlVal != '') {
             await jsvideolist() //极速版视频任务
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqijssprwurlVal && shuqijssprwurlVal != '') {
             await jsvideolist() //极速版视频任务
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqijsqdspyurlVal && shuqijsqdspyurlVal != '') {
             await jsqdvideolist(); //极速版签到视频任务
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqijlbodyVal && shuqijlbodyVal != '') {
             await bubble(); //奖励页面
         }
-        await $.wait(10*1000);
+        await $.wait(5*1000);
         if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
+            if (nowTimes.getHours() === 8 ){
+                await tixiantask1(); //提现分享
+            }
             await tixiantask1(); //提现分享
-            await $.wait(10*1000);
+            await $.wait(5*1000);
             await tixiantask2(); //提现阅读
         }
         await msgShow();
@@ -1832,9 +1835,9 @@ function coin(timeout = 0) {
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
                         if( tixianmoney > 11  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
-                          console.log(`|    快来提现啦!    |\n`)
-                          $.message += `|    快来提现啦!    |\n`
-                          $.message2 += `|    快来提现啦!    |\n`
+                          console.log(`🚩快来提现啦!\n`)
+                          $.message += `🚩快来提现啦!\n`
+                          $.message2 += `🚩快来提现啦!\n`
                         }
                     }
                 } catch (e) {
@@ -1858,6 +1861,8 @@ function tixiantask1(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 提现任务1数据🚩: ${decodeUnicode(data)}`);
+                    console.log(` 🚩提现任务1数据成功} \n`);
+                    console.log(data);
                     $.upload = JSON.parse(data);
                     if ($.upload.state == 200) {
                         console.log(` 提现任务1数据：提现任务1成功${decodeUnicode(data)} \n`);
@@ -1884,6 +1889,8 @@ function tixiantask2(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 提现任务2数据🚩: ${decodeUnicode(data)}`);
+                    console.log(` 🚩提现任务2数据成功} \n`);
+                    console.log(data);
                     $.upload = JSON.parse(data);
                     if ($.upload.state == 200) {
                         console.log(` 提现任务2数据：提现任务2成功${decodeUnicode(data)} \n`);
