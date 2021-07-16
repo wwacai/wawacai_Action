@@ -1715,11 +1715,10 @@ async function all() {
             if (nowTimes.getHours() === 8 ){
                 await tixiantask1(); //提现分享
             }
-            await tixiantask1(); //提现分享
             await $.wait(5*1000);
             await tixiantask2(); //提现阅读
         }
-        await msgShow();
+        //await msgShow();
     }
 }
 //通知
@@ -1739,8 +1738,8 @@ function msgShow() {
             $.msg($.name, ``, $.message);
         }
         */
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 11 || nowTimes.getHours() === 23))
-            await notify.sendNotify($.name, $.message2);
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 18 || nowTimes.getHours() === 23))
+            await notify.sendNotify($.name, $.message);
         resolve()
     })
 }
@@ -1834,7 +1833,7 @@ function coin(timeout = 0) {
                         $.message += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
-                        if( tixianmoney > 11  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
+                        if( tixianmoney > 10  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
                           console.log(` 🚩快来提现啦!\n`)
                           $.message += ` 🚩快来提现啦!\n`
                           $.message2 += ` 🚩快来提现啦!\n`
@@ -1885,7 +1884,7 @@ function tixiantask2(timeout = 0) {
             let url = {
                 url: `https://ocean.shuqireader.com/api/activity/xapi/activity/task/taskSend`,
                 headers: JSON.parse(shuqitxfxhdVal),
-                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":8`)).replace(`"taskType":18`,`"taskType":2`),
+                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":10`)).replace(`"taskType":18`,`"taskType":2`),
             }
             $.post(url, async (err, resp, data) => {
                 try {
