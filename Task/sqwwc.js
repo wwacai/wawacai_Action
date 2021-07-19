@@ -18,7 +18,7 @@ https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.g
 const $ = Env("①书旗小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ? require("./sendNotify") : ``;
-const COOKIE = $.isNode() ? require("./shuqiwwcCK") : ``;
+const COOKIE = $.isNode() ? require("./shuqiCK1") : ``;
 
 
 const logs = 0; // 0为关闭日志，1为开启
@@ -57,6 +57,7 @@ const shuqitxfxhdArr = [];
 const shuqitxfxbodyArr = [];
 const shuqionloadhdArr = [];
 const shuqionloadbodyArr = [];
+const shuqiydjlbodyArr = [];
 const middleshuqiuserURL = [];
 const middleshuqisyURL = [];
 const middleshuqisyBODY = [];
@@ -85,6 +86,8 @@ const middleshuqitxfxHD = [];
 const middleshuqitxfxBODY = [];
 const middleshuqionloadHD = [];
 const middleshuqionloadBODY = [];
+const middleshuqiydjlBODY = [];
+
 if ($.isNode() && COOKIE.shuqiuserurl && COOKIE.shuqiuserurl != '') {
     console.log(
         `============ cookie方式为：方式一 boxjs复制数据 =============\n`
@@ -321,9 +324,17 @@ if ($.isNode() && process.env.SQ_shuqiuserURL) {
     } else {
         middleshuqionloadBODY = process.env.SQ_shuqionloadBODY.split();
     }
+    if (
+        process.env.SQ_shuqiydjlBODY &&
+        process.env.SQ_shuqiydjlBODY.indexOf(COOKIES_SPLIT) > -1
+    ) {
+        middleshuqiydjlBODY = process.env.SQ_shuqiydjlBODY.split(COOKIES_SPLIT);
+    } else {
+        middleshuqiydjlBODY = process.env.SQ_shuqiydjlBODY.split();
+    }
 }
 if (COOKIE.shuqiuserurl) {
-    cks = 28 //ck数量
+    cks = 29 //ck数量
     COOKIEstringify = JSON.stringify(COOKIE);
     Length = COOKIEstringify.match(/getBindinfo/g).length
 }
@@ -469,6 +480,11 @@ if (!COOKIE) {
                 shuqionloadbodyArr.push(middleshuqionloadBODY[item]);
             }
         });
+        Object.keys(middleshuqiydjlBODY).forEach((item) => {
+            if (middleshuqiydjlBODY[item]) {
+                shuqiydjlbodyArr.push(middleshuqiydjlBODY[item]);
+            }
+        });
     } else {
         shuqiuserurlArr.push($.getdata("shuqiuserurl"));
         shuqisyurlArr.push($.getdata("shuqisyurl"));
@@ -498,6 +514,7 @@ if (!COOKIE) {
         shuqitxfxbodyArr.push($.getdata("shuqitxfxbody"));
         shuqionloadhdArr.push($.getdata("shuqionloadhd"));
         shuqionloadbodyArr.push($.getdata("shuqionloadbody"));
+        shuqiydjlbodyArr.push($.getdata("shuqiydjlbody"));
         // 根据boxjs中设置的额外账号数，添加存在的账号数据进行任务处理
         if ("shuqiXH") {
             XH = $.getval("shuqiXH") || '0';
@@ -533,6 +550,7 @@ if (!COOKIE) {
                 shuqitxfxbodyArr.push($.getdata(`shuqitxfxbody${i}`));
                 shuqionloadhdArr.push($.getdata(`shuqionloadhd${i}`));
                 shuqionloadbodyArr.push($.getdata(`shuqionloadbody${i}`));
+                shuqiydjlbodyArr.push($.getdata(`shuqiydjlbody${i}`));
             }
         }
     }
@@ -1057,6 +1075,42 @@ function GetCookie() {
             };
         }
     }
+    //获取收取阅读时长奖励
+    if ($request && $request.url.indexOf("manual") >= 0 && $request.url.indexOf("receive") >= 0 && $request.body.indexOf("src=219") >= 0) {
+        const shuqiydjlbodyVal = $request.body;
+        if (shuqiydjlbodyVal) {
+            if (XH == 1) {
+                cookie()
+
+                function cookie() {
+                    bodys = $.getdata('shuqiydjlbody' + $.idx);
+                    if (bodys) {
+                        if ($.idx == '') {
+                            $.idx = 2
+                            cookie()
+                        } else {
+                            $.idx = $.idx + 1
+                            cookie()
+                        }
+                    } else {
+                        $.setdata(shuqiydjlbodyVal, "shuqiydjlbody" + $.idx);
+                        $.log(
+                            `[${$.name + $.idx}] 获取收取奖励shuqiydjlbodyVal✅: 成功,shuqiydjlbodyVal: ${shuqiydjlbodyVal}`
+                        );
+                        $.msg($.name + $.idx, `获取收取奖励shuqiydjlbodyVal: 成功🎉`, ``);
+                        $.done();
+                    };
+                }
+            } else {
+                $.setdata(shuqiydjlbodyVal, "shuqiydjlbody" + $.idx);
+                $.log(
+                    `[${$.name + $.idx}] 获取收取奖励shuqiydjlbodyVal✅: 成功,shuqiydjlbodyVal: ${shuqiydjlbodyVal}`
+                );
+                $.msg($.name + $.idx, `获取收取奖励shuqiydjlbodyVal: 成功🎉`, ``);
+                $.done();
+            };
+        }
+    }
     //获取抽奖次数
     if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("resourceId=703") >= 0) {
         const shuqicjcsbodyVal = $request.body;
@@ -1566,7 +1620,7 @@ if (isGetCookie) {
     !(async () => {
         await all();
 
-        //await msgShow();
+        await msgShow();
     })()
     .catch((e) => {
             $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -1620,6 +1674,7 @@ async function all() {
             shuqitxfxbodyVal = COOKIE[Object.keys(COOKIE)[iv + 26]];
             shuqionloadhdVal = COOKIE[Object.keys(COOKIE)[iv + 27]];
             shuqionloadbodyVal = COOKIE[Object.keys(COOKIE)[iv + 28]];
+            shuqiydjlbodyVal = COOKIE[Object.keys(COOKIE)[iv + 29]];
         }
         if (!COOKIE) {
             shuqiuserurlVal = shuqiuserurlArr[i];
@@ -1650,6 +1705,7 @@ async function all() {
             shuqitxfxbodyVal = shuqitxfxbodyArr[i];
             shuqionloadhdVal = shuqionloadhdArr[i];
             shuqionloadbodyVal = shuqionloadbodyArr[i];
+            shuqiydjlbodyVal = shuqiydjlbodyArr[i];
         }
         O = (`${$.name + (i + 1)}🔔`);
         $.num = i + 1
@@ -1661,9 +1717,21 @@ async function all() {
                 continue;
             }
         }
-        await $.wait(2*1000);
-        if (shuqionloadhdVal && shuqionloadbodyVal != '') {
-            await onload(); //登录
+        await $.wait(5*1000);
+        if (nowTimes.getHours() === 9 || nowTimes.getHours() === 18 ){
+            if (shuqionloadhdVal && shuqionloadbodyVal != '') {
+                await onload(); //登录
+            }
+            if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
+                await $.wait(2*1000);
+                await tixiantask1(); //提现分享
+            }
+        }
+        if (nowTimes.getHours() > 12 ){
+            await $.wait(5*1000);
+            if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
+                await tixiantask2(); //提现阅读
+            }
         }
         await $.wait(5*1000);
         if (shuqisyurlVal && shuqisybodyVal && shuqisyurlVal != '' && shuqisybodyVal != '') {
@@ -1709,14 +1777,6 @@ async function all() {
         await $.wait(5*1000);
         if (shuqijlbodyVal && shuqijlbodyVal != '') {
             await bubble(); //奖励页面
-        }
-        await $.wait(5*1000);
-        if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
-            if (nowTimes.getHours() === 8 ){
-                await tixiantask1(); //提现分享
-            }
-            await $.wait(5*1000);
-            await tixiantask2(); //提现阅读
         }
         //await msgShow();
     }
@@ -1833,7 +1893,7 @@ function coin(timeout = 0) {
                         $.message += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
-                        if( tixianmoney > 10  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
+                        if( tixianmoney > 11  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
                           console.log(` 🚩快来提现啦!\n`)
                           $.message += ` 🚩快来提现啦!\n`
                           $.message2 += ` 🚩快来提现啦!\n`
@@ -1884,7 +1944,7 @@ function tixiantask2(timeout = 0) {
             let url = {
                 url: `https://ocean.shuqireader.com/api/activity/xapi/activity/task/taskSend`,
                 headers: JSON.parse(shuqitxfxhdVal),
-                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":10`)).replace(`"taskType":18`,`"taskType":2`),
+                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":8`)).replace(`"taskType":18`,`"taskType":2`),
             }
             $.post(url, async (err, resp, data) => {
                 try {
@@ -1918,8 +1978,9 @@ function onload(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 登录数据🚩: ${decodeUnicode(data)}`);
-                    console.log(` 登录数据：登录成功} \n`);
                     console.log(data);
+                    console.log(`登录数据：登录成功\n`);
+                    $.message += `【登录数据】：登录成功\n`;
                     /*
                     $.upload = JSON.parse(data);
                     if ($.upload.state == 200) {
@@ -2193,6 +2254,9 @@ function bubble(timeout = 0) {
                         if (shuqisqjlbodyVal && shuqisqjlbodyVal != '' && $.bubble.data.totalGold > 0) {
                             await manual() //收取奖励
                         }
+                        if (shuqiydjlbodyVal && shuqiydjlbodyVal != '' && $.bubble.data.totalGold > 0) {
+                            await manualyd() //收取奖励
+                        }
                     }
                 } catch (e) {
                     $.logErr(e, resp);
@@ -2223,6 +2287,36 @@ function manual(timeout = 0) {
                         console.log(`收取奖励：${$.manual.message}\n`);
                         $.message += `【收取奖励】：${$.manual.message}\n`;
                         $.message2 += `【收取奖励】：${$.manual.message}\n`;
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//收取奖励
+function manualyd(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://ocean.shuqireader.com/api/prizecenter/xapi/prize/manual/receive`,
+                headers: {
+                    'Content-Type': `application/x-www-form-urlencoded`,
+                    'Host': `ocean.shuqireader.com`,
+                },
+                body: shuqiydjlbodyVal,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 收取阅读奖励🚩: ${decodeUnicode(data)}`);
+                    $.manual = JSON.parse(data);
+                    if ($.manual.status == 200) {
+                        console.log(`收取阅读奖励：${$.manual.message}\n`);
+                        $.message += `【收取阅读奖励】：${$.manual.message}\n`;
+                        $.message2 += `【收取阅读奖励】：${$.manual.message}\n`;
                     }
                 } catch (e) {
                     $.logErr(e, resp);
