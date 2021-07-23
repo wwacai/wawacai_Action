@@ -13,7 +13,7 @@ https:\/\/ocean\.shuqireader\.com\/* url script-request-body https://raw.githubu
 https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 #时长
 https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
-
+13.08
 */
 const $ = Env("①书旗小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
@@ -1040,7 +1040,7 @@ function GetCookie() {
         }
     }
     //获取收取奖励
-    if ($request && $request.url.indexOf("manual") >= 0 && $request.url.indexOf("receive") >= 0 && $request.body.indexOf("appVer=4") >= 0 && $request.body.indexOf("src=219") == 0) {
+    if ($request && $request.url.indexOf("manual") >= 0 && $request.url.indexOf("receive") >= 0 && $request.body.indexOf("appVer=4") >= 0 && $request.body.indexOf("src=219") == -1) {
         const shuqisqjlbodyVal = $request.body;
         if (shuqisqjlbodyVal) {
             if (XH == 1) {
