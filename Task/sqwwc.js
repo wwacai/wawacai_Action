@@ -2370,6 +2370,7 @@ function lotteryinfo(timeout = 0) {
             $.get(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 抽奖页面🚩: ${decodeUnicode(data)}`);
+                    console.log(`抽奖页面获取成功\n`+data);
                     $.lotteryinfo = JSON.parse(data);
                     if ($.lotteryinfo.status == 200) {
                         console.log(`抽奖页面：${$.lotteryinfo.data.actInfo.totalNum}/${$.lotteryinfo.data.actInfo.dailyLotteryLimit}\n`);
