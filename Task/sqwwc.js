@@ -1641,7 +1641,7 @@ async function all() {
         return;
     }
     for (let i = 0; i < Length; i++) {
-        if (COOKIE && COOKIE.shuqiuserurl) {
+        if (COOKIE) {
             iv = cks * i - 1 //定位
             shuqiuserurlVal = COOKIE[Object.keys(COOKIE)[iv + 1]];
             shuqisyurlVal = COOKIE[Object.keys(COOKIE)[iv + 2]];
@@ -1659,7 +1659,7 @@ async function all() {
             shuqicjcsbodyVal = COOKIE[Object.keys(COOKIE)[iv + 14]];
             shuqicjbodyVal = COOKIE[Object.keys(COOKIE)[iv + 15]];
         }
-        if (COOKIE && COOKIE.shuqijsspbody) {
+        if (COOKIE) {
             iv = cks * i - 1 //定位
             shuqijsspbodyVal = COOKIE[Object.keys(COOKIE)[iv + 16]];
             shuqijsydurlVal = COOKIE[Object.keys(COOKIE)[iv + 17]];
@@ -1751,20 +1751,8 @@ async function all() {
             await lotteryinfo(); //抽奖页面
         }
         await $.wait(5*1000);
-        if (shuqisprwurlVal && shuqisprwurlVal != '') {
-            await videolist(); //视频任务
-        }
-        await $.wait(5*1000);
-        if (shuqicjyurlVal && shuqicjyurlVal != '') {
-            await lotteryinfo(); //抽奖页面
-        }
-        await $.wait(5*1000);
         if (shuqijsrwbodyVal && shuqijsrwbodyVal != '') {
             await jsresource() //极速版任务列表
-        }
-        await $.wait(5*1000);
-        if (shuqijssprwurlVal && shuqijssprwurlVal != '') {
-            await jsvideolist() //极速版视频任务
         }
         await $.wait(5*1000);
         if (shuqijssprwurlVal && shuqijssprwurlVal != '') {
