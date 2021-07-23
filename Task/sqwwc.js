@@ -1040,7 +1040,7 @@ function GetCookie() {
         }
     }
     //获取收取奖励
-    if ($request && $request.url.indexOf("manual") >= 0 && $request.url.indexOf("receive") >= 0 && $request.body.indexOf("appVer=4") >= 0) {
+    if ($request && $request.url.indexOf("manual") >= 0 && $request.url.indexOf("receive") >= 0 && $request.body.indexOf("appVer=4") >= 0 && $request.body.indexOf("src=219") == 0) {
         const shuqisqjlbodyVal = $request.body;
         if (shuqisqjlbodyVal) {
             if (XH == 1) {
