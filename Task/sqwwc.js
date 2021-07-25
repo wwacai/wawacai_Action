@@ -597,7 +597,7 @@ function GetCookie() {
         }
     }
     //获取抽奖页面
-    if ($request && $request.url.indexOf("lottery") >= 0 && $request.url.indexOf("info") >= 0) {
+    if ($request && $request.url.indexOf("lottery") >= 0 && $request.url.indexOf("info") >= 0&& $request.url.indexOf("userId") >= 0) {
         const shuqicjyurlVal = $request.url;
         if (shuqicjyurlVal) {
             if (XH == 1) {
