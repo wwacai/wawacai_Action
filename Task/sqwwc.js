@@ -2242,8 +2242,10 @@ function bubble(timeout = 0) {
                         if (shuqisqjlbodyVal && shuqisqjlbodyVal != '' && $.bubble.data.totalGold > 0) {
                             await manual() //收取奖励
                         }
-                        if (shuqiydjlbodyVal && shuqiydjlbodyVal != '' && $.bubble.data.totalGold > 0) {
-                            await manualyd() //收取奖励
+                        if (nowTimes.getHours() === 18 || nowTimes.getHours() === 23  ){
+                         if (shuqiydjlbodyVal && shuqiydjlbodyVal != '' && $.bubble.data.totalGold > 0) {
+                             await manualyd() //收取奖励
+                           }
                         }
                     }
                 } catch (e) {
