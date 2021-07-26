@@ -1717,52 +1717,52 @@ async function all() {
                 continue;
             }
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (nowTimes.getHours() === 9 || nowTimes.getHours() === 18 ){
             if (shuqionloadhdVal && shuqionloadbodyVal != '') {
                 await onload(); //登录
             }
             if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
-                await $.wait(2*1000);
+                await $.wait(1*1000);
                 await tixiantask1(); //提现分享
             }
         }
         if (nowTimes.getHours() > 12 ){
-            await $.wait(5*1000);
+            await $.wait(1*1000);
             if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
                 await tixiantask2(); //提现阅读
             }
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqisyurlVal && shuqisybodyVal && shuqisyurlVal != '' && shuqisybodyVal != '') {
             await coin() //用户收益
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         await readlist(); //阅读时长
         if (shuqirwbodyVal && shuqirwbodyVal != '') {
             await resource() //任务列表
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqisprwurlVal && shuqisprwurlVal != '') {
             await videolist(); //视频任务
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqicjyurlVal && shuqicjyurlVal != '') {
             await lotteryinfo(); //抽奖页面
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqijsrwbodyVal && shuqijsrwbodyVal != '') {
             await jsresource() //极速版任务列表
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqijssprwurlVal && shuqijssprwurlVal != '') {
             await jsvideolist() //极速版视频任务
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqijsqdspyurlVal && shuqijsqdspyurlVal != '') {
             await jsqdvideolist(); //极速版签到视频任务
         }
-        await $.wait(5*1000);
+        await $.wait(1*1000);
         if (shuqijlbodyVal && shuqijlbodyVal != '') {
             await bubble(); //奖励页面
         }
@@ -2112,7 +2112,7 @@ function resource(timeout = 0) {
                     if (shuqiydbodyVal && shuqiydbodyVal != '') {
                         if (readss.status == 0) {
                             await reads(); //阅读奖励
-                            await $.wait(30*1000)
+                            await $.wait(32*1000)
                         } else {
                             console.log(`${readss.taskTitle}：${readss.rewards[0].desc},已完成\n`);
                             $.message += `【${readss.taskTitle}】：${readss.rewards[0].desc},已完成\n`;
@@ -2642,7 +2642,7 @@ function jsresource(timeout = 0) {
                     if (shuqijsydbodyVal && shuqijsydbodyVal != '') {
                         if (jsreadss.status == 0) {
                             await jsreads(); //阅读奖励
-                            await $.wait(30*1000)
+                            await $.wait(32*1000)
                         } else {
                             console.log(`${jsreadss.taskTitle}：${jsreadss.rewards[0].desc},已完成\n`);
                             $.message += `【${jsreadss.taskTitle}】：${jsreadss.rewards[0].desc},已完成\n`;
