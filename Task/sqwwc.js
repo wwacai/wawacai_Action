@@ -1718,7 +1718,7 @@ async function all() {
             }
         }
         await $.wait(1*1000);
-        if (nowTimes.getHours() === 9 || nowTimes.getHours() === 18 ){
+        if (new Date().getDay() == 1 && nowTimes.getHours() === 9 || new Date().getDay() == 1 && nowTimes.getHours() === 18 ){
             if (shuqionloadhdVal && shuqionloadbodyVal != '') {
                 await onload(); //登录
             }
@@ -1727,7 +1727,7 @@ async function all() {
                 await tixiantask1(); //提现分享
             }
         }
-        if (nowTimes.getHours() > 12 ){
+        if (nowTimes.getHours() === 9 || nowTimes.getHours() === 18  ){
             await $.wait(1*1000);
             if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
                 await tixiantask2(); //提现阅读
@@ -1909,8 +1909,8 @@ function tixiantask1(timeout = 0) {
                 try {
                     if (logs) $.log(`${O}, 提现任务1数据🚩: ${decodeUnicode(data)}`);
                     console.log(` 🚩提现任务1数据成功} \n`);
-                    console.log(data);
-                    console.log(JSON.stringify(url));
+                    //console.log(data);
+                    //console.log(JSON.stringify(url));
                     $.upload = JSON.parse(data);
                     if ($.upload.status == 200) {
                         console.log(`提现任务1：提现任务1成功\n`);
@@ -1932,14 +1932,14 @@ function tixiantask2(timeout = 0) {
             let url = {
                 url: `https://ocean.shuqireader.com/api/activity/xapi/activity/task/taskSend`,
                 headers: JSON.parse(shuqitxfxhdVal),
-                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":8`)).replace(`"taskType":18`,`"taskType":2`),
+                body: (shuqitxfxbodyVal.replace(`"process":1`,`"process":95`)).replace(`"taskType":18`,`"taskType":2`),
             }
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 提现任务2数据🚩: ${decodeUnicode(data)}`);
                     console.log(` 🚩提现任务2数据成功} \n`);
-                    console.log(data);
-                    console.log(JSON.stringify(url));
+                    //console.log(data);
+                    //console.log(JSON.stringify(url));
                     $.upload = JSON.parse(data);
                     if ($.upload.status == 200) {
                         console.log(`提现任务2：提现任务2成功\n`);
@@ -2370,7 +2370,7 @@ function lotteryinfo(timeout = 0) {
             $.get(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 抽奖页面🚩: ${decodeUnicode(data)}`);
-                    console.log(`抽奖页面获取成功\n`+data);
+                    //console.log(`抽奖页面获取成功\n`+data);
                     $.lotteryinfo = JSON.parse(data);
                     if ($.lotteryinfo.status == 200) {
                         console.log(`抽奖页面：${$.lotteryinfo.data.actInfo.totalNum}/${$.lotteryinfo.data.actInfo.dailyLotteryLimit}\n`);
