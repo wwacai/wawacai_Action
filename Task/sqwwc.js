@@ -860,7 +860,7 @@ function GetCookie() {
         }
     }
     //获取阅读
-    if ($request && $request.url.indexOf("pendant") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=707") >= 0) {
+    if ($request && $request.url.indexOf("pendant") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=707") >= 0 || $request.body.indexOf("actId=55") >= 0) {
         const shuqiydbodyVal = $request.body;
         if (shuqiydbodyVal) {
             if (XH == 1) {
@@ -1318,7 +1318,7 @@ function GetCookie() {
         }
     }
     //获取极速版签到视频
-    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=894") >= 0) {
+    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("deliveryId=894") >= 0 || $request.body.indexOf("deliveryId=980") >= 0) {
         const shuqijsqdspbodyVal = $request.body;
         if (shuqijsqdspbodyVal) {
             if (XH == 1) {
