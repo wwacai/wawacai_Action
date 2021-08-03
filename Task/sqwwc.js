@@ -2494,7 +2494,7 @@ function jsvideo(timeout = 0) {
 function jsreads(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 40; i++) {
                 setTimeout(() => {
                     let url = {
                         url: shuqijsydurlVal,
@@ -2521,9 +2521,9 @@ function jsreads(timeout = 0) {
             }
             setTimeout(() => {
                 if ($.jsreads.status == 200) {
-                    console.log(`极速版阅读奖励：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`);
-                    $.message += `【极速版阅读奖励】：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
-                    $.message2 += `【极速版阅读奖励】：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
+                    console.log(`极速版阅读奖励：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`);
+                    $.message += `【极速版阅读奖励】：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
+                    $.message2 += `【极速版阅读奖励】：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
                 }
             }, 50*1000)
         }, timeout)
@@ -2630,10 +2630,12 @@ function jsresource(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://render.shuqireader.com/load/resource`,
+                url: `https://ocean.shuqireader.com/api/render/load/resource`,
                 headers: {
                     'Content-Type': `application/x-www-form-urlencoded`,
-                    'Host': `render.shuqireader.com`,
+                    'Origin' : `https://render-web.shuqireader.com`,
+                    'Host' : `ocean.shuqireader.com`,
+                    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/17G80 AliApp(shuqi/1.0.2.0) WindVane/8.6.1 Shuqi-Lite (iPhone12,1__shuqi__v1.0.2.0) 828x1792 Winding(WV_3) WK`,
                 },
                 body: shuqijsrwbodyVal,
             }
