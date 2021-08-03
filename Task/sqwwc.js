@@ -2093,10 +2093,12 @@ function resource(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://render.shuqireader.com/api/render/load/resource`,
+                url: `https://ocean.shuqireader.com/api/render/load/resource`,
                 headers: {
                     'Content-Type': `application/x-www-form-urlencoded`,
-                    'Host': `render.shuqireader.com`,
+                    'Host': `ocean.shuqireader.com`,
+                    'Origin': `https://render-web.shuqireader.com`,
+                    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AliApp(shuqi/4.3.0.0) WindVane/8.6.1 Shuqi (iPhone12,1__shuqi__v4.3.0.0) 828x1792 Winding(WV_2) WK`,
                 },
                 body: shuqirwbodyVal,
             }
