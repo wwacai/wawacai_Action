@@ -13,7 +13,7 @@ https:\/\/ocean\.shuqireader\.com\/* url script-request-body https://raw.githubu
 https:\/\/render\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
 #时长
 https:\/\/jcollection\.shuqireader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawacai_Action/main/Task/sqwwc.js
-13.04
+15.09
 */
 const $ = Env("①书旗小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
@@ -2494,7 +2494,7 @@ function jsvideo(timeout = 0) {
 function jsreads(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
                     let url = {
                         url: shuqijsydurlVal,
@@ -2521,9 +2521,9 @@ function jsreads(timeout = 0) {
             }
             setTimeout(() => {
                 if ($.jsreads.status == 200) {
-                    console.log(`极速版阅读奖励：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`);
-                    $.message += `【极速版阅读奖励】：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
-                    $.message2 += `【极速版阅读奖励】：获得40次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
+                    console.log(`极速版阅读奖励：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`);
+                    $.message += `【极速版阅读奖励】：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
+                    $.message2 += `【极速版阅读奖励】：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
                 }
             }, 50*1000)
         }, timeout)
@@ -2630,12 +2630,10 @@ function jsresource(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://ocean.shuqireader.com/api/render/load/resource`,
+                url: `https://render.shuqireader.com/load/resource`,
                 headers: {
                     'Content-Type': `application/x-www-form-urlencoded`,
-                    'Origin' : `https://render-web.shuqireader.com`,
-                    'Host' : `ocean.shuqireader.com`,
-                    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/17G80 AliApp(shuqi/1.0.2.0) WindVane/8.6.1 Shuqi-Lite (iPhone12,1__shuqi__v1.0.2.0) 828x1792 Winding(WV_3) WK`,
+                    'Host': `render.shuqireader.com`,
                 },
                 body: shuqijsrwbodyVal,
             }
