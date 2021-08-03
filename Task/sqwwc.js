@@ -1727,7 +1727,7 @@ async function all() {
                 await tixiantask1(); //提现分享
             }
         }
-        if (nowTimes.getHours() === 9 || nowTimes.getHours() === 18  ){
+        if (nowTimes.getHours() == 8 || nowTimes.getHours() == 18  ){
             await $.wait(1*1000);
             if (shuqitxfxhdVal && shuqitxfxbodyVal != '') {
                 await tixiantask2(); //提现阅读
@@ -2105,7 +2105,7 @@ function resource(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 任务列表🚩: ${decodeUnicode(data)}`);
-                    $.log("任务列表！！"+data);
+                    //$.log("任务列表！！"+data);
                     $.resource = JSON.parse(data);
                     if ($.resource.status == 200) {
                         readss = $.resource.data.ShuqiBsDailyTask.list.find(item => item.actionType === 101);
@@ -2245,8 +2245,8 @@ function bubble(timeout = 0) {
                         if (shuqisqjlbodyVal && shuqisqjlbodyVal != '' && $.bubble.data.totalGold > 0) {
                             await manual() //收取奖励
                         }
-                        if (nowTimes.getHours() === 18 || nowTimes.getHours() === 23  ){
-                         if (shuqiydjlbodyVal && shuqiydjlbodyVal != '' && $.bubble.data.totalGold > 0) {
+                        if (nowTimes.getHours() == 8 || nowTimes.getHours() == 19  ){
+                         if (shuqiydjlbodyVal && shuqiydjlbodyVal != '') {
                              await manualyd() //收取奖励
                            }
                         }
@@ -2290,7 +2290,7 @@ function manual(timeout = 0) {
         }, timeout)
     })
 }
-//收取奖励
+//收取阅读奖励
 function manualyd(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
