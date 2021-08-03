@@ -2103,6 +2103,7 @@ function resource(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 任务列表🚩: ${decodeUnicode(data)}`);
+                    $.log("任务列表！！"+data);
                     $.resource = JSON.parse(data);
                     if ($.resource.status == 200) {
                         readss = $.resource.data.ShuqiBsDailyTask.list.find(item => item.actionType === 101);
