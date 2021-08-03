@@ -2093,7 +2093,7 @@ function resource(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://ocean.shuqireader.com/api/render/load/resource`,
+                url: `https://render.shuqireader.com/api/render/load/resource`,
                 headers: {
                     'Content-Type': `application/x-www-form-urlencoded`,
                     'Host': `render.shuqireader.com`,
