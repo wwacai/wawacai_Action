@@ -2165,6 +2165,9 @@ function share(timeout = 0) {
                 headers: {
                     'Content-Type': `application/x-www-form-urlencoded`,
                     'Host': `ocean.shuqireader.com`,
+                    'Origin' : `https://render-web.shuqireader.com`,
+                    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AliApp(shuqi/4.3.0.0) WindVane/8.6.1 Shuqi (iPhone12,1__shuqi__v4.3.0.0) 828x1792 Winding(WV_2) WK`,
+'Accept-Language' : `zh-cn`,
                 },
                 body: shuqifxbodyVal,
             }
