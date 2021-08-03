@@ -1718,7 +1718,7 @@ async function all() {
             }
         }
         await $.wait(1*1000);
-        if (new Date().getDay() == 1 && nowTimes.getHours() === 9 || new Date().getDay() == 1 && nowTimes.getHours() === 18 ){
+        if (new Date().getDay() == 1 && nowTimes.getHours() == 9 || new Date().getDay() == 1 && nowTimes.getHours() == 18 ){
             if (shuqionloadhdVal && shuqionloadbodyVal != '') {
                 await onload(); //登录
             }
@@ -1786,7 +1786,7 @@ function msgShow() {
             $.msg($.name, ``, $.message);
         }
         */
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 18 || nowTimes.getHours() === 23))
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() == 18 || nowTimes.getHours() == 23))
             await notify.sendNotify($.name, $.message);
         resolve()
     })
@@ -1881,7 +1881,7 @@ function coin(timeout = 0) {
                         $.message += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         $.message2 += `【用户收益】：今日${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.todayWorthMoney}元，余额${$.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney}元\n`;
                         let tixianmoney = $.coin.data.ShuqiVipEntry.userinfo.coinInfo.balanceWorthMoney
-                        if( tixianmoney > 11  &&  $.num === ( 7 || 9 || 10 || 15 || 16 || 17 || 18 || 19 || 20) ){
+                        if( tixianmoney > 11  &&  $.num ==7 || $.num ==9 || $.num ==10 || $.num ==15 || $.num ==16 || $.num ==17 || $.num ==18 || $.num ==19 || $.num ==20 ){
                           console.log(` 🚩快来提现啦!\n`)
                           $.message += ` 🚩快来提现啦!\n`
                           $.message2 += ` 🚩快来提现啦!\n`
@@ -2019,7 +2019,7 @@ function upload(timeout = 0) {
 function reads(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 40; i++) {
                 setTimeout(() => {
                     let url = {
                         url: `https://ocean.shuqireader.com/api/ad/v1/api/prize/readpage/pendant/lottery`,
@@ -2046,9 +2046,9 @@ function reads(timeout = 0) {
             }
             setTimeout(() => {
                 if ($.reads.status == 200) {
-                    console.log(`阅读奖励：获得20次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`);
-                    $.message += `【阅读奖励】：获得20次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`;
-                    $.message2 += `【阅读奖励】：获得20次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`;
+                    console.log(`阅读奖励：获得40次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`);
+                    $.message += `【阅读奖励】：获得40次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`;
+                    $.message2 += `【阅读奖励】：获得40次奖励,今日已得${$.reads.data.todayBizCoinAmount}金币\n`;
                 }
             }, 50*1000)
         }, timeout)
