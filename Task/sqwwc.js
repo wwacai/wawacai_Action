@@ -1110,7 +1110,7 @@ function GetCookie() {
         }
     }
     //获取抽奖次数
-    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("resourceId=703") >= 0) {
+    if ($request && $request.url.indexOf("prize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("resourceId=703") >= 0 || $request && $request.url.indexOf("userPrize") >= 0 && $request.url.indexOf("lottery") >= 0 && $request.body.indexOf("activityId=311") >= 0 ) {
         const shuqicjcsbodyVal = $request.body;
         if (shuqicjcsbodyVal) {
             if (XH == 1) {
