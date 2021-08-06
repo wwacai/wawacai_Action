@@ -11,7 +11,7 @@ https:\/\/ocean\.shuqi.reader\.com\/* url script-request-body https://raw.github
 https:\/\/render\.shuqi.reader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawa2cai_Action/main/Task/sqwwc.js
 #时长
 https:\/\/jcollection\.shuqi.reader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawa2cai_Action/main/Task/sqwwc.js
-11.03
+12.35
 */
 const $ = Env("①shuqi小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
