@@ -11,7 +11,7 @@ https:\/\/ocean\.shuqi.reader\.com\/* url script-request-body https://raw.github
 https:\/\/render\.shuqi.reader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawa2cai_Action/main/Task/sqwwc.js
 #时长
 https:\/\/jcollection\.shuqi.reader\.com\/* url script-request-body https://raw.githubusercontent.com/wwacai/wawa2cai_Action/main/Task/sqwwc.js
-12.35
+13.09
 */
 const $ = Env("①shuqi小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
@@ -631,7 +631,7 @@ function GetCookie() {
         }
     }
     //获取极速版签到视频页
-    if ($request && $request.url.indexOf("adserver") >= 0 && $request.url.indexOf("getAdInfo") >= 0 && $request.url.indexOf("resourceId=") >= 0) {
+    if ($request && $request.url.indexOf("adserver") >= 0 && $request.url.indexOf("getAdInfo") >= 0 && $request.url.indexOf("resourceId=716") >= 0 ||$request.url.indexOf("resourceId=717") >= 0 || $request.url.indexOf("resourceId=720") >= 0) {
         const shuqijsqdspyurlVal = $request.url;
         if (shuqijsqdspyurlVal) {
             if (XH == 1) {
