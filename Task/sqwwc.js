@@ -631,7 +631,7 @@ function GetCookie() {
         }
     }
     //获取极速版签到视频页
-    if ($request && $request.url.indexOf("adserver") >= 0 && $request.url.indexOf("getAdInfo") >= 0 && $request.url.indexOf("resourceId=717") >= 0) {
+    if ($request && $request.url.indexOf("adserver") >= 0 && $request.url.indexOf("getAdInfo") >= 0 && $request.url.indexOf("resourceId=7") >= 0) {
         const shuqijsqdspyurlVal = $request.url;
         if (shuqijsqdspyurlVal) {
             if (XH == 1) {
